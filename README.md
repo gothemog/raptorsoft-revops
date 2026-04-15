@@ -48,7 +48,7 @@ health_catalyst.csv (680 contratos)    telemetry_product.csv (12.000 registros)
                     (4 secoes interativas)
 ```
 
-## Secoes do Dashboard
+## Seções do Dashboard
 
 - **A — Pipeline Health:** Volume de pipeline, slippage heatmap, sinalizacao de oportunidades em risco, monitor de estornos
 - **B — Churn Risk Signal:** GRR (72,2%), distribuicao de risco, timeline de renovacoes, lista de acao para CS, backtesting do modelo
