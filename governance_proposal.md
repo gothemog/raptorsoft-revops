@@ -100,6 +100,8 @@ Os eventos abaixo devem acionar re-run do pipeline fora do ciclo regular:
 | Conta sem canonical_segment | qualquer | Alerta + bloquear conta de métricas segmentadas |
 | GRR mensal cai > 5 p.p. | MoM | Alerta para liderança de CS |
 
+> **Nota sobre métricas segmentadas:** No estado atual da base, todas as 20 empresas são Mid-Market (mediana de employees entre 194 e 495). Métricas segmentadas por canonical_segment retornam uma única linha. No curto prazo, dimensões alternativas de corte (tier, faixa de MRR, CSM owner) são mais relevantes para análise. A segmentação ganha utilidade quando a base expandir para incluir SMB e Enterprise reais. O alerta de "conta sem segment" permanece ativo para novas empresas.
+
 ### 4.2 Dashboard de qualidade de dados
 
 Recomenda-se um painel interno (pode ser aba adicional no dashboard atual) com:
@@ -136,7 +138,7 @@ Para garantir estabilidade da integração, cada produtor de dados deve publicar
 | Entity resolution para nomes com confiança 70–90% | ✅ sugere match | ✅ confirma |
 | Entity resolution para nomes com confiança < 70% | — | ✅ resolve |
 | Imputação de MRR faltante | — | ✅ sempre — valor de negócio |
-| Reclassificação Active → Churned | ✅ aplica critério automático | ✅ valida edge cases |
+| Reclassificação Active → Churned (churn_date preenchida) | ✅ aplica critério automático (41 contratos na base atual) | ✅ valida edge cases e confirma |
 | Atualização de pesos do churn model | — | ✅ trimestral com CRO/CS |
 | Atualização de tiers de slippage discount | — | ✅ trimestral (baseado em delta real) |
 | Atribuição de canonical_segment para novas empresas | — | ✅ sempre — decisão estratégica |
@@ -207,7 +209,7 @@ Para medir a efetividade da governança em si:
 | Latência do pipeline (ingestão → dashboard) | < 4 horas | Diária |
 | % de alertas de churn respondidos em < 24h | > 80% | Semanal |
 | Recall do churn model Alto (prospectivo) | ≥ 40% | Trimestral |
-| Delta forecast × realizado (accuracy) | < 15% | Trimestral |
+| Delta forecast × realizado (accuracy) | < 20% (Horizonte 1), < 15% (Horizonte 3) | Trimestral |
 | % de campos críticos com NULL < threshold | 100% dos campos monitorados | A cada run |
 
 ---

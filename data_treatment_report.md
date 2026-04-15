@@ -55,11 +55,21 @@ def normalize_canonical(name):
 
 ### 2.3 Mapeamento de domínios
 
-Para os registros de telemetria (identificados por `account_domain`), um dicionário estático de 20 domínios foi construído e validado manualmente:
+Para os registros de telemetria (identificados por `account_domain`), um dicionário estático de 20 domínios foi construído e validado manualmente (tabela completa em `src/utils.py`, variável `DOMAIN_TO_CANONICAL`):
 
-```
-acmecorp.com.br → acme | amplia.com.br → amplia | ...
-```
+| Domínio | Empresa canônica | | Domínio | Empresa canônica |
+|---------|------------------|-|---------|------------------|
+| acmecorp.com.br | acme | | innova.io | innova |
+| amplia.com.br | amplia | | mindbox.com | mindbox |
+| betasolutions.com | betasolutions | | nexus.tech | nexus |
+| bluepath.io | bluepath | | orbit.com.br | orbit |
+| connectwave.com | connectwave | | polare.com.br | polare |
+| corelogic.io | corelogic | | polaris.io | polaris |
+| dataprime.com | dataprime | | rushflow.com | rushflow |
+| fluxo.tech | fluxo | | skyops.io | skyops |
+| gridsoft.com | gridsoft | | tapflow.com | tapflow |
+| | | | vertice.com.br | vertice |
+| | | | zentra.io | zentra |
 
 Cobertura: 20/20 domínios com match (100% da telemetria coberta após consolidação para 20 empresas).
 
@@ -77,20 +87,18 @@ Após aplicação do algoritmo de normalização: **20 empresas × 34 contratos 
 
 | Dataset | Campo | NULLs | Tratamento aplicado |
 |---------|-------|-------|---------------------|
-| SF | `lead_source` | ~15% | Padronizado para "Unknown" via `LEAD_SOURCE_MAP` |
-| SF | `forecast_category` | ~5% | Mapeado para "pipeline" (categoria padrão) |
-| Catalyst | `health_score` | ~8% | W1 excluído do denominador (denominador dinâmico) |
-| Catalyst | `health_trend` | ~12% | health_trend_score = 0.5 (neutro) |
-| Catalyst | `nps_score` | ~20% | nps_bonus = 0.0 (neutro) |
+| Catalyst | `health_score` | 19,7% (134/680) | W1 excluído do denominador (denominador dinâmico) |
+| Catalyst | `health_trend` | 21,3% (145/680) | health_trend_score = 0.5 (neutro) |
+| Catalyst | `nps_score` | 47,9% (326/680) | nps_bonus = 0.0 (neutro) |
 | Catalyst | `last_qbr_date` | variável | no_qbr_signal derivado de último QBR > 90d |
-| HubSpot | `number_of_employees` | ~10% | Fallback para mode do SF na atribuição de segment |
+| HubSpot | `number_of_employees` | 34,5% (1.172/3.400) | Fallback para mode do SF na atribuição de segment |
 
 ### 3.2 Anomalias identificadas e tratadas
 
 #### P-C1 — Registros Stale (21 oportunidades)
-**Definição:** Oportunidades abertas com `created_date` anterior a 365 dias da data de referência (2025-04-15) sem fechamento.
+**Definição:** Oportunidades com `days_in_stage > 365` dias. Para registros do Grupo A (onde `days_in_stage` original era inválido), o valor foi recalculado como `implied_days = (close_date - created_date).days`.
 
-**Encontrado:** 21 registros (plano v4 estimava 20; diferença de 1 registro após recalcular `implied_days` com a data de referência real).
+**Encontrado:** 21 registros (20 do dataset bruto + 1 adicional do Grupo A após recálculo de `days_in_stage`). O plano v4 estimava 20.
 
 **Tratamento:** Flag `is_stale_opportunity = True`. Mantidos no dataset — exclusão ou reclassificação requer validação humana.
 
@@ -129,9 +137,9 @@ Após aplicação do algoritmo de normalização: **20 empresas × 34 contratos 
 #### P-C6 — Reclassificação Active → Churned
 **Critério:** Active com `churn_date` preenchida e `churn_date ≤ REFERENCE_DATE`.
 
-**Encontrado:** 1 contrato reclassificado.
+**Encontrado:** 41 contratos reclassificados de Active para Churned. Resultado final: **491 Active + 189 Churned = 680 total** (originalmente 532 Active + 148 Churned no CSV bruto).
 
-**Ordem de operação:** Imputação de MRR (P-C4) executada *antes* da reclassificação para garantir que a mediana de referência não seja contaminada.
+**Ordem de operação:** Mediana de MRR calculada sobre o conjunto Active *original* (pré-reclassificação) → reclassificação dos 41 → imputação de MRR nos 19 Active restantes com MRR=0. Essa sequência garante que a mediana de referência não seja contaminada pela reclassificação.
 
 ---
 
@@ -203,10 +211,9 @@ Após joins:
 | `is_negative_amount` | `amount_brl < 0` | flag para estornos |
 | `is_slippage` | `is_open AND close_date < REFERENCE_DATE` | 857/857 abertos |
 | `slippage_days` | `(REFERENCE_DATE - close_date).days` quando is_slippage | base para desconto |
-| `amount_brl` | `amount_usd × BRL_USD_RATE (5.70)` quando amount_brl NULL | taxa de câmbio fixada |
 | `close_quarter` | `{year}Q{quarter}` derivado de `close_date` | para trendlines |
-| `implied_days` | `(close_date - created_date).days` | para stale detection |
-| `is_stale_opportunity` | `is_open AND implied_days > 365` | 21 registros |
+| `implied_days` | `(close_date - created_date).days` | para Group A e diagnóstico |
+| `is_stale_opportunity` | `days_in_stage > 365` | 21 registros (inclui Group A recalculado) |
 
 ### 6.2 Catalyst
 
@@ -254,16 +261,38 @@ A telemetria disponível está agregada por empresa (não por contrato individua
 Nenhuma das 20 empresas atinge simultaneamente `health_score ≥ 75` e `avg_feature_depth ≥ 0.60` (threshold absoluto do plano).
 
 **Valores máximos observados:**
-- `health_score` máximo (nível empresa): 65,5
-- `avg_feature_depth` máximo (nível empresa): 0,82
+- `health_score` máximo (nível empresa): 65,5 (connectwave)
+- `avg_feature_depth` máximo (nível empresa): 0,83 (dataprime)
 
-As duas metas não são atingidas simultaneamente por nenhuma empresa. Fallback para threshold relativo (p70 de cada métrica) identificou 2 empresas como comparativamente mais saudáveis: **bluepath** e **mindbox**.
+**Fallback aplicado:** Threshold relativo p70 de cada métrica:
+- `health_score_empresa` p70 = **60,21**
+- `avg_feature_depth_empresa` p70 = **0,6507**
 
-**Interpretação:** Este finding confirma a hipótese central do case — a RaptorSoft entrega Value (fecha deals) mas não verifica Impact (saúde + adoção). O perfil de clientes "saudáveis" existe apenas em termos relativos dentro de uma base com saúde baixa.
+Empresas que atingem ambos os p70: **bluepath** (health=60,28 | depth=0,72) e **mindbox** (health=60,56 | depth=0,69).
+
+**Distribuição das 20 empresas (top 5 e bottom 5 por health_score_empresa):**
+
+| Empresa | Health Score | Feature Depth | Saudável (p70)? |
+|---------|-------------|---------------|-----------------|
+| connectwave | 65,50 | 0,61 | Nao (depth < p70) |
+| tapflow | 65,28 | 0,45 | Nao |
+| skyops | 65,21 | 0,35 | Nao |
+| zentra | 62,18 | 0,55 | Nao |
+| mindbox | 60,56 | 0,69 | **Sim** |
+| ... | ... | ... | ... |
+| dataprime | 51,53 | 0,83 | Nao (health < p70) |
+| rushflow | 50,20 | 0,46 | Nao |
+| acme | 48,66 | 0,51 | Nao |
+| nexus | 47,55 | 0,69 | Nao (health < p70) |
+| fluxo | 45,51 | 0,55 | Nao |
+
+**Interpretação:** Este finding confirma a hipótese central do case — a RaptorSoft entrega Value (fecha deals) mas não verifica Impact (saúde + adoção). O perfil de clientes "saudáveis" existe apenas em termos relativos dentro de uma base com saúde uniformemente baixa. Nenhuma empresa simultaneamente tem health alto E depth alto.
 
 ### 7.5 Canonical Segment — todas Mid-Market
 
 Todas as 20 empresas foram classificadas como Mid-Market pela estratégia employees-first. Isso não é um erro — reflete o real perfil da base de clientes (medianas de employees entre 194 e 495). A ausência de SMB e Enterprise na base ativa limita a utilidade de métricas segmentadas (win rate por segmento, ACV por segmento retornam uma única linha).
+
+**Recomendação:** No estado atual, dimensões alternativas de corte oferecem mais valor analítico: por quarter (evolução temporal), por forecast_category, por faixa de deal size (ACV), ou por CSM owner. Os gráficos de CR4 e CR5 no dashboard apresentam a evolução temporal sem segmentação redundante. Quando a base de clientes expandir para incluir SMB e Enterprise, a segmentação por canonical_segment ganha utilidade imediata.
 
 ### 7.6 Pipeline 100% em Slippage
 
@@ -275,36 +304,38 @@ Todas as 857 oportunidades abertas têm `close_date` no passado. Nenhuma oportun
 
 ### Stage (SF)
 
-| Valor bruto | Stage canônico |
-|-------------|---------------|
-| prospecting | Prospecting |
-| qualification, discovery | Discovery/Qualification |
-| proposal, demo | Proposal |
-| negotiation, contract sent | Negotiation |
-| closed won | Closed Won |
-| closed lost | Closed Lost |
+Variantes encontradas no dataset e seus mapeamentos:
+
+| Variantes brutas (com contagem) | Stage canônico |
+|--------------------------------|---------------|
+| Prospecting (140), prospecting (14) | Prospecting |
+| Qualification (164), qualification (15), Discovery (152), DISCOVERY (27) | Discovery/Qualification |
+| Proposal (167), Prop (23) | Proposal |
+| Negotiation (140), Negotiation_ (15) | Negotiation |
+| Closed Won (150), closed-won (23) | Closed Won |
+| Closed Lost (153), Closed_Lost (17) | Closed Lost |
 
 ### Forecast Category (SF)
 
-| Valor bruto | Categoria canônica |
-|-------------|-------------------|
-| pipeline, in pipeline | pipeline |
-| best case, best_case | best_case |
-| commit, committed | commit |
-| omit, omitted | omit |
+| Variantes brutas (com contagem) | Categoria canônica |
+|--------------------------------|-------------------|
+| Pipeline (254), pipeline (49) | pipeline |
+| Best Case (245), best case (69) | best_case |
+| Commit (237), commit (61) | commit |
+| Omit (231), omit (54) | omit |
 
 ### Lead Source (HubSpot)
 
-| Variantes brutas | Fonte canônica |
-|-----------------|---------------|
-| organic search, organic | Organic Search |
-| paid search, ppc, google ads | Paid Search |
-| partner, referral, partner/referral | Partner/Referral |
-| email, email marketing, nurture | Email Marketing |
-| social, social media, linkedin | Social Media |
-| content, content download | Content Download |
-| webinar, event | Webinar |
-| *demais* | Other |
+| Variantes brutas (com contagem) | Fonte canônica |
+|--------------------------------|---------------|
+| Organic Search (254), organic (116), Organic (111), SEO (107) | Organic Search |
+| Paid Search (260), paid (117), google ads (108) | Paid Search |
+| Partner (255), Referral (252), partner referral (111) | Partner/Referral |
+| Email Marketing (276), email (95) | Email Marketing |
+| Social Media (259), social (112) | Social Media |
+| Content Download (277) | Content Download |
+| Webinar (243), Event (223) | Webinar |
+| Direct (224) | Other |
 
 ---
 

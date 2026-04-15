@@ -464,8 +464,9 @@ elif secao == "C — Simulador de Cenarios":
         with c1:
             st.markdown("**Meta de Receita Q2/25 (R$)**")
             meta_receita = st.number_input("Meta (R$)", min_value=0.0,
-                                           value=float(total_forecast_brl * 1.5),
-                                           step=500000.0, format="%.0f")
+                                           value=10_000_000.0,
+                                           step=500000.0, format="%.0f",
+                                           help="Valor de referencia para gap analysis. Ajuste conforme target definido pela lideranca.")
             st.markdown("**Win Rate por Segmento**")
             wr_sim = st.slider("Win Rate Geral (%)", 20, 80, 49, step=1) / 100.0
 
@@ -676,32 +677,39 @@ elif secao == "D — Bowtie View":
     with tab_cr4:
         st.subheader("CR4 — Win Rate por Quarter")
         st.caption("Se CR4 cai enquanto VM3 sobe: marketing gera volume sem qualidade (Constraint 2 WBD)")
+        st.info("Base atual: 100% Mid-Market (mediana de employees 194-495). Corte por segmento ganha utilidade quando a base expandir.")
 
         if cr4.empty:
             st.info("Sem dados de CR4.")
         else:
+            # Agregar por quarter (sem split por segmento, pois ha apenas Mid-Market)
+            cr4_agg = cr4.groupby("close_quarter").agg(
+                n_won=("n_won", "sum"), n_lost=("n_lost", "sum"),
+                won_brl=("won_brl", "sum"), lost_brl=("lost_brl", "sum"),
+                total_opps=("total_opps", "sum"),
+            ).reset_index()
+            cr4_agg["win_rate_value"] = (cr4_agg["won_brl"] / (cr4_agg["won_brl"] + cr4_agg["lost_brl"])).round(4)
+
             fig_cr4 = px.line(
-                cr4, x="close_quarter", y="win_rate_value",
-                color="canonical_segment",
+                cr4_agg, x="close_quarter", y="win_rate_value",
                 markers=True,
                 title="Win Rate (valor) por Quarter de Fechamento",
-                labels={"close_quarter": "Quarter", "win_rate_value": "Win Rate",
-                        "canonical_segment": "Segmento"},
+                labels={"close_quarter": "Quarter", "win_rate_value": "Win Rate"},
                 height=400,
             )
-            fig_cr4.update_traces(line=dict(width=3), marker=dict(size=8))
+            fig_cr4.update_traces(line=dict(width=3, color="#1565C0"), marker=dict(size=8))
             fig_cr4.add_hline(y=0.50, line_dash="dash", line_color="#78909C",
                               annotation_text="50% baseline")
-            fig_cr4.update_layout(yaxis_tickformat=".0%",
+            fig_cr4.update_layout(yaxis_tickformat=".0%", showlegend=False,
                                   plot_bgcolor="#0E1117", paper_bgcolor="#0E1117", font_color="white")
             st.plotly_chart(fig_cr4, use_container_width=True)
 
             # Volume de opps
-            fig_vol = px.bar(cr4, x="close_quarter", y="total_opps",
-                             color="canonical_segment",
-                             title="Volume de Oportunidades por Quarter (VM3→VM5)",
+            fig_vol = px.bar(cr4_agg, x="close_quarter", y="total_opps",
+                             title="Volume de Oportunidades por Quarter (VM3 a VM5)",
+                             color_discrete_sequence=["#1565C0"],
                              height=300)
-            fig_vol.update_layout(plot_bgcolor="#0E1117", paper_bgcolor="#0E1117", font_color="white")
+            fig_vol.update_layout(showlegend=False, plot_bgcolor="#0E1117", paper_bgcolor="#0E1117", font_color="white")
             st.plotly_chart(fig_vol, use_container_width=True)
 
             # Achado
@@ -716,6 +724,8 @@ elif secao == "D — Bowtie View":
     with tab_dt6:
         st.subheader("Δt6 — Time to First Impact")
         st.caption("Dias do Closed Won ate feature_depth >= 0.40. Δt6 alto = maior probabilidade de churn.")
+        st.warning("Δt6 mede adocao da **empresa**, nao do contrato individual. A telemetria disponivel e company-level. "
+                   "Valores baixos (mediana 4 dias) podem refletir uso pre-existente de contratos anteriores na mesma empresa.")
 
         valid_dt6 = dt6[~dt6["telemetry_not_available"] & dt6["dt6_days"].notna()]
         failed_dt6 = dt6[~dt6["telemetry_not_available"] & dt6["onboarding_failed"]]
@@ -847,29 +857,35 @@ elif secao == "D — Bowtie View":
         if cr5.empty:
             st.info("Sem dados de CR5.")
         else:
+            # Agregar por quarter (sem split por segmento)
+            cr5_agg = cr5.groupby("close_quarter").agg(
+                acv_mean=("total_won_brl", "sum"),
+                n_deals=("n_deals", "sum"),
+            ).reset_index()
+            cr5_agg["acv_mean"] = (cr5_agg["acv_mean"] / cr5_agg["n_deals"]).round(2)
+
             fig_cr5 = px.line(
-                cr5, x="close_quarter", y="acv_mean",
-                color="canonical_segment",
+                cr5_agg, x="close_quarter", y="acv_mean",
                 markers=True,
                 title="ACV Medio dos Closed Won por Quarter (R$)",
-                labels={"close_quarter": "Quarter", "acv_mean": "ACV Medio (R$)",
-                        "canonical_segment": "Segmento"},
+                labels={"close_quarter": "Quarter", "acv_mean": "ACV Medio (R$)"},
                 height=400,
                 text="n_deals",
             )
-            fig_cr5.update_traces(line=dict(width=3), marker=dict(size=8), textposition="top center")
+            fig_cr5.update_traces(line=dict(width=3, color="#43A047"), marker=dict(size=8), textposition="top center")
             fig_cr5.update_layout(
+                showlegend=False,
                 plot_bgcolor="#0E1117", paper_bgcolor="#0E1117", font_color="white",
                 yaxis_title="ACV Medio (R$)",
             )
             st.plotly_chart(fig_cr5, use_container_width=True)
 
             # Volume de deals
-            fig_vol5 = px.bar(cr5, x="close_quarter", y="n_deals",
-                              color="canonical_segment",
+            fig_vol5 = px.bar(cr5_agg, x="close_quarter", y="n_deals",
                               title="Volume de Deals Closed Won por Quarter",
+                              color_discrete_sequence=["#43A047"],
                               height=300)
-            fig_vol5.update_layout(plot_bgcolor="#0E1117", paper_bgcolor="#0E1117", font_color="white")
+            fig_vol5.update_layout(showlegend=False, plot_bgcolor="#0E1117", paper_bgcolor="#0E1117", font_color="white")
             st.plotly_chart(fig_vol5, use_container_width=True)
 
             # Diagnostico automatico
