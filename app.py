@@ -348,10 +348,10 @@ elif secao == "B — Churn Risk Signal":
                   delta=f"{fmt_br(mrr_alto/mrr_total*100, 1)}% do MRR",
                   delta_color="inverse")
     with col4:
-        n_renew_60 = active[
-            active["days_to_renewal"].notna() & (active["days_to_renewal"] <= 60) & (active["days_to_renewal"] > 0)
+        n_renew_90 = active[
+            active["days_to_renewal"].notna() & (active["days_to_renewal"] <= 90) & (active["days_to_renewal"] > 0)
         ].shape[0]
-        st.metric("Renovacoes nos proximos 60d", f"{n_renew_60} contratos")
+        st.metric("Renovacoes nos proximos 90d", f"{n_renew_90} contratos")
     with col5:
         n_imputed = active["mrr_imputed"].sum() if "mrr_imputed" in active.columns else 0
         mrr_imputed = n_imputed * MEDIAN_MRR_USD
