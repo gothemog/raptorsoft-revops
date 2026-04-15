@@ -1,0 +1,681 @@
+customer_id,account_name,csm_owner,health_score,health_trend,mrr_usd,renewal_date,churn_date,status,last_qbr_date,open_tickets,nps_score,sf_account_id,canonical_name,status_corrected,mrr_imputed,mrr_source,days_to_renewal,renewal_proximity_score,nps_bonus,health_trend_score,no_qbr_signal,support_pressure,canonical_segment,segment_confidence,join_confidence,company_mrr_total,contract_count_active
+CUST-0400,Acme,rafael@raptorsoft.com,,Stable,9060.51,2025-03-31,,Active,2024-12-17,10,,ACC-1100,acme,,False,actual,-15,1.0,0.0,0.3,False,0.8333333333333334,Mid-Market,HIGH,HIGH,194509.94,23
+CUST-0401,BETA SOLUTIONS,carla@raptorsoft.com,80.0,,0.0,2025-01-13,2024-12-19,Churned,2023-11-26,3,7.0,,betasolutions,,False,actual,-92,1.0,0.0,0.5,True,0.25,Mid-Market,HIGH,MEDIUM,133712.45,22
+CUST-0402,Nexus Group,lucas@raptorsoft.com,70.0,Stable,8319.83,2025-12-01,,Active,2023-11-14,5,1.0,,nexus,,True,global_median_proxy,230,0.0,0.1,0.3,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,200687.78,24
+CUST-0403,Vertice,lucas@raptorsoft.com,58.0,Improving,10321.94,2026-05-31,,Active,2024-05-31,4,10.0,,vertice,,False,actual,411,0.0,-0.08,0.0,True,0.3333333333333333,Mid-Market,HIGH,MEDIUM,197690.09,23
+CUST-0404,orbit digital,patricia@raptorsoft.com,48.0,Stable,12765.65,2025-12-21,,Active,2024-01-12,4,10.0,ACC-1104,orbit,,False,actual,250,0.0,-0.08,0.3,True,0.3333333333333333,Mid-Market,HIGH,HIGH,227071.01,26
+CUST-0405,Fluxo Sistemas Ltda,,15.0,Declining,12378.29,2024-02-03,,Active,,1,9.0,,fluxo,,False,actual,-437,1.0,-0.08,1.0,True,0.08333333333333333,Mid-Market,HIGH,MEDIUM,217571.91,27
+CUST-0406,Data Prime,rafael@raptorsoft.com,10.0,Declining,0.0,2025-07-12,2024-02-29,Churned,,10,8.0,ACC-1106,dataprime,,False,actual,88,0.3,0.0,1.0,True,0.8333333333333334,Mid-Market,HIGH,HIGH,213142.01,25
+CUST-0407,ConnectWave,carla@raptorsoft.com,92.0,,9057.02,2025-03-02,,Active,,4,10.0,,connectwave,,False,actual,-44,1.0,-0.08,0.5,True,0.3333333333333333,Mid-Market,HIGH,MEDIUM,238725.88,28
+CUST-0408,SkyOps,carla@raptorsoft.com,85.0,Declining,8319.83,2025-03-17,,Active,2023-11-08,9,9.0,ACC-1108,skyops,,True,global_median_proxy,-29,1.0,-0.08,1.0,True,0.75,Mid-Market,HIGH,HIGH,214724.43,25
+CUST-0409,POLARE,lucas@raptorsoft.com,,Stable,2888.95,2026-01-05,2024-03-17,Churned,2024-08-11,6,,,polare,True,False,actual,265,0.0,0.0,0.3,True,0.5,Mid-Market,HIGH,MEDIUM,218077.81,27
+CUST-0410,rushflow,carla@raptorsoft.com,,,9976.75,2026-05-26,,Active,2024-07-28,7,,ACC-1110,rushflow,,False,actual,406,0.0,0.0,0.5,True,0.5833333333333334,Mid-Market,HIGH,HIGH,183982.75,23
+CUST-0411,MINDBOX,rafael@raptorsoft.com,79.0,Improving,10026.26,2025-06-23,,Active,2023-06-24,8,,ACC-1111,mindbox,,False,actual,69,0.3,0.0,0.0,True,0.6666666666666666,Mid-Market,HIGH,HIGH,217717.35,26
+CUST-0412,zentra,lucas@raptorsoft.com,72.0,Stable,12255.97,2025-09-05,,Active,2024-06-14,5,,ACC-1112,zentra,,False,actual,143,0.0,0.0,0.3,True,0.4166666666666667,Mid-Market,HIGH,HIGH,236895.41,27
+CUST-0413,AMPLIA SOLUCOES,rafael@raptorsoft.com,64.0,,10947.84,2025-11-28,,Active,,0,2.0,ACC-1113,amplia,,False,actual,227,0.0,0.1,0.5,True,0.0,Mid-Market,HIGH,HIGH,211018.85,25
+CUST-0414,corelogic,lucas@raptorsoft.com,60.0,Declining,0.0,2025-07-24,2023-06-20,Churned,2024-08-23,5,,ACC-1114,corelogic,,False,actual,100,0.0,0.0,1.0,True,0.4166666666666667,Mid-Market,HIGH,HIGH,206729.08,24
+CUST-0415,tapflow,lucas@raptorsoft.com,59.0,,12197.14,2025-01-20,,Active,,2,7.0,ACC-1115,tapflow,,False,actual,-85,1.0,0.0,0.5,True,0.16666666666666666,Mid-Market,HIGH,HIGH,213765.26,25
+CUST-0416,Innova Tech,rafael@raptorsoft.com,50.0,Stable,6105.08,2025-09-28,2023-08-26,Churned,2023-10-02,0,,ACC-1116,innova,True,False,actual,166,0.0,0.0,0.3,True,0.0,Mid-Market,HIGH,HIGH,198837.46,20
+CUST-0417,Grid Soft,lucas@raptorsoft.com,66.0,Declining,0.0,2026-04-22,2024-03-20,Churned,2023-11-14,0,,,gridsoft,,False,actual,372,0.0,0.0,1.0,True,0.0,Mid-Market,HIGH,MEDIUM,188772.05,23
+CUST-0418,Polaris Tech,rafael@raptorsoft.com,40.0,Declining,0.0,2025-04-14,2024-08-13,Churned,2024-10-03,7,2.0,ACC-1118,polaris,,False,actual,-1,1.0,0.1,1.0,True,0.5833333333333334,Mid-Market,HIGH,HIGH,176653.15,23
+CUST-0419,bluepath,lucas@raptorsoft.com,45.0,Improving,1582.26,2025-05-24,,Active,,7,9.0,,bluepath,,False,actual,39,0.6,-0.08,0.0,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,189029.98,25
+CUST-0420,Acme Corp.,rafael@raptorsoft.com,75.0,,9800.48,2025-04-09,,Active,2024-08-26,10,,ACC-1100,acme,,False,actual,-6,1.0,0.0,0.5,True,0.8333333333333334,Mid-Market,HIGH,HIGH,194509.94,23
+CUST-0421,Beta Solutions Ltda,lucas@raptorsoft.com,,Improving,0.0,2026-05-31,2023-10-03,Churned,,7,4.0,,betasolutions,,False,actual,411,0.0,0.1,0.0,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,133712.45,22
+CUST-0422,nexus,rafael@raptorsoft.com,75.0,,8319.83,2025-08-12,,Active,,9,,ACC-1102,nexus,,True,global_median_proxy,119,0.0,0.0,0.5,True,0.75,Mid-Market,HIGH,HIGH,200687.78,24
+CUST-0423,VERTICE TECH,,59.0,Stable,1111.55,2025-11-01,,Active,2024-07-16,12,,ACC-1103,vertice,,False,actual,200,0.0,0.0,0.3,True,1.0,Mid-Market,HIGH,HIGH,197690.09,23
+CUST-0424,Orbit,carla@raptorsoft.com,75.0,Stable,10440.53,2025-07-31,,Active,2023-09-21,8,10.0,,orbit,,False,actual,107,0.0,-0.08,0.3,True,0.6666666666666666,Mid-Market,HIGH,MEDIUM,227071.01,26
+CUST-0425,Fluxo,,82.0,Declining,8387.51,2026-02-27,,Active,2024-03-03,8,,,fluxo,,False,actual,318,0.0,0.0,1.0,True,0.6666666666666666,Mid-Market,HIGH,MEDIUM,217571.91,27
+CUST-0426,DataPrime,patricia@raptorsoft.com,18.0,,10456.79,2025-12-04,,Active,,9,,,dataprime,,False,actual,233,0.0,0.0,0.5,True,0.75,Mid-Market,HIGH,MEDIUM,213142.01,25
+CUST-0427,CONNECTWAVE,lucas@raptorsoft.com,27.0,Improving,10429.36,2025-10-21,,Active,,8,10.0,,connectwave,,False,actual,189,0.0,-0.08,0.0,True,0.6666666666666666,Mid-Market,HIGH,MEDIUM,238725.88,28
+CUST-0428,SkyOps,carla@raptorsoft.com,86.0,Improving,12559.25,2025-05-03,,Active,2024-11-04,12,5.0,ACC-1108,skyops,,False,actual,18,1.0,0.1,0.0,False,1.0,Mid-Market,HIGH,HIGH,214724.43,25
+CUST-0429,POLARE,patricia@raptorsoft.com,16.0,Declining,0.0,2026-05-16,2023-09-27,Churned,,8,9.0,ACC-1109,polare,,False,actual,396,0.0,-0.08,1.0,True,0.6666666666666666,Mid-Market,HIGH,HIGH,218077.81,27
+CUST-0430,RushFlow,lucas@raptorsoft.com,77.0,Declining,3313.76,2026-05-20,,Active,2024-01-03,7,,ACC-1110,rushflow,,False,actual,400,0.0,0.0,1.0,True,0.5833333333333334,Mid-Market,HIGH,HIGH,183982.75,23
+CUST-0431,MINDBOX,patricia@raptorsoft.com,63.0,,10562.72,2026-03-30,,Active,2024-08-01,12,4.0,ACC-1111,mindbox,,False,actual,349,0.0,0.1,0.5,True,1.0,Mid-Market,HIGH,HIGH,217717.35,26
+CUST-0432,Zentra Tech,patricia@raptorsoft.com,,Stable,3782.2,2026-04-12,,Active,2023-10-01,1,7.0,,zentra,,False,actual,362,0.0,0.0,0.3,True,0.08333333333333333,Mid-Market,HIGH,MEDIUM,236895.41,27
+CUST-0433,Amplia Soluções,lucas@raptorsoft.com,75.0,Improving,0.0,2025-10-24,2023-09-29,Churned,,1,,ACC-1113,amplia,,False,actual,192,0.0,0.0,0.0,True,0.08333333333333333,Mid-Market,HIGH,HIGH,211018.85,25
+CUST-0434,CORELOGIC,lucas@raptorsoft.com,31.0,Declining,0.0,2025-08-20,2024-08-27,Churned,2023-07-21,2,5.0,ACC-1114,corelogic,,False,actual,127,0.0,0.1,1.0,True,0.16666666666666666,Mid-Market,HIGH,HIGH,206729.08,24
+CUST-0435,TapFlow,carla@raptorsoft.com,,Improving,3854.61,2025-06-10,,Active,2024-09-22,4,,ACC-1115,tapflow,,False,actual,56,0.6,0.0,0.0,True,0.3333333333333333,Mid-Market,HIGH,HIGH,213765.26,25
+CUST-0436,INNOVA,lucas@raptorsoft.com,62.0,,0.0,2025-06-30,2023-12-25,Churned,2024-10-13,3,,ACC-1116,innova,,False,actual,76,0.3,0.0,0.5,True,0.25,Mid-Market,HIGH,HIGH,198837.46,20
+CUST-0437,gridsoft,carla@raptorsoft.com,64.0,,7731.16,2025-09-14,,Active,2023-12-23,12,7.0,ACC-1117,gridsoft,,False,actual,152,0.0,0.0,0.5,True,1.0,Mid-Market,HIGH,HIGH,188772.05,23
+CUST-0438,POLARIS,patricia@raptorsoft.com,55.0,Declining,4275.8,2025-09-22,,Active,2023-09-10,1,5.0,ACC-1118,polaris,,False,actual,160,0.0,0.1,1.0,True,0.08333333333333333,Mid-Market,HIGH,HIGH,176653.15,23
+CUST-0439,bluepath,,30.0,Stable,9591.88,2025-12-23,,Active,,5,,,bluepath,,False,actual,252,0.0,0.0,0.3,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,189029.98,25
+CUST-0440,Acme Corp,patricia@raptorsoft.com,75.0,Declining,8046.82,2025-05-26,2024-01-04,Churned,,0,5.0,ACC-1100,acme,True,False,actual,41,0.6,0.1,1.0,True,0.0,Mid-Market,HIGH,HIGH,194509.94,23
+CUST-0441,beta solutions,lucas@raptorsoft.com,39.0,Declining,5562.95,2025-01-04,,Active,2024-02-16,3,7.0,ACC-1101,betasolutions,,False,actual,-101,1.0,0.0,1.0,True,0.25,Mid-Market,HIGH,HIGH,133712.45,22
+CUST-0442,Grupo Nexus,patricia@raptorsoft.com,99.0,,0.0,2026-04-18,2023-11-17,Churned,2024-09-26,5,4.0,ACC-1102,nexus,,False,actual,368,0.0,0.1,0.5,True,0.4166666666666667,Mid-Market,HIGH,HIGH,200687.78,24
+CUST-0443,Vertice Tech,lucas@raptorsoft.com,53.0,,0.0,2025-09-15,2023-10-21,Churned,2024-11-29,10,,ACC-1103,vertice,,False,actual,153,0.0,0.0,0.5,False,0.8333333333333334,Mid-Market,HIGH,HIGH,197690.09,23
+CUST-0444,Orbit,,,Improving,10386.41,2025-01-29,,Active,2024-02-05,6,,,orbit,,False,actual,-76,1.0,0.0,0.0,True,0.5,Mid-Market,HIGH,MEDIUM,227071.01,26
+CUST-0445,Fluxo Sistemas,,86.0,,3118.99,2025-12-30,,Active,2023-12-03,0,3.0,ACC-1105,fluxo,,False,actual,259,0.0,0.1,0.5,True,0.0,Mid-Market,HIGH,HIGH,217571.91,27
+CUST-0446,DataPrime,carla@raptorsoft.com,52.0,Declining,8339.7,2025-12-12,,Active,2024-10-10,6,8.0,ACC-1106,dataprime,,False,actual,241,0.0,0.0,1.0,True,0.5,Mid-Market,HIGH,HIGH,213142.01,25
+CUST-0447,CONNECTWAVE,carla@raptorsoft.com,39.0,Stable,0.0,2026-02-11,2023-06-02,Churned,,0,5.0,ACC-1107,connectwave,,False,actual,302,0.0,0.1,0.3,True,0.0,Mid-Market,HIGH,HIGH,238725.88,28
+CUST-0448,Sky Ops,rafael@raptorsoft.com,28.0,Improving,6749.59,2025-08-06,,Active,2023-07-18,9,,,skyops,,False,actual,113,0.0,0.0,0.0,True,0.75,Mid-Market,HIGH,MEDIUM,214724.43,25
+CUST-0449,polare,rafael@raptorsoft.com,,Declining,0.0,2026-04-04,2023-07-04,Churned,2023-09-05,11,,ACC-1109,polare,,False,actual,354,0.0,0.0,1.0,True,0.9166666666666666,Mid-Market,HIGH,HIGH,218077.81,27
+CUST-0450,RUSHFLOW,rafael@raptorsoft.com,64.0,Stable,2706.9,2025-11-21,,Active,,2,3.0,,rushflow,,False,actual,220,0.0,0.1,0.3,True,0.16666666666666666,Mid-Market,HIGH,MEDIUM,183982.75,23
+CUST-0451,Mindbox,rafael@raptorsoft.com,95.0,Improving,1156.39,2025-04-09,,Active,2023-10-11,0,7.0,ACC-1111,mindbox,,False,actual,-6,1.0,0.0,0.0,True,0.0,Mid-Market,HIGH,HIGH,217717.35,26
+CUST-0452,Zentra,rafael@raptorsoft.com,,,0.0,2026-04-19,2023-11-04,Churned,2024-10-27,1,5.0,ACC-1112,zentra,,False,actual,369,0.0,0.1,0.5,False,0.08333333333333333,Mid-Market,HIGH,HIGH,236895.41,27
+CUST-0453,Amplia,rafael@raptorsoft.com,89.0,Declining,7395.24,2025-10-02,,Active,,3,,ACC-1113,amplia,,False,actual,170,0.0,0.0,1.0,True,0.25,Mid-Market,HIGH,HIGH,211018.85,25
+CUST-0454,CoreLogic,rafael@raptorsoft.com,54.0,Declining,8505.45,2026-05-02,,Active,,5,10.0,,corelogic,,False,actual,382,0.0,-0.08,1.0,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,206729.08,24
+CUST-0455,TapFlow,patricia@raptorsoft.com,39.0,,9562.25,2024-02-06,,Active,2023-10-30,3,,ACC-1115,tapflow,,False,actual,-434,1.0,0.0,0.5,True,0.25,Mid-Market,HIGH,HIGH,213765.26,25
+CUST-0456,Innova,carla@raptorsoft.com,85.0,Declining,10659.86,2026-03-21,,Active,,6,,,innova,,False,actual,340,0.0,0.0,1.0,True,0.5,Mid-Market,HIGH,MEDIUM,198837.46,20
+CUST-0457,Grid Soft,,73.0,Improving,2275.35,2025-01-30,,Active,2023-11-22,7,4.0,ACC-1117,gridsoft,,False,actual,-75,1.0,0.1,0.0,True,0.5833333333333334,Mid-Market,HIGH,HIGH,188772.05,23
+CUST-0458,POLARIS,patricia@raptorsoft.com,29.0,Stable,0.0,2025-05-09,2024-07-03,Churned,,5,,ACC-1118,polaris,,False,actual,24,1.0,0.0,0.3,True,0.4166666666666667,Mid-Market,HIGH,HIGH,176653.15,23
+CUST-0459,BluePath,rafael@raptorsoft.com,39.0,Stable,0.0,2025-10-30,2025-01-25,Churned,,11,,,bluepath,,False,actual,198,0.0,0.0,0.3,True,0.9166666666666666,Mid-Market,HIGH,MEDIUM,189029.98,25
+CUST-0460,Acme Corp.,patricia@raptorsoft.com,53.0,Declining,8569.74,2026-06-03,,Active,2023-07-25,6,9.0,ACC-1100,acme,,False,actual,414,0.0,-0.08,1.0,True,0.5,Mid-Market,HIGH,HIGH,194509.94,23
+CUST-0461,BETA SOLUTIONS,carla@raptorsoft.com,59.0,,3276.68,2024-01-24,,Active,2023-08-13,9,6.0,,betasolutions,,False,actual,-447,1.0,0.1,0.5,True,0.75,Mid-Market,HIGH,MEDIUM,133712.45,22
+CUST-0462,nexus,patricia@raptorsoft.com,57.0,,10760.59,2025-01-26,,Active,2024-06-15,8,,,nexus,,False,actual,-79,1.0,0.0,0.5,True,0.6666666666666666,Mid-Market,HIGH,MEDIUM,200687.78,24
+CUST-0463,VERTICE TECH,lucas@raptorsoft.com,95.0,Improving,7283.49,2025-02-26,,Active,,6,2.0,,vertice,,False,actual,-48,1.0,0.1,0.0,True,0.5,Mid-Market,HIGH,MEDIUM,197690.09,23
+CUST-0464,orbit digital,patricia@raptorsoft.com,43.0,,0.0,2025-04-03,2024-08-10,Churned,,7,5.0,ACC-1104,orbit,,False,actual,-12,1.0,0.1,0.5,True,0.5833333333333334,Mid-Market,HIGH,HIGH,227071.01,26
+CUST-0465,Fluxo Sistemas,patricia@raptorsoft.com,80.0,,7998.24,2025-04-25,,Active,2023-08-07,8,,ACC-1105,fluxo,,False,actual,10,1.0,0.0,0.5,True,0.6666666666666666,Mid-Market,HIGH,HIGH,217571.91,27
+CUST-0466,DataPrime,carla@raptorsoft.com,23.0,Stable,4398.47,2024-12-27,2024-11-19,Churned,,7,10.0,,dataprime,True,False,actual,-109,1.0,-0.08,0.3,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,213142.01,25
+CUST-0467,CONNECTWAVE,rafael@raptorsoft.com,73.0,Improving,13838.95,2025-03-27,,Active,2023-12-03,3,10.0,ACC-1107,connectwave,,False,actual,-19,1.0,-0.08,0.0,True,0.25,Mid-Market,HIGH,HIGH,238725.88,28
+CUST-0468,SkyOps,carla@raptorsoft.com,75.0,Stable,7850.49,2025-02-03,,Active,2023-07-22,3,,ACC-1108,skyops,,False,actual,-71,1.0,0.0,0.3,True,0.25,Mid-Market,HIGH,HIGH,214724.43,25
+CUST-0469,Polare,lucas@raptorsoft.com,98.0,Stable,910.58,2025-07-25,,Active,,7,,,polare,,False,actual,101,0.0,0.0,0.3,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,218077.81,27
+CUST-0470,rushflow,carla@raptorsoft.com,55.0,Stable,5547.69,2025-05-20,,Active,2024-09-09,4,,ACC-1110,rushflow,,False,actual,35,0.6,0.0,0.3,True,0.3333333333333333,Mid-Market,HIGH,HIGH,183982.75,23
+CUST-0471,mindbox,lucas@raptorsoft.com,54.0,Improving,14118.99,2026-04-29,,Active,,2,,ACC-1111,mindbox,,False,actual,379,0.0,0.0,0.0,True,0.16666666666666666,Mid-Market,HIGH,HIGH,217717.35,26
+CUST-0472,ZENTRA,patricia@raptorsoft.com,,Improving,8186.12,2025-09-19,,Active,,0,9.0,,zentra,,False,actual,157,0.0,-0.08,0.0,True,0.0,Mid-Market,HIGH,MEDIUM,236895.41,27
+CUST-0473,AMPLIA SOLUCOES,rafael@raptorsoft.com,62.0,Stable,13939.99,2026-04-22,,Active,,10,4.0,,amplia,,False,actual,372,0.0,0.1,0.3,True,0.8333333333333334,Mid-Market,HIGH,MEDIUM,211018.85,25
+CUST-0474,CORELOGIC,rafael@raptorsoft.com,53.0,Stable,0.0,2025-07-22,2024-10-06,Churned,2024-07-21,12,3.0,,corelogic,,False,actual,98,0.0,0.1,0.3,True,1.0,Mid-Market,HIGH,MEDIUM,206729.08,24
+CUST-0475,tapflow,rafael@raptorsoft.com,50.0,,0.0,2025-04-30,2024-11-26,Churned,,8,1.0,ACC-1115,tapflow,,False,actual,15,1.0,0.1,0.5,True,0.6666666666666666,Mid-Market,HIGH,HIGH,213765.26,25
+CUST-0476,Innova Tech,patricia@raptorsoft.com,90.0,Improving,2656.99,2026-02-21,,Active,,6,10.0,,innova,,False,actual,312,0.0,-0.08,0.0,True,0.5,Mid-Market,HIGH,MEDIUM,198837.46,20
+CUST-0477,GridSoft,lucas@raptorsoft.com,91.0,Improving,3690.28,2026-01-15,,Active,2024-11-06,10,,ACC-1117,gridsoft,,False,actual,275,0.0,0.0,0.0,False,0.8333333333333334,Mid-Market,HIGH,HIGH,188772.05,23
+CUST-0478,Polaris,carla@raptorsoft.com,44.0,Improving,0.0,2025-10-21,2024-09-07,Churned,,10,9.0,ACC-1118,polaris,,False,actual,189,0.0,-0.08,0.0,True,0.8333333333333334,Mid-Market,HIGH,HIGH,176653.15,23
+CUST-0479,BluePath,rafael@raptorsoft.com,21.0,Improving,12636.35,2025-06-19,,Active,,1,,,bluepath,,False,actual,65,0.3,0.0,0.0,True,0.08333333333333333,Mid-Market,HIGH,MEDIUM,189029.98,25
+CUST-0480,ACME CORP,patricia@raptorsoft.com,92.0,Stable,0.0,2025-04-10,2023-09-18,Churned,,6,2.0,,acme,,False,actual,-5,1.0,0.1,0.3,True,0.5,Mid-Market,HIGH,MEDIUM,194509.94,23
+CUST-0481,BETA SOLUTIONS,,,Improving,2692.75,2025-01-15,,Active,2024-06-25,5,1.0,,betasolutions,,False,actual,-90,1.0,0.1,0.0,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,133712.45,22
+CUST-0482,nexus,patricia@raptorsoft.com,19.0,,4779.55,2026-05-22,,Active,2024-08-11,5,,ACC-1102,nexus,,False,actual,402,0.0,0.0,0.5,True,0.4166666666666667,Mid-Market,HIGH,HIGH,200687.78,24
+CUST-0483,Vértice Tech,carla@raptorsoft.com,61.0,Improving,7361.72,2026-01-23,,Active,,8,10.0,ACC-1103,vertice,,False,actual,283,0.0,-0.08,0.0,True,0.6666666666666666,Mid-Market,HIGH,HIGH,197690.09,23
+CUST-0484,ORBIT DIGITAL,rafael@raptorsoft.com,87.0,,7300.47,2026-05-08,,Active,2024-03-03,0,,ACC-1104,orbit,,False,actual,388,0.0,0.0,0.5,True,0.0,Mid-Market,HIGH,HIGH,227071.01,26
+CUST-0485,Fluxo Sistemas,rafael@raptorsoft.com,,Improving,0.0,2025-01-03,2023-06-15,Churned,,10,,,fluxo,,False,actual,-102,1.0,0.0,0.0,True,0.8333333333333334,Mid-Market,HIGH,MEDIUM,217571.91,27
+CUST-0486,Data Prime,carla@raptorsoft.com,17.0,Improving,5717.09,2026-03-23,,Active,2024-03-13,1,,ACC-1106,dataprime,,False,actual,342,0.0,0.0,0.0,True,0.08333333333333333,Mid-Market,HIGH,HIGH,213142.01,25
+CUST-0487,ConnectWave,rafael@raptorsoft.com,55.0,,5468.5,2026-01-16,2024-10-18,Churned,2024-12-24,11,,,connectwave,True,False,actual,276,0.0,0.0,0.5,False,0.9166666666666666,Mid-Market,HIGH,MEDIUM,238725.88,28
+CUST-0488,skyops,lucas@raptorsoft.com,30.0,Declining,0.0,2025-10-15,2023-11-26,Churned,,1,1.0,ACC-1108,skyops,,False,actual,183,0.0,0.1,1.0,True,0.08333333333333333,Mid-Market,HIGH,HIGH,214724.43,25
+CUST-0489,polare,patricia@raptorsoft.com,25.0,Declining,13608.46,2025-08-11,,Active,2024-09-01,8,9.0,ACC-1109,polare,,False,actual,118,0.0,-0.08,1.0,True,0.6666666666666666,Mid-Market,HIGH,HIGH,218077.81,27
+CUST-0490,RushFlow,patricia@raptorsoft.com,93.0,Improving,9136.68,2025-06-03,,Active,2024-04-29,10,9.0,,rushflow,,False,actual,49,0.6,-0.08,0.0,True,0.8333333333333334,Mid-Market,HIGH,MEDIUM,183982.75,23
+CUST-0491,Mind Box,rafael@raptorsoft.com,,Improving,1883.56,2025-07-04,,Active,2023-11-16,1,2.0,,mindbox,,False,actual,80,0.3,0.1,0.0,True,0.08333333333333333,Mid-Market,HIGH,MEDIUM,217717.35,26
+CUST-0492,ZENTRA,rafael@raptorsoft.com,99.0,,10905.9,2026-06-25,,Active,2023-12-26,6,,,zentra,,False,actual,436,0.0,0.0,0.5,True,0.5,Mid-Market,HIGH,MEDIUM,236895.41,27
+CUST-0493,Amplia Soluções,patricia@raptorsoft.com,,Stable,8265.34,2025-03-29,2024-07-17,Churned,2024-07-19,3,,ACC-1113,amplia,True,False,actual,-17,1.0,0.0,0.3,True,0.25,Mid-Market,HIGH,HIGH,211018.85,25
+CUST-0494,corelogic,,26.0,Improving,9064.91,2025-12-28,,Active,2024-02-17,9,,,corelogic,,False,actual,257,0.0,0.0,0.0,True,0.75,Mid-Market,HIGH,MEDIUM,206729.08,24
+CUST-0495,tapflow,patricia@raptorsoft.com,83.0,Declining,9574.35,2024-12-16,,Active,2024-12-30,12,,ACC-1115,tapflow,,False,actual,-120,1.0,0.0,1.0,False,1.0,Mid-Market,HIGH,HIGH,213765.26,25
+CUST-0496,INNOVA,carla@raptorsoft.com,92.0,Improving,0.0,2026-04-29,2023-11-18,Churned,2024-12-31,11,,,innova,,False,actual,379,0.0,0.0,0.0,False,0.9166666666666666,Mid-Market,HIGH,MEDIUM,198837.46,20
+CUST-0497,GridSoft,rafael@raptorsoft.com,,Improving,11118.97,2025-11-26,2024-07-10,Churned,2024-08-13,6,,ACC-1117,gridsoft,True,False,actual,225,0.0,0.0,0.0,True,0.5,Mid-Market,HIGH,HIGH,188772.05,23
+CUST-0498,Polaris,lucas@raptorsoft.com,40.0,Stable,7472.77,2025-08-25,,Active,2023-11-18,5,7.0,,polaris,,False,actual,132,0.0,0.0,0.3,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,176653.15,23
+CUST-0499,bluepath,patricia@raptorsoft.com,,Improving,8299.96,2026-02-06,,Active,,2,,ACC-1119,bluepath,,False,actual,297,0.0,0.0,0.0,True,0.16666666666666666,Mid-Market,HIGH,HIGH,189029.98,25
+CUST-0500,ACME CORP,rafael@raptorsoft.com,23.0,Declining,11423.89,2025-04-25,,Active,2024-09-25,1,,,acme,,False,actual,10,1.0,0.0,1.0,True,0.08333333333333333,Mid-Market,HIGH,MEDIUM,194509.94,23
+CUST-0501,beta solutions,patricia@raptorsoft.com,15.0,Declining,12548.37,2025-06-22,,Active,2024-05-27,7,6.0,ACC-1101,betasolutions,,False,actual,68,0.3,0.1,1.0,True,0.5833333333333334,Mid-Market,HIGH,HIGH,133712.45,22
+CUST-0502,nexus,rafael@raptorsoft.com,91.0,Improving,3728.29,2025-06-17,,Active,2023-06-01,8,6.0,ACC-1102,nexus,,False,actual,63,0.3,0.1,0.0,True,0.6666666666666666,Mid-Market,HIGH,HIGH,200687.78,24
+CUST-0503,Vertice,,13.0,Declining,2631.58,2026-03-21,,Active,,2,8.0,,vertice,,False,actual,340,0.0,0.0,1.0,True,0.16666666666666666,Mid-Market,HIGH,MEDIUM,197690.09,23
+CUST-0504,orbit digital,rafael@raptorsoft.com,32.0,Declining,0.0,2025-04-15,2024-10-24,Churned,2023-12-01,2,,ACC-1104,orbit,,False,actual,0,1.0,0.0,1.0,True,0.16666666666666666,Mid-Market,HIGH,HIGH,227071.01,26
+CUST-0505,Fluxo Sistemas Ltda,patricia@raptorsoft.com,,Improving,4496.67,2025-11-10,2024-05-26,Churned,,12,4.0,,fluxo,True,False,actual,209,0.0,0.1,0.0,True,1.0,Mid-Market,HIGH,MEDIUM,217571.91,27
+CUST-0506,DataPrime,carla@raptorsoft.com,79.0,,9251.96,2025-07-20,,Active,2024-10-14,6,10.0,,dataprime,,False,actual,96,0.0,-0.08,0.5,True,0.5,Mid-Market,HIGH,MEDIUM,213142.01,25
+CUST-0507,Connect Wave,carla@raptorsoft.com,33.0,Improving,11631.2,2026-06-28,2024-11-18,Churned,2023-12-01,7,7.0,,connectwave,True,False,actual,439,0.0,0.0,0.0,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,238725.88,28
+CUST-0508,SkyOps,rafael@raptorsoft.com,62.0,,5045.36,2024-01-23,,Active,,3,8.0,,skyops,,False,actual,-448,1.0,0.0,0.5,True,0.25,Mid-Market,HIGH,MEDIUM,214724.43,25
+CUST-0509,Polare Ltda,carla@raptorsoft.com,68.0,Declining,0.0,2025-02-03,2024-08-03,Churned,,5,7.0,,polare,,False,actual,-71,1.0,0.0,1.0,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,218077.81,27
+CUST-0510,RUSHFLOW,patricia@raptorsoft.com,47.0,Improving,2778.27,2025-03-25,,Active,,12,,ACC-1110,rushflow,,False,actual,-21,1.0,0.0,0.0,True,1.0,Mid-Market,HIGH,HIGH,183982.75,23
+CUST-0511,MINDBOX,rafael@raptorsoft.com,,Declining,1684.91,2025-02-08,2024-11-13,Churned,,7,4.0,,mindbox,True,False,actual,-66,1.0,0.1,1.0,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,217717.35,26
+CUST-0512,zentra,lucas@raptorsoft.com,48.0,Declining,14867.28,2025-11-29,,Active,,3,3.0,ACC-1112,zentra,,False,actual,228,0.0,0.1,1.0,True,0.25,Mid-Market,HIGH,HIGH,236895.41,27
+CUST-0513,Amplia Soluções,patricia@raptorsoft.com,86.0,Improving,4958.44,2025-05-13,,Active,2023-08-27,7,2.0,,amplia,,False,actual,28,1.0,0.1,0.0,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,211018.85,25
+CUST-0514,CoreLogic,patricia@raptorsoft.com,,Improving,4049.64,2024-12-08,2023-11-25,Churned,,7,,ACC-1114,corelogic,True,False,actual,-128,1.0,0.0,0.0,True,0.5833333333333334,Mid-Market,HIGH,HIGH,206729.08,24
+CUST-0515,tapflow,patricia@raptorsoft.com,95.0,Stable,12860.85,2025-08-11,,Active,2023-12-02,11,,ACC-1115,tapflow,,False,actual,118,0.0,0.0,0.3,True,0.9166666666666666,Mid-Market,HIGH,HIGH,213765.26,25
+CUST-0516,Innova Tech,patricia@raptorsoft.com,67.0,,11290.82,2025-05-09,,Active,,1,,ACC-1116,innova,,False,actual,24,1.0,0.0,0.5,True,0.08333333333333333,Mid-Market,HIGH,HIGH,198837.46,20
+CUST-0517,GridSoft,patricia@raptorsoft.com,98.0,Stable,6198.26,2026-06-16,,Active,2024-06-23,0,,ACC-1117,gridsoft,,False,actual,427,0.0,0.0,0.3,True,0.0,Mid-Market,HIGH,HIGH,188772.05,23
+CUST-0518,Polaris Tech,,,Improving,8704.37,2026-04-07,,Active,,10,4.0,,polaris,,False,actual,357,0.0,0.1,0.0,True,0.8333333333333334,Mid-Market,HIGH,MEDIUM,176653.15,23
+CUST-0519,BluePath,rafael@raptorsoft.com,25.0,,12762.69,2026-03-11,,Active,2024-08-11,11,8.0,ACC-1119,bluepath,,False,actual,330,0.0,0.0,0.5,True,0.9166666666666666,Mid-Market,HIGH,HIGH,189029.98,25
+CUST-0520,acme,,68.0,,4254.49,2025-04-06,,Active,,2,,ACC-1100,acme,,False,actual,-9,1.0,0.0,0.5,True,0.16666666666666666,Mid-Market,HIGH,HIGH,194509.94,23
+CUST-0521,beta solutions,,55.0,,8087.72,2025-06-12,,Active,,2,6.0,ACC-1101,betasolutions,,False,actual,58,0.6,0.1,0.5,True,0.16666666666666666,Mid-Market,HIGH,HIGH,133712.45,22
+CUST-0522,GRUPO NEXUS,rafael@raptorsoft.com,11.0,Stable,12312.44,2025-12-03,,Active,,5,6.0,,nexus,,False,actual,232,0.0,0.1,0.3,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,200687.78,24
+CUST-0523,Vértice Tech,carla@raptorsoft.com,97.0,Improving,0.0,2025-12-14,2024-03-29,Churned,2024-02-27,3,5.0,,vertice,,False,actual,243,0.0,0.1,0.0,True,0.25,Mid-Market,HIGH,MEDIUM,197690.09,23
+CUST-0524,Orbit,rafael@raptorsoft.com,52.0,Improving,8359.39,2025-02-18,,Active,2024-04-14,5,3.0,ACC-1104,orbit,,False,actual,-56,1.0,0.1,0.0,True,0.4166666666666667,Mid-Market,HIGH,HIGH,227071.01,26
+CUST-0525,FLUXO SISTEMAS,lucas@raptorsoft.com,87.0,Declining,3265.93,2025-06-08,,Active,,8,,,fluxo,,False,actual,54,0.6,0.0,1.0,True,0.6666666666666666,Mid-Market,HIGH,MEDIUM,217571.91,27
+CUST-0526,dataprime,patricia@raptorsoft.com,43.0,Stable,10507.82,2025-07-22,,Active,2023-11-21,9,,,dataprime,,False,actual,98,0.0,0.0,0.3,True,0.75,Mid-Market,HIGH,MEDIUM,213142.01,25
+CUST-0527,ConnectWave,lucas@raptorsoft.com,67.0,Improving,5957.3,2025-03-11,,Active,,3,,,connectwave,,False,actual,-35,1.0,0.0,0.0,True,0.25,Mid-Market,HIGH,MEDIUM,238725.88,28
+CUST-0528,skyops,lucas@raptorsoft.com,70.0,,7756.85,2026-05-27,,Active,2024-11-07,1,,,skyops,,False,actual,407,0.0,0.0,0.5,False,0.08333333333333333,Mid-Market,HIGH,MEDIUM,214724.43,25
+CUST-0529,Polare Ltda,patricia@raptorsoft.com,,,3131.06,2026-02-28,,Active,,0,8.0,ACC-1109,polare,,False,actual,319,0.0,0.0,0.5,True,0.0,Mid-Market,HIGH,HIGH,218077.81,27
+CUST-0530,RushFlow,,,Declining,10883.83,2026-04-16,,Active,,5,6.0,,rushflow,,False,actual,366,0.0,0.1,1.0,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,183982.75,23
+CUST-0531,mindbox,patricia@raptorsoft.com,88.0,Stable,12579.08,2026-06-03,,Active,2023-09-06,12,3.0,,mindbox,,False,actual,414,0.0,0.1,0.3,True,1.0,Mid-Market,HIGH,MEDIUM,217717.35,26
+CUST-0532,Zentra,carla@raptorsoft.com,14.0,Improving,9909.78,2024-04-09,,Active,2023-10-20,4,,,zentra,,False,actual,-371,1.0,0.0,0.0,True,0.3333333333333333,Mid-Market,HIGH,MEDIUM,236895.41,27
+CUST-0533,Amplia Soluções,carla@raptorsoft.com,21.0,,12996.68,2025-05-24,,Active,2024-02-09,1,,ACC-1113,amplia,,False,actual,39,0.6,0.0,0.5,True,0.08333333333333333,Mid-Market,HIGH,HIGH,211018.85,25
+CUST-0534,CoreLogic,lucas@raptorsoft.com,84.0,Declining,9856.42,2026-06-07,2024-02-16,Churned,,5,,ACC-1114,corelogic,True,False,actual,418,0.0,0.0,1.0,True,0.4166666666666667,Mid-Market,HIGH,HIGH,206729.08,24
+CUST-0535,TAPFLOW,lucas@raptorsoft.com,,Stable,0.0,2025-03-17,2024-07-14,Churned,2024-11-23,11,8.0,,tapflow,,False,actual,-29,1.0,0.0,0.3,False,0.9166666666666666,Mid-Market,HIGH,MEDIUM,213765.26,25
+CUST-0536,Innova,,47.0,Stable,10113.94,2025-09-15,,Active,2023-09-04,1,8.0,ACC-1116,innova,,False,actual,153,0.0,0.0,0.3,True,0.08333333333333333,Mid-Market,HIGH,HIGH,198837.46,20
+CUST-0537,GridSoft,carla@raptorsoft.com,66.0,Declining,9179.27,2026-01-03,,Active,,3,2.0,,gridsoft,,False,actual,263,0.0,0.1,1.0,True,0.25,Mid-Market,HIGH,MEDIUM,188772.05,23
+CUST-0538,Polaris Tech,rafael@raptorsoft.com,50.0,Stable,0.0,2026-01-24,2024-04-22,Churned,,9,,,polaris,,False,actual,284,0.0,0.0,0.3,True,0.75,Mid-Market,HIGH,MEDIUM,176653.15,23
+CUST-0539,Blue Path,patricia@raptorsoft.com,17.0,,0.0,2025-11-10,2024-03-01,Churned,,2,1.0,,bluepath,,False,actual,209,0.0,0.1,0.5,True,0.16666666666666666,Mid-Market,HIGH,MEDIUM,189029.98,25
+CUST-0540,Acme Corp.,carla@raptorsoft.com,46.0,,9579.77,2026-06-19,,Active,,8,6.0,ACC-1100,acme,,False,actual,430,0.0,0.1,0.5,True,0.6666666666666666,Mid-Market,HIGH,HIGH,194509.94,23
+CUST-0541,BETA SOLUTIONS,rafael@raptorsoft.com,76.0,,0.0,2025-09-17,2024-07-15,Churned,2023-12-06,7,,ACC-1101,betasolutions,,False,actual,155,0.0,0.0,0.5,True,0.5833333333333334,Mid-Market,HIGH,HIGH,133712.45,22
+CUST-0542,nexus,,52.0,Improving,0.0,2026-03-14,2025-01-15,Churned,2024-10-22,9,2.0,,nexus,,False,actual,333,0.0,0.1,0.0,False,0.75,Mid-Market,HIGH,MEDIUM,200687.78,24
+CUST-0543,VERTICE TECH,rafael@raptorsoft.com,26.0,Improving,5974.56,2025-06-15,,Active,2024-09-26,9,,,vertice,,False,actual,61,0.3,0.0,0.0,True,0.75,Mid-Market,HIGH,MEDIUM,197690.09,23
+CUST-0544,orbit digital,rafael@raptorsoft.com,48.0,Stable,0.0,2025-04-07,2025-01-26,Churned,,11,,ACC-1104,orbit,,False,actual,-8,1.0,0.0,0.3,True,0.9166666666666666,Mid-Market,HIGH,HIGH,227071.01,26
+CUST-0545,Fluxo Sistemas Ltda,lucas@raptorsoft.com,,Stable,2907.17,2025-09-13,,Active,2024-12-12,6,5.0,,fluxo,,False,actual,151,0.0,0.1,0.3,False,0.5,Mid-Market,HIGH,MEDIUM,217571.91,27
+CUST-0546,DATAPRIME,carla@raptorsoft.com,57.0,Declining,2817.26,2026-05-23,,Active,2023-12-19,10,,,dataprime,,False,actual,403,0.0,0.0,1.0,True,0.8333333333333334,Mid-Market,HIGH,MEDIUM,213142.01,25
+CUST-0547,CONNECTWAVE,carla@raptorsoft.com,89.0,Stable,4376.07,2025-09-17,,Active,2023-12-19,0,,,connectwave,,False,actual,155,0.0,0.0,0.3,True,0.0,Mid-Market,HIGH,MEDIUM,238725.88,28
+CUST-0548,SKYOPS,rafael@raptorsoft.com,,Declining,6556.9,2025-02-02,,Active,2024-09-01,2,,,skyops,,False,actual,-72,1.0,0.0,1.0,True,0.16666666666666666,Mid-Market,HIGH,MEDIUM,214724.43,25
+CUST-0549,POLARE,carla@raptorsoft.com,10.0,Declining,14254.49,2025-09-01,,Active,2024-06-26,2,,ACC-1109,polare,,False,actual,139,0.0,0.0,1.0,True,0.16666666666666666,Mid-Market,HIGH,HIGH,218077.81,27
+CUST-0550,Rush Flow,rafael@raptorsoft.com,90.0,Stable,0.0,2026-05-17,2024-03-20,Churned,,7,,ACC-1110,rushflow,,False,actual,397,0.0,0.0,0.3,True,0.5833333333333334,Mid-Market,HIGH,HIGH,183982.75,23
+CUST-0551,MINDBOX,lucas@raptorsoft.com,48.0,,4716.34,2024-01-12,2024-01-16,Churned,2024-09-24,2,,ACC-1111,mindbox,True,False,actual,-459,1.0,0.0,0.5,True,0.16666666666666666,Mid-Market,HIGH,HIGH,217717.35,26
+CUST-0552,Zentra,carla@raptorsoft.com,23.0,Improving,8403.88,2026-03-26,,Active,,12,3.0,,zentra,,False,actual,345,0.0,0.1,0.0,True,1.0,Mid-Market,HIGH,MEDIUM,236895.41,27
+CUST-0553,Amplia,rafael@raptorsoft.com,95.0,Improving,4417.25,2026-05-16,,Active,,6,5.0,ACC-1113,amplia,,False,actual,396,0.0,0.1,0.0,True,0.5,Mid-Market,HIGH,HIGH,211018.85,25
+CUST-0554,CoreLogic,lucas@raptorsoft.com,92.0,Declining,11812.14,2025-03-08,,Active,,7,7.0,,corelogic,,False,actual,-38,1.0,0.0,1.0,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,206729.08,24
+CUST-0555,TapFlow,rafael@raptorsoft.com,22.0,Stable,0.0,2026-01-26,2024-11-29,Churned,2023-08-29,4,,,tapflow,,False,actual,286,0.0,0.0,0.3,True,0.3333333333333333,Mid-Market,HIGH,MEDIUM,213765.26,25
+CUST-0556,Innova Tech,carla@raptorsoft.com,,,14090.77,2026-06-06,,Active,2023-11-12,12,7.0,ACC-1116,innova,,False,actual,417,0.0,0.0,0.5,True,1.0,Mid-Market,HIGH,HIGH,198837.46,20
+CUST-0557,GridSoft,lucas@raptorsoft.com,21.0,Declining,0.0,2025-04-06,2023-10-14,Churned,2024-11-05,9,2.0,ACC-1117,gridsoft,,False,actual,-9,1.0,0.1,1.0,False,0.75,Mid-Market,HIGH,HIGH,188772.05,23
+CUST-0558,POLARIS,carla@raptorsoft.com,73.0,Improving,8073.43,2026-03-14,,Active,2023-10-25,1,8.0,ACC-1118,polaris,,False,actual,333,0.0,0.0,0.0,True,0.08333333333333333,Mid-Market,HIGH,HIGH,176653.15,23
+CUST-0559,BluePath,carla@raptorsoft.com,52.0,,8807.15,2024-07-12,,Active,2024-12-22,7,,,bluepath,,False,actual,-277,1.0,0.0,0.5,False,0.5833333333333334,Mid-Market,HIGH,MEDIUM,189029.98,25
+CUST-0560,Acme Corp,rafael@raptorsoft.com,75.0,Stable,2360.56,2026-01-31,,Active,2024-02-29,6,,,acme,,False,actual,291,0.0,0.0,0.3,True,0.5,Mid-Market,HIGH,MEDIUM,194509.94,23
+CUST-0561,beta solutions,lucas@raptorsoft.com,23.0,Declining,6435.46,2025-01-27,,Active,2024-09-06,9,6.0,,betasolutions,,False,actual,-78,1.0,0.1,1.0,True,0.75,Mid-Market,HIGH,MEDIUM,133712.45,22
+CUST-0562,nexus,patricia@raptorsoft.com,64.0,Improving,0.0,2026-04-25,2024-10-09,Churned,2023-10-06,8,6.0,,nexus,,False,actual,375,0.0,0.1,0.0,True,0.6666666666666666,Mid-Market,HIGH,MEDIUM,200687.78,24
+CUST-0563,Vertice,lucas@raptorsoft.com,,Declining,6910.2,2026-06-13,,Active,2024-07-18,6,,,vertice,,False,actual,424,0.0,0.0,1.0,True,0.5,Mid-Market,HIGH,MEDIUM,197690.09,23
+CUST-0564,ORBIT DIGITAL,carla@raptorsoft.com,73.0,,14080.35,2026-02-05,,Active,,7,,ACC-1104,orbit,,False,actual,296,0.0,0.0,0.5,True,0.5833333333333334,Mid-Market,HIGH,HIGH,227071.01,26
+CUST-0565,Fluxo Sistemas Ltda,carla@raptorsoft.com,14.0,Improving,8659.57,2025-05-03,,Active,2024-09-14,10,4.0,,fluxo,,False,actual,18,1.0,0.1,0.0,True,0.8333333333333334,Mid-Market,HIGH,MEDIUM,217571.91,27
+CUST-0566,dataprime,lucas@raptorsoft.com,42.0,Declining,0.0,2025-09-05,2023-11-06,Churned,,5,1.0,,dataprime,,False,actual,143,0.0,0.1,1.0,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,213142.01,25
+CUST-0567,Connect Wave,,,Declining,1926.02,2026-04-23,,Active,2023-11-01,10,2.0,,connectwave,,False,actual,373,0.0,0.1,1.0,True,0.8333333333333334,Mid-Market,HIGH,MEDIUM,238725.88,28
+CUST-0568,SkyOps,rafael@raptorsoft.com,62.0,Stable,2405.49,2025-01-02,2023-09-25,Churned,2024-01-12,4,,,skyops,True,False,actual,-103,1.0,0.0,0.3,True,0.3333333333333333,Mid-Market,HIGH,MEDIUM,214724.43,25
+CUST-0569,Polare,rafael@raptorsoft.com,60.0,Stable,14036.56,2025-11-25,,Active,2024-04-29,9,8.0,,polare,,False,actual,224,0.0,0.0,0.3,True,0.75,Mid-Market,HIGH,MEDIUM,218077.81,27
+CUST-0570,RushFlow,lucas@raptorsoft.com,40.0,Stable,8909.87,2025-09-25,,Active,,11,8.0,,rushflow,,False,actual,163,0.0,0.0,0.3,True,0.9166666666666666,Mid-Market,HIGH,MEDIUM,183982.75,23
+CUST-0571,Mind Box,lucas@raptorsoft.com,69.0,Stable,8319.83,2026-05-12,,Active,,12,,,mindbox,,True,global_median_proxy,392,0.0,0.0,0.3,True,1.0,Mid-Market,HIGH,MEDIUM,217717.35,26
+CUST-0572,ZENTRA,patricia@raptorsoft.com,90.0,Declining,1315.7,2025-09-27,,Active,2024-06-04,0,2.0,ACC-1112,zentra,,False,actual,165,0.0,0.1,1.0,True,0.0,Mid-Market,HIGH,HIGH,236895.41,27
+CUST-0573,AMPLIA SOLUCOES,rafael@raptorsoft.com,45.0,Declining,4625.87,2026-03-28,,Active,,6,8.0,,amplia,,False,actual,347,0.0,0.0,1.0,True,0.5,Mid-Market,HIGH,MEDIUM,211018.85,25
+CUST-0574,Core Logic,lucas@raptorsoft.com,64.0,Declining,13525.61,2026-04-12,,Active,2023-10-07,6,4.0,ACC-1114,corelogic,,False,actual,362,0.0,0.1,1.0,True,0.5,Mid-Market,HIGH,HIGH,206729.08,24
+CUST-0575,TAPFLOW,patricia@raptorsoft.com,38.0,,1700.33,2026-04-01,2023-07-22,Churned,2024-02-26,2,3.0,,tapflow,True,False,actual,351,0.0,0.1,0.5,True,0.16666666666666666,Mid-Market,HIGH,MEDIUM,213765.26,25
+CUST-0576,Innova Tech,lucas@raptorsoft.com,65.0,Improving,0.0,2025-09-16,2023-07-16,Churned,,2,8.0,ACC-1116,innova,,False,actual,154,0.0,0.0,0.0,True,0.16666666666666666,Mid-Market,HIGH,HIGH,198837.46,20
+CUST-0577,GRIDSOFT,lucas@raptorsoft.com,,,11739.34,2026-06-28,,Active,2024-09-15,7,8.0,ACC-1117,gridsoft,,False,actual,439,0.0,0.0,0.5,True,0.5833333333333334,Mid-Market,HIGH,HIGH,188772.05,23
+CUST-0578,POLARIS,carla@raptorsoft.com,97.0,Improving,14335.9,2026-03-14,,Active,2024-01-09,8,7.0,ACC-1118,polaris,,False,actual,333,0.0,0.0,0.0,True,0.6666666666666666,Mid-Market,HIGH,HIGH,176653.15,23
+CUST-0579,Blue Path,carla@raptorsoft.com,85.0,Stable,4601.73,2025-03-22,,Active,,5,,ACC-1119,bluepath,,False,actual,-24,1.0,0.0,0.3,True,0.4166666666666667,Mid-Market,HIGH,HIGH,189029.98,25
+CUST-0580,Acme Corp.,carla@raptorsoft.com,73.0,Declining,13700.31,2026-04-13,,Active,,1,1.0,,acme,,False,actual,363,0.0,0.1,1.0,True,0.08333333333333333,Mid-Market,HIGH,MEDIUM,194509.94,23
+CUST-0581,Beta Solutions Ltda,rafael@raptorsoft.com,40.0,Declining,5390.3,2025-01-27,,Active,,8,1.0,,betasolutions,,False,actual,-78,1.0,0.1,1.0,True,0.6666666666666666,Mid-Market,HIGH,MEDIUM,133712.45,22
+CUST-0582,GRUPO NEXUS,lucas@raptorsoft.com,19.0,Stable,3994.76,2024-01-17,,Active,,6,2.0,,nexus,,False,actual,-454,1.0,0.1,0.3,True,0.5,Mid-Market,HIGH,MEDIUM,200687.78,24
+CUST-0583,Vertice,lucas@raptorsoft.com,25.0,Stable,0.0,2025-06-10,2024-01-31,Churned,2024-03-12,2,3.0,,vertice,,False,actual,56,0.6,0.1,0.3,True,0.16666666666666666,Mid-Market,HIGH,MEDIUM,197690.09,23
+CUST-0584,orbit digital,patricia@raptorsoft.com,51.0,,0.0,2026-06-10,2024-06-04,Churned,2024-03-17,9,6.0,,orbit,,False,actual,421,0.0,0.1,0.5,True,0.75,Mid-Market,HIGH,MEDIUM,227071.01,26
+CUST-0585,Fluxo,,62.0,Declining,2464.87,2026-03-10,,Active,2023-08-11,10,2.0,ACC-1105,fluxo,,False,actual,329,0.0,0.1,1.0,True,0.8333333333333334,Mid-Market,HIGH,HIGH,217571.91,27
+CUST-0586,Data Prime,rafael@raptorsoft.com,89.0,,10401.37,2025-01-09,,Active,2024-11-17,7,,ACC-1106,dataprime,,False,actual,-96,1.0,0.0,0.5,False,0.5833333333333334,Mid-Market,HIGH,HIGH,213142.01,25
+CUST-0587,connectwave,carla@raptorsoft.com,49.0,Improving,8319.83,2025-02-02,,Active,2023-08-25,3,,,connectwave,,True,global_median_proxy,-72,1.0,0.0,0.0,True,0.25,Mid-Market,HIGH,MEDIUM,238725.88,28
+CUST-0588,skyops,patricia@raptorsoft.com,16.0,,6401.27,2025-02-20,,Active,2024-03-24,1,10.0,ACC-1108,skyops,,False,actual,-54,1.0,-0.08,0.5,True,0.08333333333333333,Mid-Market,HIGH,HIGH,214724.43,25
+CUST-0589,Polare,patricia@raptorsoft.com,55.0,Improving,14918.91,2026-02-05,,Active,,2,4.0,,polare,,False,actual,296,0.0,0.1,0.0,True,0.16666666666666666,Mid-Market,HIGH,MEDIUM,218077.81,27
+CUST-0590,RUSHFLOW,carla@raptorsoft.com,34.0,Improving,0.0,2026-06-05,2024-03-30,Churned,,10,,,rushflow,,False,actual,416,0.0,0.0,0.0,True,0.8333333333333334,Mid-Market,HIGH,MEDIUM,183982.75,23
+CUST-0591,MINDBOX,lucas@raptorsoft.com,71.0,Declining,5439.88,2025-06-17,,Active,2024-06-14,11,,,mindbox,,False,actual,63,0.3,0.0,1.0,True,0.9166666666666666,Mid-Market,HIGH,MEDIUM,217717.35,26
+CUST-0592,Zentra,rafael@raptorsoft.com,68.0,Declining,6418.66,2025-02-17,,Active,2024-12-31,5,,ACC-1112,zentra,,False,actual,-57,1.0,0.0,1.0,False,0.4166666666666667,Mid-Market,HIGH,HIGH,236895.41,27
+CUST-0593,Amplia Soluções Ltda,rafael@raptorsoft.com,90.0,Stable,1784.51,2025-11-01,,Active,,3,,ACC-1113,amplia,,False,actual,200,0.0,0.0,0.3,True,0.25,Mid-Market,HIGH,HIGH,211018.85,25
+CUST-0594,CORELOGIC,lucas@raptorsoft.com,10.0,Declining,12681.19,2026-04-30,,Active,2023-07-10,7,2.0,,corelogic,,False,actual,380,0.0,0.1,1.0,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,206729.08,24
+CUST-0595,TapFlow,lucas@raptorsoft.com,75.0,,0.0,2025-02-18,2024-07-17,Churned,2024-03-26,0,3.0,ACC-1115,tapflow,,False,actual,-56,1.0,0.1,0.5,True,0.0,Mid-Market,HIGH,HIGH,213765.26,25
+CUST-0596,Innova Tech,rafael@raptorsoft.com,56.0,,12425.17,2025-09-20,,Active,2024-11-27,10,2.0,ACC-1116,innova,,False,actual,158,0.0,0.1,0.5,False,0.8333333333333334,Mid-Market,HIGH,HIGH,198837.46,20
+CUST-0597,Grid Soft,lucas@raptorsoft.com,10.0,Stable,3773.16,2026-05-25,2024-09-21,Churned,,12,3.0,,gridsoft,True,False,actual,405,0.0,0.1,0.3,True,1.0,Mid-Market,HIGH,MEDIUM,188772.05,23
+CUST-0598,Polaris,lucas@raptorsoft.com,82.0,Declining,0.0,2026-06-08,2025-01-12,Churned,,7,,ACC-1118,polaris,,False,actual,419,0.0,0.0,1.0,True,0.5833333333333334,Mid-Market,HIGH,HIGH,176653.15,23
+CUST-0599,BLUEPATH,,100.0,,13328.97,2025-11-14,,Active,,5,,,bluepath,,False,actual,213,0.0,0.0,0.5,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,189029.98,25
+CUST-0600,Acme,lucas@raptorsoft.com,,Declining,7484.39,2025-08-21,,Active,2024-06-13,10,1.0,ACC-1100,acme,,False,actual,128,0.0,0.1,1.0,True,0.8333333333333334,Mid-Market,HIGH,HIGH,194509.94,23
+CUST-0601,BETA SOLUTIONS,carla@raptorsoft.com,47.0,Declining,10158.39,2025-02-15,,Active,,8,8.0,ACC-1101,betasolutions,,False,actual,-59,1.0,0.0,1.0,True,0.6666666666666666,Mid-Market,HIGH,HIGH,133712.45,22
+CUST-0602,GRUPO NEXUS,patricia@raptorsoft.com,67.0,Declining,11437.67,2024-10-08,,Active,,5,,,nexus,,False,actual,-189,1.0,0.0,1.0,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,200687.78,24
+CUST-0603,VERTICE TECH,carla@raptorsoft.com,84.0,Stable,11150.34,2025-06-30,,Active,,4,3.0,,vertice,,False,actual,76,0.3,0.1,0.3,True,0.3333333333333333,Mid-Market,HIGH,MEDIUM,197690.09,23
+CUST-0604,Orbit Digital,patricia@raptorsoft.com,30.0,Improving,14623.65,2025-12-05,,Active,,4,8.0,ACC-1104,orbit,,False,actual,234,0.0,0.0,0.0,True,0.3333333333333333,Mid-Market,HIGH,HIGH,227071.01,26
+CUST-0605,Fluxo Sistemas Ltda,,69.0,,13733.83,2026-06-16,,Active,,12,2.0,,fluxo,,False,actual,427,0.0,0.1,0.5,True,1.0,Mid-Market,HIGH,MEDIUM,217571.91,27
+CUST-0606,DataPrime,,98.0,Declining,10126.85,2026-06-22,,Active,2024-06-29,4,1.0,,dataprime,,False,actual,433,0.0,0.1,1.0,True,0.3333333333333333,Mid-Market,HIGH,MEDIUM,213142.01,25
+CUST-0607,CONNECTWAVE,,44.0,Stable,1709.62,2025-06-06,,Active,,5,,,connectwave,,False,actual,52,0.6,0.0,0.3,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,238725.88,28
+CUST-0608,SkyOps,patricia@raptorsoft.com,75.0,Improving,6616.1,2025-12-19,,Active,,12,,,skyops,,False,actual,248,0.0,0.0,0.0,True,1.0,Mid-Market,HIGH,MEDIUM,214724.43,25
+CUST-0609,POLARE,patricia@raptorsoft.com,68.0,Declining,11711.04,2025-08-19,,Active,2024-10-24,8,,,polare,,False,actual,126,0.0,0.0,1.0,False,0.6666666666666666,Mid-Market,HIGH,MEDIUM,218077.81,27
+CUST-0610,RushFlow,carla@raptorsoft.com,54.0,Stable,0.0,2025-11-30,2023-12-22,Churned,2024-09-20,7,5.0,ACC-1110,rushflow,,False,actual,229,0.0,0.1,0.3,True,0.5833333333333334,Mid-Market,HIGH,HIGH,183982.75,23
+CUST-0611,MINDBOX,lucas@raptorsoft.com,,Improving,2942.59,2025-05-11,,Active,2024-09-19,11,,ACC-1111,mindbox,,False,actual,26,1.0,0.0,0.0,True,0.9166666666666666,Mid-Market,HIGH,HIGH,217717.35,26
+CUST-0612,zentra,carla@raptorsoft.com,52.0,Improving,5129.92,2025-05-06,,Active,2024-04-11,0,2.0,ACC-1112,zentra,,False,actual,21,1.0,0.1,0.0,True,0.0,Mid-Market,HIGH,HIGH,236895.41,27
+CUST-0613,Amplia,carla@raptorsoft.com,52.0,Declining,8602.31,2025-03-16,,Active,2023-08-28,4,8.0,ACC-1113,amplia,,False,actual,-30,1.0,0.0,1.0,True,0.3333333333333333,Mid-Market,HIGH,HIGH,211018.85,25
+CUST-0614,CORELOGIC,patricia@raptorsoft.com,35.0,,11677.81,2026-06-11,,Active,2024-10-12,8,6.0,ACC-1114,corelogic,,False,actual,422,0.0,0.1,0.5,True,0.6666666666666666,Mid-Market,HIGH,HIGH,206729.08,24
+CUST-0615,tapflow,patricia@raptorsoft.com,,Declining,11193.47,2025-05-03,,Active,,9,,,tapflow,,False,actual,18,1.0,0.0,1.0,True,0.75,Mid-Market,HIGH,MEDIUM,213765.26,25
+CUST-0616,INNOVA,lucas@raptorsoft.com,,Stable,3292.27,2025-07-04,,Active,,4,,,innova,,False,actual,80,0.3,0.0,0.3,True,0.3333333333333333,Mid-Market,HIGH,MEDIUM,198837.46,20
+CUST-0617,gridsoft,,91.0,,11338.31,2025-10-03,,Active,,1,,ACC-1117,gridsoft,,False,actual,171,0.0,0.0,0.5,True,0.08333333333333333,Mid-Market,HIGH,HIGH,188772.05,23
+CUST-0618,polaris,lucas@raptorsoft.com,86.0,Declining,7197.34,2025-12-29,,Active,,10,8.0,ACC-1118,polaris,,False,actual,258,0.0,0.0,1.0,True,0.8333333333333334,Mid-Market,HIGH,HIGH,176653.15,23
+CUST-0619,BluePath,carla@raptorsoft.com,45.0,Stable,3993.68,2026-03-28,,Active,,7,9.0,,bluepath,,False,actual,347,0.0,-0.08,0.3,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,189029.98,25
+CUST-0620,Acme Corp,,10.0,Declining,8688.69,2024-04-07,,Active,,5,6.0,ACC-1100,acme,,False,actual,-373,1.0,0.1,1.0,True,0.4166666666666667,Mid-Market,HIGH,HIGH,194509.94,23
+CUST-0621,BETA SOLUTIONS,rafael@raptorsoft.com,52.0,Declining,0.0,2025-05-21,2023-10-15,Churned,,10,5.0,ACC-1101,betasolutions,,False,actual,36,0.6,0.1,1.0,True,0.8333333333333334,Mid-Market,HIGH,HIGH,133712.45,22
+CUST-0622,GRUPO NEXUS,,64.0,Declining,10201.57,2025-11-16,,Active,2023-07-01,1,4.0,ACC-1102,nexus,,False,actual,215,0.0,0.1,1.0,True,0.08333333333333333,Mid-Market,HIGH,HIGH,200687.78,24
+CUST-0623,VERTICE TECH,patricia@raptorsoft.com,43.0,,7496.24,2025-09-21,,Active,,12,,ACC-1103,vertice,,False,actual,159,0.0,0.0,0.5,True,1.0,Mid-Market,HIGH,HIGH,197690.09,23
+CUST-0624,Orbit Digital,,80.0,Declining,6878.12,2025-05-13,,Active,,6,,,orbit,,False,actual,28,1.0,0.0,1.0,True,0.5,Mid-Market,HIGH,MEDIUM,227071.01,26
+CUST-0625,FLUXO SISTEMAS,lucas@raptorsoft.com,11.0,,2571.5,2025-12-04,,Active,,12,,ACC-1105,fluxo,,False,actual,233,0.0,0.0,0.5,True,1.0,Mid-Market,HIGH,HIGH,217571.91,27
+CUST-0626,DataPrime,carla@raptorsoft.com,63.0,Stable,0.0,2025-07-18,2024-08-22,Churned,2024-12-02,9,1.0,ACC-1106,dataprime,,False,actual,94,0.0,0.1,0.3,False,0.75,Mid-Market,HIGH,HIGH,213142.01,25
+CUST-0627,Connect Wave,patricia@raptorsoft.com,36.0,Stable,10581.9,2025-04-16,,Active,,9,,ACC-1107,connectwave,,False,actual,1,1.0,0.0,0.3,True,0.75,Mid-Market,HIGH,HIGH,238725.88,28
+CUST-0628,SkyOps,rafael@raptorsoft.com,,,4756.99,2025-01-09,,Active,2024-10-29,12,,ACC-1108,skyops,,False,actual,-96,1.0,0.0,0.5,False,1.0,Mid-Market,HIGH,HIGH,214724.43,25
+CUST-0629,polare,rafael@raptorsoft.com,17.0,Declining,1600.4,2025-09-09,,Active,,6,7.0,ACC-1109,polare,,False,actual,147,0.0,0.0,1.0,True,0.5,Mid-Market,HIGH,HIGH,218077.81,27
+CUST-0630,RushFlow,lucas@raptorsoft.com,20.0,Declining,0.0,2026-04-10,2024-03-21,Churned,2024-08-17,2,1.0,,rushflow,,False,actual,360,0.0,0.1,1.0,True,0.16666666666666666,Mid-Market,HIGH,MEDIUM,183982.75,23
+CUST-0631,mindbox,,43.0,Stable,6052.27,2025-02-21,,Active,2024-09-30,2,,,mindbox,,False,actual,-53,1.0,0.0,0.3,True,0.16666666666666666,Mid-Market,HIGH,MEDIUM,217717.35,26
+CUST-0632,Zentra Tech,lucas@raptorsoft.com,91.0,,9498.99,2025-03-20,,Active,2023-10-23,0,,,zentra,,False,actual,-26,1.0,0.0,0.5,True,0.0,Mid-Market,HIGH,MEDIUM,236895.41,27
+CUST-0633,Amplia,lucas@raptorsoft.com,29.0,Stable,0.0,2026-01-23,2024-12-15,Churned,,6,,ACC-1113,amplia,,False,actual,283,0.0,0.0,0.3,True,0.5,Mid-Market,HIGH,HIGH,211018.85,25
+CUST-0634,corelogic,patricia@raptorsoft.com,20.0,Stable,7115.28,2024-09-23,,Active,2024-09-30,8,5.0,ACC-1114,corelogic,,False,actual,-204,1.0,0.1,0.3,True,0.6666666666666666,Mid-Market,HIGH,HIGH,206729.08,24
+CUST-0635,Tap Flow,,78.0,Improving,6613.92,2025-01-06,,Active,2024-04-22,7,6.0,,tapflow,,False,actual,-99,1.0,0.1,0.0,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,213765.26,25
+CUST-0636,Innova Tech,rafael@raptorsoft.com,65.0,Stable,14129.55,2025-01-16,,Active,2023-08-11,7,10.0,,innova,,False,actual,-89,1.0,-0.08,0.3,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,198837.46,20
+CUST-0637,GridSoft,carla@raptorsoft.com,95.0,Declining,8319.83,2025-02-15,,Active,2024-07-14,10,,,gridsoft,,True,global_median_proxy,-59,1.0,0.0,1.0,True,0.8333333333333334,Mid-Market,HIGH,MEDIUM,188772.05,23
+CUST-0638,polaris,patricia@raptorsoft.com,,Improving,0.0,2025-04-02,2024-05-14,Churned,2023-08-28,6,7.0,,polaris,,False,actual,-13,1.0,0.0,0.0,True,0.5,Mid-Market,HIGH,MEDIUM,176653.15,23
+CUST-0639,Blue Path,lucas@raptorsoft.com,56.0,Improving,3722.16,2025-07-25,,Active,2024-07-10,1,10.0,,bluepath,,False,actual,101,0.0,-0.08,0.0,True,0.08333333333333333,Mid-Market,HIGH,MEDIUM,189029.98,25
+CUST-0640,Acme,carla@raptorsoft.com,,,6113.08,2025-05-31,,Active,2024-03-20,1,7.0,ACC-1100,acme,,False,actual,46,0.6,0.0,0.5,True,0.08333333333333333,Mid-Market,HIGH,HIGH,194509.94,23
+CUST-0641,Beta Solutions,lucas@raptorsoft.com,,Declining,6199.78,2025-10-03,,Active,,0,2.0,ACC-1101,betasolutions,,False,actual,171,0.0,0.1,1.0,True,0.0,Mid-Market,HIGH,HIGH,133712.45,22
+CUST-0642,Grupo Nexus,patricia@raptorsoft.com,54.0,Declining,13069.52,2026-06-26,,Active,2024-01-31,0,,ACC-1102,nexus,,False,actual,437,0.0,0.0,1.0,True,0.0,Mid-Market,HIGH,HIGH,200687.78,24
+CUST-0643,Vértice Tech,rafael@raptorsoft.com,64.0,Declining,0.0,2025-01-04,2025-01-22,Churned,,12,8.0,,vertice,,False,actual,-101,1.0,0.0,1.0,True,1.0,Mid-Market,HIGH,MEDIUM,197690.09,23
+CUST-0644,orbit digital,carla@raptorsoft.com,81.0,Stable,6738.18,2025-08-06,,Active,2024-11-09,12,6.0,,orbit,,False,actual,113,0.0,0.1,0.3,False,1.0,Mid-Market,HIGH,MEDIUM,227071.01,26
+CUST-0645,Fluxo Sistemas,carla@raptorsoft.com,,Stable,14745.08,2026-03-10,,Active,,11,,ACC-1105,fluxo,,False,actual,329,0.0,0.0,0.3,True,0.9166666666666666,Mid-Market,HIGH,HIGH,217571.91,27
+CUST-0646,DataPrime,carla@raptorsoft.com,42.0,Improving,13184.45,2025-03-10,,Active,2024-05-15,11,4.0,ACC-1106,dataprime,,False,actual,-36,1.0,0.1,0.0,True,0.9166666666666666,Mid-Market,HIGH,HIGH,213142.01,25
+CUST-0647,ConnectWave,lucas@raptorsoft.com,,,3448.35,2024-03-08,,Active,,1,7.0,ACC-1107,connectwave,,False,actual,-403,1.0,0.0,0.5,True,0.08333333333333333,Mid-Market,HIGH,HIGH,238725.88,28
+CUST-0648,Sky Ops,rafael@raptorsoft.com,60.0,Declining,7118.01,2026-02-13,,Active,2023-06-06,0,,,skyops,,False,actual,304,0.0,0.0,1.0,True,0.0,Mid-Market,HIGH,MEDIUM,214724.43,25
+CUST-0649,POLARE,patricia@raptorsoft.com,89.0,Improving,12885.19,2026-06-06,,Active,2023-06-21,8,10.0,,polare,,False,actual,417,0.0,-0.08,0.0,True,0.6666666666666666,Mid-Market,HIGH,MEDIUM,218077.81,27
+CUST-0650,Rush Flow,rafael@raptorsoft.com,89.0,Declining,0.0,2026-02-09,2024-06-02,Churned,2023-11-04,4,,,rushflow,,False,actual,300,0.0,0.0,1.0,True,0.3333333333333333,Mid-Market,HIGH,MEDIUM,183982.75,23
+CUST-0651,Mind Box,patricia@raptorsoft.com,88.0,Stable,14714.43,2025-03-01,,Active,,1,,,mindbox,,False,actual,-45,1.0,0.0,0.3,True,0.08333333333333333,Mid-Market,HIGH,MEDIUM,217717.35,26
+CUST-0652,zentra,,56.0,Declining,12255.36,2025-10-02,,Active,,0,10.0,ACC-1112,zentra,,False,actual,170,0.0,-0.08,1.0,True,0.0,Mid-Market,HIGH,HIGH,236895.41,27
+CUST-0653,AMPLIA SOLUCOES,rafael@raptorsoft.com,51.0,,3242.13,2025-07-24,,Active,2023-08-15,7,9.0,,amplia,,False,actual,100,0.0,-0.08,0.5,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,211018.85,25
+CUST-0654,CoreLogic,carla@raptorsoft.com,77.0,,7960.32,2025-07-31,,Active,,7,,ACC-1114,corelogic,,False,actual,107,0.0,0.0,0.5,True,0.5833333333333334,Mid-Market,HIGH,HIGH,206729.08,24
+CUST-0655,Tap Flow,rafael@raptorsoft.com,52.0,Improving,4838.55,2025-02-01,,Active,2023-11-01,2,,ACC-1115,tapflow,,False,actual,-73,1.0,0.0,0.0,True,0.16666666666666666,Mid-Market,HIGH,HIGH,213765.26,25
+CUST-0656,INNOVA,carla@raptorsoft.com,80.0,,13812.45,2025-11-12,,Active,2024-08-27,10,,,innova,,False,actual,211,0.0,0.0,0.5,True,0.8333333333333334,Mid-Market,HIGH,MEDIUM,198837.46,20
+CUST-0657,Grid Soft,lucas@raptorsoft.com,73.0,Improving,5290.72,2025-01-15,,Active,,0,5.0,,gridsoft,,False,actual,-90,1.0,0.1,0.0,True,0.0,Mid-Market,HIGH,MEDIUM,188772.05,23
+CUST-0658,Polaris,patricia@raptorsoft.com,63.0,,9495.97,2025-12-28,,Active,,12,,ACC-1118,polaris,,False,actual,257,0.0,0.0,0.5,True,1.0,Mid-Market,HIGH,HIGH,176653.15,23
+CUST-0659,BLUEPATH,lucas@raptorsoft.com,33.0,Stable,10018.11,2025-12-17,,Active,2023-12-12,10,6.0,,bluepath,,False,actual,246,0.0,0.1,0.3,True,0.8333333333333334,Mid-Market,HIGH,MEDIUM,189029.98,25
+CUST-0660,Acme Corp.,patricia@raptorsoft.com,96.0,Stable,6466.67,2025-10-18,,Active,,12,,ACC-1100,acme,,False,actual,186,0.0,0.0,0.3,True,1.0,Mid-Market,HIGH,HIGH,194509.94,23
+CUST-0661,beta solutions,patricia@raptorsoft.com,44.0,Improving,0.0,2025-04-18,2024-10-16,Churned,2024-12-20,7,,,betasolutions,,False,actual,3,1.0,0.0,0.0,False,0.5833333333333334,Mid-Market,HIGH,MEDIUM,133712.45,22
+CUST-0662,GRUPO NEXUS,patricia@raptorsoft.com,16.0,Declining,14447.9,2025-02-23,,Active,,2,,,nexus,,False,actual,-51,1.0,0.0,1.0,True,0.16666666666666666,Mid-Market,HIGH,MEDIUM,200687.78,24
+CUST-0663,Vertice,patricia@raptorsoft.com,,Declining,5193.38,2025-01-22,,Active,2023-11-10,5,6.0,,vertice,,False,actual,-83,1.0,0.1,1.0,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,197690.09,23
+CUST-0664,Orbit Digital,rafael@raptorsoft.com,,Declining,14257.0,2025-03-28,,Active,2023-12-03,3,,ACC-1104,orbit,,False,actual,-18,1.0,0.0,1.0,True,0.25,Mid-Market,HIGH,HIGH,227071.01,26
+CUST-0665,Fluxo Sistemas,carla@raptorsoft.com,35.0,Declining,13202.89,2024-02-18,,Active,,8,10.0,ACC-1105,fluxo,,False,actual,-422,1.0,-0.08,1.0,True,0.6666666666666666,Mid-Market,HIGH,HIGH,217571.91,27
+CUST-0666,dataprime,patricia@raptorsoft.com,66.0,Stable,847.41,2025-01-17,,Active,2023-06-22,2,,,dataprime,,False,actual,-88,1.0,0.0,0.3,True,0.16666666666666666,Mid-Market,HIGH,MEDIUM,213142.01,25
+CUST-0667,CONNECTWAVE,patricia@raptorsoft.com,92.0,Improving,4474.64,2025-04-22,,Active,2024-07-19,3,,ACC-1107,connectwave,,False,actual,7,1.0,0.0,0.0,True,0.25,Mid-Market,HIGH,HIGH,238725.88,28
+CUST-0668,skyops,lucas@raptorsoft.com,,Declining,8451.38,2025-03-17,2023-09-18,Churned,2023-10-22,9,8.0,,skyops,True,False,actual,-29,1.0,0.0,1.0,True,0.75,Mid-Market,HIGH,MEDIUM,214724.43,25
+CUST-0669,polare,rafael@raptorsoft.com,,Improving,10561.65,2025-09-17,,Active,2024-01-25,9,,ACC-1109,polare,,False,actual,155,0.0,0.0,0.0,True,0.75,Mid-Market,HIGH,HIGH,218077.81,27
+CUST-0670,rushflow,,,Improving,0.0,2025-08-19,2024-02-27,Churned,2024-09-02,1,,ACC-1110,rushflow,,False,actual,126,0.0,0.0,0.0,True,0.08333333333333333,Mid-Market,HIGH,HIGH,183982.75,23
+CUST-0671,MINDBOX,lucas@raptorsoft.com,24.0,Improving,6195.25,2025-04-28,,Active,,11,,ACC-1111,mindbox,,False,actual,13,1.0,0.0,0.0,True,0.9166666666666666,Mid-Market,HIGH,HIGH,217717.35,26
+CUST-0672,Zentra Tech,carla@raptorsoft.com,96.0,Declining,3573.58,2025-01-25,,Active,2023-11-12,8,10.0,,zentra,,False,actual,-80,1.0,-0.08,1.0,True,0.6666666666666666,Mid-Market,HIGH,MEDIUM,236895.41,27
+CUST-0673,AMPLIA SOLUCOES,,83.0,Improving,11059.36,2026-05-28,,Active,,1,,ACC-1113,amplia,,False,actual,408,0.0,0.0,0.0,True,0.08333333333333333,Mid-Market,HIGH,HIGH,211018.85,25
+CUST-0674,CoreLogic,carla@raptorsoft.com,24.0,Stable,0.0,2026-01-10,2024-07-19,Churned,,5,,ACC-1114,corelogic,,False,actual,270,0.0,0.0,0.3,True,0.4166666666666667,Mid-Market,HIGH,HIGH,206729.08,24
+CUST-0675,TAPFLOW,carla@raptorsoft.com,,Improving,6440.53,2025-04-07,,Active,2024-10-09,7,6.0,ACC-1115,tapflow,,False,actual,-8,1.0,0.1,0.0,True,0.5833333333333334,Mid-Market,HIGH,HIGH,213765.26,25
+CUST-0676,INNOVA,carla@raptorsoft.com,10.0,,0.0,2025-10-21,2024-05-23,Churned,2023-11-07,12,7.0,ACC-1116,innova,,False,actual,189,0.0,0.0,0.5,True,1.0,Mid-Market,HIGH,HIGH,198837.46,20
+CUST-0677,GridSoft,rafael@raptorsoft.com,62.0,Stable,0.0,2026-04-03,2024-08-01,Churned,,7,9.0,,gridsoft,,False,actual,353,0.0,-0.08,0.3,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,188772.05,23
+CUST-0678,Polaris Tech,lucas@raptorsoft.com,,Declining,8117.98,2025-10-14,,Active,2024-11-29,10,,ACC-1118,polaris,,False,actual,182,0.0,0.0,1.0,False,0.8333333333333334,Mid-Market,HIGH,HIGH,176653.15,23
+CUST-0679,BLUEPATH,patricia@raptorsoft.com,84.0,Improving,0.0,2025-04-28,2024-11-25,Churned,2024-09-27,8,9.0,ACC-1119,bluepath,,False,actual,13,1.0,-0.08,0.0,True,0.6666666666666666,Mid-Market,HIGH,HIGH,189029.98,25
+CUST-0680,acme,rafael@raptorsoft.com,24.0,,7985.24,2025-12-07,2024-05-28,Churned,,10,8.0,ACC-1100,acme,True,False,actual,236,0.0,0.0,0.5,True,0.8333333333333334,Mid-Market,HIGH,HIGH,194509.94,23
+CUST-0681,Beta Solutions,rafael@raptorsoft.com,24.0,,9105.05,2026-01-04,,Active,2023-08-03,8,10.0,ACC-1101,betasolutions,,False,actual,264,0.0,-0.08,0.5,True,0.6666666666666666,Mid-Market,HIGH,HIGH,133712.45,22
+CUST-0682,GRUPO NEXUS,,23.0,Improving,12042.62,2025-07-22,,Active,2024-04-23,12,1.0,,nexus,,False,actual,98,0.0,0.1,0.0,True,1.0,Mid-Market,HIGH,MEDIUM,200687.78,24
+CUST-0683,VERTICE TECH,rafael@raptorsoft.com,66.0,Improving,11077.96,2026-03-29,,Active,2024-11-30,6,,,vertice,,False,actual,348,0.0,0.0,0.0,False,0.5,Mid-Market,HIGH,MEDIUM,197690.09,23
+CUST-0684,Orbit Digital,lucas@raptorsoft.com,,Declining,0.0,2025-12-11,2024-11-12,Churned,,10,5.0,ACC-1104,orbit,,False,actual,240,0.0,0.1,1.0,True,0.8333333333333334,Mid-Market,HIGH,HIGH,227071.01,26
+CUST-0685,Fluxo Sistemas,carla@raptorsoft.com,55.0,Declining,0.0,2025-04-29,2023-08-24,Churned,2024-08-17,10,4.0,ACC-1105,fluxo,,False,actual,14,1.0,0.1,1.0,True,0.8333333333333334,Mid-Market,HIGH,HIGH,217571.91,27
+CUST-0686,DataPrime,carla@raptorsoft.com,41.0,,10210.23,2025-09-05,,Active,,2,6.0,ACC-1106,dataprime,,False,actual,143,0.0,0.1,0.5,True,0.16666666666666666,Mid-Market,HIGH,HIGH,213142.01,25
+CUST-0687,CONNECTWAVE,carla@raptorsoft.com,,Improving,9421.15,2025-10-31,,Active,2024-04-08,1,,,connectwave,,False,actual,199,0.0,0.0,0.0,True,0.08333333333333333,Mid-Market,HIGH,MEDIUM,238725.88,28
+CUST-0688,SKYOPS,lucas@raptorsoft.com,,Stable,12164.26,2025-10-26,,Active,2023-11-05,1,,ACC-1108,skyops,,False,actual,194,0.0,0.0,0.3,True,0.08333333333333333,Mid-Market,HIGH,HIGH,214724.43,25
+CUST-0689,polare,carla@raptorsoft.com,63.0,Declining,1626.07,2026-04-24,,Active,,7,4.0,ACC-1109,polare,,False,actual,374,0.0,0.1,1.0,True,0.5833333333333334,Mid-Market,HIGH,HIGH,218077.81,27
+CUST-0690,Rush Flow,lucas@raptorsoft.com,56.0,Stable,12835.42,2026-05-01,,Active,2023-09-06,6,,ACC-1110,rushflow,,False,actual,381,0.0,0.0,0.3,True,0.5,Mid-Market,HIGH,HIGH,183982.75,23
+CUST-0691,MINDBOX,,34.0,Improving,10842.75,2025-02-08,,Active,,3,,ACC-1111,mindbox,,False,actual,-66,1.0,0.0,0.0,True,0.25,Mid-Market,HIGH,HIGH,217717.35,26
+CUST-0692,Zentra Tech,,,,14402.62,2026-01-22,,Active,,10,2.0,ACC-1112,zentra,,False,actual,282,0.0,0.1,0.5,True,0.8333333333333334,Mid-Market,HIGH,HIGH,236895.41,27
+CUST-0693,Amplia Soluções,lucas@raptorsoft.com,62.0,Stable,1956.11,2025-12-18,,Active,2024-10-13,3,2.0,ACC-1113,amplia,,False,actual,247,0.0,0.1,0.3,True,0.25,Mid-Market,HIGH,HIGH,211018.85,25
+CUST-0694,CoreLogic,lucas@raptorsoft.com,31.0,Improving,0.0,2026-02-21,2023-07-09,Churned,2024-11-02,4,6.0,,corelogic,,False,actual,312,0.0,0.1,0.0,False,0.3333333333333333,Mid-Market,HIGH,MEDIUM,206729.08,24
+CUST-0695,Tap Flow,lucas@raptorsoft.com,64.0,Stable,7265.98,2026-02-16,,Active,,5,9.0,ACC-1115,tapflow,,False,actual,307,0.0,-0.08,0.3,True,0.4166666666666667,Mid-Market,HIGH,HIGH,213765.26,25
+CUST-0696,INNOVA,patricia@raptorsoft.com,30.0,Stable,0.0,2026-05-13,2024-07-06,Churned,2024-08-28,4,,,innova,,False,actual,393,0.0,0.0,0.3,True,0.3333333333333333,Mid-Market,HIGH,MEDIUM,198837.46,20
+CUST-0697,Grid Soft,patricia@raptorsoft.com,52.0,,10950.46,2025-02-04,,Active,,4,2.0,ACC-1117,gridsoft,,False,actual,-70,1.0,0.1,0.5,True,0.3333333333333333,Mid-Market,HIGH,HIGH,188772.05,23
+CUST-0698,polaris,lucas@raptorsoft.com,85.0,Improving,10720.49,2026-02-04,,Active,,9,2.0,ACC-1118,polaris,,False,actual,295,0.0,0.1,0.0,True,0.75,Mid-Market,HIGH,HIGH,176653.15,23
+CUST-0699,BLUEPATH,,93.0,Declining,14531.82,2025-10-05,,Active,2023-12-07,0,6.0,ACC-1119,bluepath,,False,actual,173,0.0,0.1,1.0,True,0.0,Mid-Market,HIGH,HIGH,189029.98,25
+CUST-0700,Acme Corp,patricia@raptorsoft.com,,Improving,5886.15,2025-10-16,,Active,2023-07-23,5,,ACC-1100,acme,,False,actual,184,0.0,0.0,0.0,True,0.4166666666666667,Mid-Market,HIGH,HIGH,194509.94,23
+CUST-0701,BETA SOLUTIONS,lucas@raptorsoft.com,62.0,Stable,1537.75,2025-08-03,,Active,,12,9.0,,betasolutions,,False,actual,110,0.0,-0.08,0.3,True,1.0,Mid-Market,HIGH,MEDIUM,133712.45,22
+CUST-0702,GRUPO NEXUS,lucas@raptorsoft.com,29.0,Improving,7698.95,2025-12-12,,Active,2023-07-23,8,7.0,,nexus,,False,actual,241,0.0,0.0,0.0,True,0.6666666666666666,Mid-Market,HIGH,MEDIUM,200687.78,24
+CUST-0703,VERTICE TECH,lucas@raptorsoft.com,100.0,Declining,2337.61,2024-08-29,,Active,2024-09-06,7,,ACC-1103,vertice,,False,actual,-229,1.0,0.0,1.0,True,0.5833333333333334,Mid-Market,HIGH,HIGH,197690.09,23
+CUST-0704,Orbit,,,Improving,9975.33,2025-11-10,,Active,2023-08-29,10,8.0,,orbit,,False,actual,209,0.0,0.0,0.0,True,0.8333333333333334,Mid-Market,HIGH,MEDIUM,227071.01,26
+CUST-0705,Fluxo,carla@raptorsoft.com,75.0,Improving,5521.15,2025-07-28,2024-01-23,Churned,,8,8.0,,fluxo,True,False,actual,104,0.0,0.0,0.0,True,0.6666666666666666,Mid-Market,HIGH,MEDIUM,217571.91,27
+CUST-0706,Data Prime,rafael@raptorsoft.com,44.0,Declining,5071.67,2025-08-22,,Active,,4,9.0,,dataprime,,False,actual,129,0.0,-0.08,1.0,True,0.3333333333333333,Mid-Market,HIGH,MEDIUM,213142.01,25
+CUST-0707,connectwave,patricia@raptorsoft.com,,Improving,7183.98,2026-05-30,,Active,2023-11-08,0,10.0,ACC-1107,connectwave,,False,actual,410,0.0,-0.08,0.0,True,0.0,Mid-Market,HIGH,HIGH,238725.88,28
+CUST-0708,skyops,patricia@raptorsoft.com,97.0,Stable,0.0,2025-03-27,2024-02-16,Churned,2023-12-10,0,,,skyops,,False,actual,-19,1.0,0.0,0.3,True,0.0,Mid-Market,HIGH,MEDIUM,214724.43,25
+CUST-0709,Polare Ltda,rafael@raptorsoft.com,79.0,Declining,14784.12,2025-11-12,,Active,2023-08-29,5,,,polare,,False,actual,211,0.0,0.0,1.0,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,218077.81,27
+CUST-0710,rushflow,rafael@raptorsoft.com,44.0,Improving,0.0,2025-01-22,2024-05-10,Churned,,8,10.0,,rushflow,,False,actual,-83,1.0,-0.08,0.0,True,0.6666666666666666,Mid-Market,HIGH,MEDIUM,183982.75,23
+CUST-0711,mindbox,patricia@raptorsoft.com,61.0,,6732.92,2026-06-26,,Active,,7,9.0,,mindbox,,False,actual,437,0.0,-0.08,0.5,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,217717.35,26
+CUST-0712,ZENTRA,,90.0,Declining,7573.4,2026-04-04,2023-11-08,Churned,2024-05-01,2,,,zentra,True,False,actual,354,0.0,0.0,1.0,True,0.16666666666666666,Mid-Market,HIGH,MEDIUM,236895.41,27
+CUST-0713,Amplia Soluções,rafael@raptorsoft.com,39.0,,12112.83,2025-06-09,,Active,,11,,ACC-1113,amplia,,False,actual,55,0.6,0.0,0.5,True,0.9166666666666666,Mid-Market,HIGH,HIGH,211018.85,25
+CUST-0714,Core Logic,lucas@raptorsoft.com,,,10760.59,2025-08-23,,Active,,3,4.0,ACC-1114,corelogic,,False,actual,130,0.0,0.1,0.5,True,0.25,Mid-Market,HIGH,HIGH,206729.08,24
+CUST-0715,tapflow,,66.0,Improving,12200.67,2025-09-26,,Active,2023-07-13,7,,ACC-1115,tapflow,,False,actual,164,0.0,0.0,0.0,True,0.5833333333333334,Mid-Market,HIGH,HIGH,213765.26,25
+CUST-0716,innova,rafael@raptorsoft.com,48.0,Declining,14552.87,2025-08-14,,Active,2023-12-26,5,7.0,,innova,,False,actual,121,0.0,0.0,1.0,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,198837.46,20
+CUST-0717,Grid Soft,carla@raptorsoft.com,27.0,Stable,7942.48,2025-07-15,,Active,2024-01-14,4,4.0,ACC-1117,gridsoft,,False,actual,91,0.0,0.1,0.3,True,0.3333333333333333,Mid-Market,HIGH,HIGH,188772.05,23
+CUST-0718,Polaris Tech,lucas@raptorsoft.com,19.0,Declining,13268.86,2025-10-08,,Active,,2,,,polaris,,False,actual,176,0.0,0.0,1.0,True,0.16666666666666666,Mid-Market,HIGH,MEDIUM,176653.15,23
+CUST-0719,BluePath,carla@raptorsoft.com,,Improving,12800.39,2025-12-10,,Active,2024-01-21,0,,,bluepath,,False,actual,239,0.0,0.0,0.0,True,0.0,Mid-Market,HIGH,MEDIUM,189029.98,25
+CUST-0720,acme,carla@raptorsoft.com,74.0,Stable,1408.05,2025-11-01,,Active,2024-09-23,3,,ACC-1100,acme,,False,actual,200,0.0,0.0,0.3,True,0.25,Mid-Market,HIGH,HIGH,194509.94,23
+CUST-0721,beta solutions,,83.0,Improving,6125.71,2024-03-19,,Active,2024-03-05,11,,ACC-1101,betasolutions,,False,actual,-392,1.0,0.0,0.0,True,0.9166666666666666,Mid-Market,HIGH,HIGH,133712.45,22
+CUST-0722,Grupo Nexus,rafael@raptorsoft.com,66.0,Improving,12719.71,2025-08-25,,Active,,3,,,nexus,,False,actual,132,0.0,0.0,0.0,True,0.25,Mid-Market,HIGH,MEDIUM,200687.78,24
+CUST-0723,Vertice,rafael@raptorsoft.com,34.0,Stable,13149.97,2025-01-11,,Active,2023-09-16,4,,,vertice,,False,actual,-94,1.0,0.0,0.3,True,0.3333333333333333,Mid-Market,HIGH,MEDIUM,197690.09,23
+CUST-0724,ORBIT DIGITAL,patricia@raptorsoft.com,40.0,Improving,7554.75,2026-03-13,,Active,,12,10.0,,orbit,,False,actual,332,0.0,-0.08,0.0,True,1.0,Mid-Market,HIGH,MEDIUM,227071.01,26
+CUST-0725,Fluxo,,27.0,Stable,8772.72,2026-03-30,,Active,,7,6.0,ACC-1105,fluxo,,False,actual,349,0.0,0.1,0.3,True,0.5833333333333334,Mid-Market,HIGH,HIGH,217571.91,27
+CUST-0726,DATAPRIME,lucas@raptorsoft.com,71.0,,0.0,2025-02-20,2023-10-07,Churned,2024-04-08,8,4.0,ACC-1106,dataprime,,False,actual,-54,1.0,0.1,0.5,True,0.6666666666666666,Mid-Market,HIGH,HIGH,213142.01,25
+CUST-0727,ConnectWave,lucas@raptorsoft.com,52.0,Stable,14611.28,2024-03-25,,Active,,12,6.0,ACC-1107,connectwave,,False,actual,-386,1.0,0.1,0.3,True,1.0,Mid-Market,HIGH,HIGH,238725.88,28
+CUST-0728,SKYOPS,carla@raptorsoft.com,81.0,Declining,11645.4,2025-08-18,,Active,2023-08-01,2,,,skyops,,False,actual,125,0.0,0.0,1.0,True,0.16666666666666666,Mid-Market,HIGH,MEDIUM,214724.43,25
+CUST-0729,Polare Ltda,rafael@raptorsoft.com,,Stable,0.0,2025-09-10,2024-07-17,Churned,2023-12-18,10,10.0,,polare,,False,actual,148,0.0,-0.08,0.3,True,0.8333333333333334,Mid-Market,HIGH,MEDIUM,218077.81,27
+CUST-0730,RushFlow,carla@raptorsoft.com,59.0,,3384.11,2025-04-05,,Active,,4,,ACC-1110,rushflow,,False,actual,-10,1.0,0.0,0.5,True,0.3333333333333333,Mid-Market,HIGH,HIGH,183982.75,23
+CUST-0731,Mind Box,patricia@raptorsoft.com,49.0,Declining,11416.18,2025-10-21,,Active,,8,4.0,ACC-1111,mindbox,,False,actual,189,0.0,0.1,1.0,True,0.6666666666666666,Mid-Market,HIGH,HIGH,217717.35,26
+CUST-0732,ZENTRA,carla@raptorsoft.com,51.0,Declining,12381.17,2025-12-30,,Active,2024-08-11,12,5.0,,zentra,,False,actual,259,0.0,0.1,1.0,True,1.0,Mid-Market,HIGH,MEDIUM,236895.41,27
+CUST-0733,Amplia,patricia@raptorsoft.com,82.0,,9327.75,2025-06-12,,Active,2023-07-06,5,10.0,,amplia,,False,actual,58,0.6,-0.08,0.5,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,211018.85,25
+CUST-0734,Core Logic,rafael@raptorsoft.com,20.0,Declining,12144.19,2026-05-24,,Active,,8,,ACC-1114,corelogic,,False,actual,404,0.0,0.0,1.0,True,0.6666666666666666,Mid-Market,HIGH,HIGH,206729.08,24
+CUST-0735,TapFlow,patricia@raptorsoft.com,,Declining,12768.44,2024-08-19,,Active,,10,2.0,ACC-1115,tapflow,,False,actual,-239,1.0,0.1,1.0,True,0.8333333333333334,Mid-Market,HIGH,HIGH,213765.26,25
+CUST-0736,Innova Tech,carla@raptorsoft.com,,Improving,8720.19,2025-02-14,,Active,,10,,ACC-1116,innova,,False,actual,-60,1.0,0.0,0.0,True,0.8333333333333334,Mid-Market,HIGH,HIGH,198837.46,20
+CUST-0737,gridsoft,carla@raptorsoft.com,,,14335.17,2025-05-09,,Active,2024-10-01,3,10.0,,gridsoft,,False,actual,24,1.0,-0.08,0.5,True,0.25,Mid-Market,HIGH,MEDIUM,188772.05,23
+CUST-0738,Polaris,lucas@raptorsoft.com,43.0,Declining,10036.94,2026-04-02,,Active,2024-12-08,7,,ACC-1118,polaris,,False,actual,352,0.0,0.0,1.0,False,0.5833333333333334,Mid-Market,HIGH,HIGH,176653.15,23
+CUST-0739,BLUEPATH,rafael@raptorsoft.com,75.0,Stable,8319.83,2026-01-15,,Active,2024-11-13,10,,,bluepath,,True,global_median_proxy,275,0.0,0.0,0.3,False,0.8333333333333334,Mid-Market,HIGH,MEDIUM,189029.98,25
+CUST-0740,ACME CORP,,44.0,,0.0,2025-02-15,2023-06-23,Churned,2024-12-25,5,8.0,ACC-1100,acme,,False,actual,-59,1.0,0.0,0.5,False,0.4166666666666667,Mid-Market,HIGH,HIGH,194509.94,23
+CUST-0741,BETA SOLUTIONS,carla@raptorsoft.com,50.0,Improving,3713.41,2026-03-08,,Active,2023-10-28,12,,ACC-1101,betasolutions,,False,actual,327,0.0,0.0,0.0,True,1.0,Mid-Market,HIGH,HIGH,133712.45,22
+CUST-0742,GRUPO NEXUS,lucas@raptorsoft.com,89.0,Stable,0.0,2025-11-28,2024-08-02,Churned,,4,10.0,ACC-1102,nexus,,False,actual,227,0.0,-0.08,0.3,True,0.3333333333333333,Mid-Market,HIGH,HIGH,200687.78,24
+CUST-0743,Vertice Tech,lucas@raptorsoft.com,85.0,Stable,7784.84,2026-06-02,,Active,2023-08-17,12,,ACC-1103,vertice,,False,actual,413,0.0,0.0,0.3,True,1.0,Mid-Market,HIGH,HIGH,197690.09,23
+CUST-0744,orbit digital,patricia@raptorsoft.com,79.0,Stable,0.0,2025-04-20,2024-08-29,Churned,,2,,ACC-1104,orbit,,False,actual,5,1.0,0.0,0.3,True,0.16666666666666666,Mid-Market,HIGH,HIGH,227071.01,26
+CUST-0745,FLUXO SISTEMAS,rafael@raptorsoft.com,83.0,,0.0,2026-05-21,2023-10-29,Churned,2024-05-31,2,,,fluxo,,False,actual,401,0.0,0.0,0.5,True,0.16666666666666666,Mid-Market,HIGH,MEDIUM,217571.91,27
+CUST-0746,DataPrime,patricia@raptorsoft.com,,Improving,1331.36,2025-04-09,,Active,,4,6.0,ACC-1106,dataprime,,False,actual,-6,1.0,0.1,0.0,True,0.3333333333333333,Mid-Market,HIGH,HIGH,213142.01,25
+CUST-0747,Connect Wave,patricia@raptorsoft.com,,Stable,8756.45,2025-03-01,,Active,,3,,ACC-1107,connectwave,,False,actual,-45,1.0,0.0,0.3,True,0.25,Mid-Market,HIGH,HIGH,238725.88,28
+CUST-0748,SKYOPS,patricia@raptorsoft.com,,Improving,0.0,2025-11-23,2024-11-30,Churned,,12,2.0,,skyops,,False,actual,222,0.0,0.1,0.0,True,1.0,Mid-Market,HIGH,MEDIUM,214724.43,25
+CUST-0749,Polare,,,Stable,2897.03,2026-01-19,,Active,2024-05-05,7,4.0,ACC-1109,polare,,False,actual,279,0.0,0.1,0.3,True,0.5833333333333334,Mid-Market,HIGH,HIGH,218077.81,27
+CUST-0750,RushFlow,,29.0,Declining,12271.07,2026-02-04,,Active,,9,,,rushflow,,False,actual,295,0.0,0.0,1.0,True,0.75,Mid-Market,HIGH,MEDIUM,183982.75,23
+CUST-0751,MINDBOX,lucas@raptorsoft.com,,,0.0,2026-05-12,2024-02-03,Churned,2023-12-28,11,4.0,,mindbox,,False,actual,392,0.0,0.1,0.5,True,0.9166666666666666,Mid-Market,HIGH,MEDIUM,217717.35,26
+CUST-0752,zentra,lucas@raptorsoft.com,96.0,Stable,8278.02,2025-12-20,,Active,2023-09-26,5,,,zentra,,False,actual,249,0.0,0.0,0.3,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,236895.41,27
+CUST-0753,Amplia Soluções,patricia@raptorsoft.com,27.0,Stable,0.0,2026-02-18,2024-12-26,Churned,2024-12-21,1,1.0,ACC-1113,amplia,,False,actual,309,0.0,0.1,0.3,False,0.08333333333333333,Mid-Market,HIGH,HIGH,211018.85,25
+CUST-0754,CoreLogic,patricia@raptorsoft.com,93.0,,7028.51,2026-03-31,,Active,2024-11-11,8,,ACC-1114,corelogic,,False,actual,350,0.0,0.0,0.5,False,0.6666666666666666,Mid-Market,HIGH,HIGH,206729.08,24
+CUST-0755,TAPFLOW,rafael@raptorsoft.com,69.0,Stable,0.0,2025-02-10,2024-12-09,Churned,2023-12-16,8,,,tapflow,,False,actual,-64,1.0,0.0,0.3,True,0.6666666666666666,Mid-Market,HIGH,MEDIUM,213765.26,25
+CUST-0756,Innova,rafael@raptorsoft.com,89.0,Stable,8832.57,2024-03-26,,Active,2024-07-18,8,,,innova,,False,actual,-385,1.0,0.0,0.3,True,0.6666666666666666,Mid-Market,HIGH,MEDIUM,198837.46,20
+CUST-0757,GridSoft,patricia@raptorsoft.com,78.0,Improving,0.0,2025-06-17,2025-01-29,Churned,2024-06-13,8,7.0,,gridsoft,,False,actual,63,0.3,0.0,0.0,True,0.6666666666666666,Mid-Market,HIGH,MEDIUM,188772.05,23
+CUST-0758,polaris,carla@raptorsoft.com,86.0,,0.0,2025-03-03,2024-11-23,Churned,,0,,ACC-1118,polaris,,False,actual,-43,1.0,0.0,0.5,True,0.0,Mid-Market,HIGH,HIGH,176653.15,23
+CUST-0759,BluePath,,67.0,,1480.66,2024-02-07,,Active,2023-07-18,10,3.0,ACC-1119,bluepath,,False,actual,-433,1.0,0.1,0.5,True,0.8333333333333334,Mid-Market,HIGH,HIGH,189029.98,25
+CUST-0760,ACME CORP,patricia@raptorsoft.com,46.0,Stable,14711.25,2026-02-01,,Active,2024-02-04,6,4.0,ACC-1100,acme,,False,actual,292,0.0,0.1,0.3,True,0.5,Mid-Market,HIGH,HIGH,194509.94,23
+CUST-0761,Beta Solutions,rafael@raptorsoft.com,56.0,Stable,13546.73,2024-06-08,2023-09-24,Churned,2023-11-20,8,10.0,ACC-1101,betasolutions,True,False,actual,-311,1.0,-0.08,0.3,True,0.6666666666666666,Mid-Market,HIGH,HIGH,133712.45,22
+CUST-0762,nexus,,72.0,,7925.35,2025-03-27,,Active,2024-01-24,1,,ACC-1102,nexus,,False,actual,-19,1.0,0.0,0.5,True,0.08333333333333333,Mid-Market,HIGH,HIGH,200687.78,24
+CUST-0763,VERTICE TECH,rafael@raptorsoft.com,51.0,,10370.5,2026-05-25,,Active,2024-04-15,3,,ACC-1103,vertice,,False,actual,405,0.0,0.0,0.5,True,0.25,Mid-Market,HIGH,HIGH,197690.09,23
+CUST-0764,Orbit Digital,carla@raptorsoft.com,22.0,Improving,11863.33,2026-05-23,,Active,2024-02-22,7,8.0,ACC-1104,orbit,,False,actual,403,0.0,0.0,0.0,True,0.5833333333333334,Mid-Market,HIGH,HIGH,227071.01,26
+CUST-0765,Fluxo Sistemas Ltda,patricia@raptorsoft.com,60.0,Declining,0.0,2025-06-10,2024-07-18,Churned,,12,,,fluxo,,False,actual,56,0.6,0.0,1.0,True,1.0,Mid-Market,HIGH,MEDIUM,217571.91,27
+CUST-0766,DATAPRIME,rafael@raptorsoft.com,85.0,Declining,9006.55,2025-03-14,,Active,2023-08-08,0,,ACC-1106,dataprime,,False,actual,-32,1.0,0.0,1.0,True,0.0,Mid-Market,HIGH,HIGH,213142.01,25
+CUST-0767,CONNECTWAVE,carla@raptorsoft.com,69.0,Stable,14297.35,2025-09-23,,Active,2024-11-01,2,2.0,ACC-1107,connectwave,,False,actual,161,0.0,0.1,0.3,False,0.16666666666666666,Mid-Market,HIGH,HIGH,238725.88,28
+CUST-0768,skyops,rafael@raptorsoft.com,,Stable,9903.49,2024-05-23,,Active,2024-04-07,2,9.0,,skyops,,False,actual,-327,1.0,-0.08,0.3,True,0.16666666666666666,Mid-Market,HIGH,MEDIUM,214724.43,25
+CUST-0769,Polare,patricia@raptorsoft.com,,Declining,0.0,2025-05-20,2023-07-24,Churned,,2,6.0,ACC-1109,polare,,False,actual,35,0.6,0.1,1.0,True,0.16666666666666666,Mid-Market,HIGH,HIGH,218077.81,27
+CUST-0770,RUSHFLOW,patricia@raptorsoft.com,91.0,,0.0,2025-02-08,2024-10-04,Churned,,4,,ACC-1110,rushflow,,False,actual,-66,1.0,0.0,0.5,True,0.3333333333333333,Mid-Market,HIGH,HIGH,183982.75,23
+CUST-0771,Mindbox,lucas@raptorsoft.com,,Stable,0.0,2025-10-17,2024-04-24,Churned,,0,7.0,ACC-1111,mindbox,,False,actual,185,0.0,0.0,0.3,True,0.0,Mid-Market,HIGH,HIGH,217717.35,26
+CUST-0772,Zentra Tech,lucas@raptorsoft.com,,Stable,11936.59,2026-01-16,,Active,,0,1.0,,zentra,,False,actual,276,0.0,0.1,0.3,True,0.0,Mid-Market,HIGH,MEDIUM,236895.41,27
+CUST-0773,Amplia,lucas@raptorsoft.com,,Stable,11014.67,2024-11-27,,Active,2024-05-11,5,2.0,ACC-1113,amplia,,False,actual,-139,1.0,0.1,0.3,True,0.4166666666666667,Mid-Market,HIGH,HIGH,211018.85,25
+CUST-0774,CoreLogic,carla@raptorsoft.com,72.0,Stable,6159.59,2025-09-01,,Active,2024-10-25,7,,,corelogic,,False,actual,139,0.0,0.0,0.3,False,0.5833333333333334,Mid-Market,HIGH,MEDIUM,206729.08,24
+CUST-0775,tapflow,carla@raptorsoft.com,,Declining,3132.95,2025-06-12,,Active,,7,,ACC-1115,tapflow,,False,actual,58,0.6,0.0,1.0,True,0.5833333333333334,Mid-Market,HIGH,HIGH,213765.26,25
+CUST-0776,Innova Tech,carla@raptorsoft.com,60.0,Declining,1520.8,2025-05-18,,Active,2024-05-10,4,,ACC-1116,innova,,False,actual,33,0.6,0.0,1.0,True,0.3333333333333333,Mid-Market,HIGH,HIGH,198837.46,20
+CUST-0777,gridsoft,,80.0,Improving,12055.0,2024-01-19,,Active,2024-05-21,2,,ACC-1117,gridsoft,,False,actual,-452,1.0,0.0,0.0,True,0.16666666666666666,Mid-Market,HIGH,HIGH,188772.05,23
+CUST-0778,POLARIS,carla@raptorsoft.com,83.0,,0.0,2025-03-21,2023-08-03,Churned,2024-06-13,12,,ACC-1118,polaris,,False,actual,-25,1.0,0.0,0.5,True,1.0,Mid-Market,HIGH,HIGH,176653.15,23
+CUST-0779,BluePath,patricia@raptorsoft.com,64.0,Declining,13856.56,2025-09-27,,Active,2023-10-30,3,,,bluepath,,False,actual,165,0.0,0.0,1.0,True,0.25,Mid-Market,HIGH,MEDIUM,189029.98,25
+CUST-0780,ACME CORP,rafael@raptorsoft.com,42.0,Improving,14566.02,2025-11-01,,Active,,9,,ACC-1100,acme,,False,actual,200,0.0,0.0,0.0,True,0.75,Mid-Market,HIGH,HIGH,194509.94,23
+CUST-0781,beta solutions,,60.0,Stable,3866.33,2025-08-17,,Active,2024-07-24,7,,ACC-1101,betasolutions,,False,actual,124,0.0,0.0,0.3,True,0.5833333333333334,Mid-Market,HIGH,HIGH,133712.45,22
+CUST-0782,nexus,carla@raptorsoft.com,,Improving,1326.7,2025-08-28,,Active,2024-07-02,3,1.0,,nexus,,False,actual,135,0.0,0.1,0.0,True,0.25,Mid-Market,HIGH,MEDIUM,200687.78,24
+CUST-0783,Vértice Tech,patricia@raptorsoft.com,,Stable,5705.41,2025-07-25,,Active,,6,8.0,ACC-1103,vertice,,False,actual,101,0.0,0.0,0.3,True,0.5,Mid-Market,HIGH,HIGH,197690.09,23
+CUST-0784,Orbit,rafael@raptorsoft.com,53.0,Improving,7079.97,2026-03-18,,Active,2024-06-12,12,,,orbit,,False,actual,337,0.0,0.0,0.0,True,1.0,Mid-Market,HIGH,MEDIUM,227071.01,26
+CUST-0785,Fluxo,lucas@raptorsoft.com,43.0,,8319.83,2024-06-05,,Active,,1,,ACC-1105,fluxo,,True,global_median_proxy,-314,1.0,0.0,0.5,True,0.08333333333333333,Mid-Market,HIGH,HIGH,217571.91,27
+CUST-0786,DataPrime,patricia@raptorsoft.com,64.0,,12589.65,2025-10-31,,Active,2023-08-05,3,5.0,,dataprime,,False,actual,199,0.0,0.1,0.5,True,0.25,Mid-Market,HIGH,MEDIUM,213142.01,25
+CUST-0787,connectwave,carla@raptorsoft.com,70.0,,11708.48,2025-01-01,,Active,2024-12-09,9,,,connectwave,,False,actual,-104,1.0,0.0,0.5,False,0.75,Mid-Market,HIGH,MEDIUM,238725.88,28
+CUST-0788,Sky Ops,lucas@raptorsoft.com,61.0,Stable,14792.79,2025-04-09,,Active,,1,,ACC-1108,skyops,,False,actual,-6,1.0,0.0,0.3,True,0.08333333333333333,Mid-Market,HIGH,HIGH,214724.43,25
+CUST-0789,polare,carla@raptorsoft.com,32.0,Improving,0.0,2025-09-25,2024-03-04,Churned,,7,3.0,ACC-1109,polare,,False,actual,163,0.0,0.1,0.0,True,0.5833333333333334,Mid-Market,HIGH,HIGH,218077.81,27
+CUST-0790,RUSHFLOW,carla@raptorsoft.com,50.0,Stable,0.0,2025-12-28,2024-07-25,Churned,,9,4.0,,rushflow,,False,actual,257,0.0,0.1,0.3,True,0.75,Mid-Market,HIGH,MEDIUM,183982.75,23
+CUST-0791,mindbox,carla@raptorsoft.com,61.0,,7717.6,2026-05-03,,Active,2024-10-08,7,,,mindbox,,False,actual,383,0.0,0.0,0.5,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,217717.35,26
+CUST-0792,zentra,lucas@raptorsoft.com,42.0,Improving,0.0,2025-01-08,2023-08-01,Churned,2024-07-24,0,,ACC-1112,zentra,,False,actual,-97,1.0,0.0,0.0,True,0.0,Mid-Market,HIGH,HIGH,236895.41,27
+CUST-0793,Amplia Soluções Ltda,rafael@raptorsoft.com,,Stable,12816.73,2025-03-24,,Active,,12,9.0,ACC-1113,amplia,,False,actual,-22,1.0,-0.08,0.3,True,1.0,Mid-Market,HIGH,HIGH,211018.85,25
+CUST-0794,CORELOGIC,rafael@raptorsoft.com,68.0,,8319.83,2025-01-07,,Active,,0,,ACC-1114,corelogic,,True,global_median_proxy,-98,1.0,0.0,0.5,True,0.0,Mid-Market,HIGH,HIGH,206729.08,24
+CUST-0795,TAPFLOW,patricia@raptorsoft.com,24.0,,0.0,2025-06-16,2023-10-15,Churned,2024-08-05,5,1.0,ACC-1115,tapflow,,False,actual,62,0.3,0.1,0.5,True,0.4166666666666667,Mid-Market,HIGH,HIGH,213765.26,25
+CUST-0796,INNOVA,carla@raptorsoft.com,16.0,Declining,11431.59,2025-02-07,,Active,2024-12-11,4,,ACC-1116,innova,,False,actual,-67,1.0,0.0,1.0,False,0.3333333333333333,Mid-Market,HIGH,HIGH,198837.46,20
+CUST-0797,GRIDSOFT,,,Declining,0.0,2025-06-30,2024-12-12,Churned,,6,,ACC-1117,gridsoft,,False,actual,76,0.3,0.0,1.0,True,0.5,Mid-Market,HIGH,HIGH,188772.05,23
+CUST-0798,polaris,patricia@raptorsoft.com,59.0,Declining,1216.94,2024-06-06,,Active,,8,,,polaris,,False,actual,-313,1.0,0.0,1.0,True,0.6666666666666666,Mid-Market,HIGH,MEDIUM,176653.15,23
+CUST-0799,BluePath,,75.0,Stable,6836.25,2025-05-16,,Active,,11,,ACC-1119,bluepath,,False,actual,31,0.6,0.0,0.3,True,0.9166666666666666,Mid-Market,HIGH,HIGH,189029.98,25
+CUST-0800,Acme,carla@raptorsoft.com,70.0,Improving,0.0,2025-08-20,2024-06-12,Churned,2024-08-25,4,,,acme,,False,actual,127,0.0,0.0,0.0,True,0.3333333333333333,Mid-Market,HIGH,MEDIUM,194509.94,23
+CUST-0801,Beta Solutions,patricia@raptorsoft.com,58.0,Stable,4293.75,2026-03-04,,Active,,10,8.0,ACC-1101,betasolutions,,False,actual,323,0.0,0.0,0.3,True,0.8333333333333334,Mid-Market,HIGH,HIGH,133712.45,22
+CUST-0802,Nexus Group,patricia@raptorsoft.com,28.0,Stable,9747.82,2025-03-15,,Active,,8,,,nexus,,False,actual,-31,1.0,0.0,0.3,True,0.6666666666666666,Mid-Market,HIGH,MEDIUM,200687.78,24
+CUST-0803,Vértice Tech,carla@raptorsoft.com,12.0,,14310.09,2025-01-06,,Active,2024-10-08,6,3.0,,vertice,,False,actual,-99,1.0,0.1,0.5,True,0.5,Mid-Market,HIGH,MEDIUM,197690.09,23
+CUST-0804,ORBIT DIGITAL,patricia@raptorsoft.com,,Stable,2968.26,2026-06-16,,Active,2023-06-27,9,9.0,,orbit,,False,actual,427,0.0,-0.08,0.3,True,0.75,Mid-Market,HIGH,MEDIUM,227071.01,26
+CUST-0805,FLUXO SISTEMAS,,22.0,Improving,13889.48,2025-07-14,,Active,2023-06-09,7,,ACC-1105,fluxo,,False,actual,90,0.3,0.0,0.0,True,0.5833333333333334,Mid-Market,HIGH,HIGH,217571.91,27
+CUST-0806,Data Prime,lucas@raptorsoft.com,99.0,Declining,5839.0,2025-06-13,2023-07-16,Churned,,9,,,dataprime,True,False,actual,59,0.6,0.0,1.0,True,0.75,Mid-Market,HIGH,MEDIUM,213142.01,25
+CUST-0807,CONNECTWAVE,patricia@raptorsoft.com,,Improving,11035.9,2026-06-04,2024-12-02,Churned,2024-05-01,0,5.0,ACC-1107,connectwave,True,False,actual,415,0.0,0.1,0.0,True,0.0,Mid-Market,HIGH,HIGH,238725.88,28
+CUST-0808,SkyOps,lucas@raptorsoft.com,,Stable,1630.78,2025-06-18,,Active,2024-12-01,9,4.0,,skyops,,False,actual,64,0.3,0.1,0.3,False,0.75,Mid-Market,HIGH,MEDIUM,214724.43,25
+CUST-0809,Polare,carla@raptorsoft.com,,Stable,1821.62,2024-03-05,,Active,,9,10.0,ACC-1109,polare,,False,actual,-406,1.0,-0.08,0.3,True,0.75,Mid-Market,HIGH,HIGH,218077.81,27
+CUST-0810,Rush Flow,rafael@raptorsoft.com,93.0,,12868.16,2025-11-25,,Active,2023-12-05,12,,ACC-1110,rushflow,,False,actual,224,0.0,0.0,0.5,True,1.0,Mid-Market,HIGH,HIGH,183982.75,23
+CUST-0811,mindbox,rafael@raptorsoft.com,58.0,Declining,3375.69,2025-09-12,,Active,,4,,,mindbox,,False,actual,150,0.0,0.0,1.0,True,0.3333333333333333,Mid-Market,HIGH,MEDIUM,217717.35,26
+CUST-0812,ZENTRA,lucas@raptorsoft.com,,Declining,8205.61,2025-06-20,,Active,2023-12-02,7,,,zentra,,False,actual,66,0.3,0.0,1.0,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,236895.41,27
+CUST-0813,AMPLIA SOLUCOES,patricia@raptorsoft.com,,Stable,6940.32,2025-02-23,,Active,2024-11-10,4,,,amplia,,False,actual,-51,1.0,0.0,0.3,False,0.3333333333333333,Mid-Market,HIGH,MEDIUM,211018.85,25
+CUST-0814,CORELOGIC,lucas@raptorsoft.com,33.0,Declining,8319.83,2026-03-02,,Active,,0,,ACC-1114,corelogic,,True,global_median_proxy,321,0.0,0.0,1.0,True,0.0,Mid-Market,HIGH,HIGH,206729.08,24
+CUST-0815,TapFlow,lucas@raptorsoft.com,57.0,Improving,10655.36,2026-06-08,,Active,,10,4.0,ACC-1115,tapflow,,False,actual,419,0.0,0.1,0.0,True,0.8333333333333334,Mid-Market,HIGH,HIGH,213765.26,25
+CUST-0816,Innova Tech,lucas@raptorsoft.com,67.0,Declining,14853.13,2025-12-16,,Active,2024-08-14,1,2.0,,innova,,False,actual,245,0.0,0.1,1.0,True,0.08333333333333333,Mid-Market,HIGH,MEDIUM,198837.46,20
+CUST-0817,Grid Soft,lucas@raptorsoft.com,25.0,Declining,11443.0,2025-01-03,,Active,2024-10-29,0,,,gridsoft,,False,actual,-102,1.0,0.0,1.0,False,0.0,Mid-Market,HIGH,MEDIUM,188772.05,23
+CUST-0818,Polaris,,,Stable,4684.6,2025-12-26,2024-08-09,Churned,2023-07-16,2,1.0,ACC-1118,polaris,True,False,actual,255,0.0,0.1,0.3,True,0.16666666666666666,Mid-Market,HIGH,HIGH,176653.15,23
+CUST-0819,Blue Path,carla@raptorsoft.com,,Declining,5443.01,2025-03-05,,Active,,10,,,bluepath,,False,actual,-41,1.0,0.0,1.0,True,0.8333333333333334,Mid-Market,HIGH,MEDIUM,189029.98,25
+CUST-0820,Acme,rafael@raptorsoft.com,,,12904.23,2025-01-27,2024-01-18,Churned,2023-07-15,12,6.0,ACC-1100,acme,True,False,actual,-78,1.0,0.1,0.5,True,1.0,Mid-Market,HIGH,HIGH,194509.94,23
+CUST-0821,Beta Solutions,rafael@raptorsoft.com,91.0,Declining,7492.78,2026-02-27,,Active,2024-05-02,0,9.0,ACC-1101,betasolutions,,False,actual,318,0.0,-0.08,1.0,True,0.0,Mid-Market,HIGH,HIGH,133712.45,22
+CUST-0822,Grupo Nexus,lucas@raptorsoft.com,34.0,Stable,0.0,2026-02-28,2023-07-31,Churned,2023-08-23,10,1.0,ACC-1102,nexus,,False,actual,319,0.0,0.1,0.3,True,0.8333333333333334,Mid-Market,HIGH,HIGH,200687.78,24
+CUST-0823,Vertice,carla@raptorsoft.com,64.0,Declining,7863.0,2024-01-28,,Active,,0,10.0,,vertice,,False,actual,-443,1.0,-0.08,1.0,True,0.0,Mid-Market,HIGH,MEDIUM,197690.09,23
+CUST-0824,ORBIT DIGITAL,,92.0,Stable,1768.13,2024-08-19,,Active,,5,,ACC-1104,orbit,,False,actual,-239,1.0,0.0,0.3,True,0.4166666666666667,Mid-Market,HIGH,HIGH,227071.01,26
+CUST-0825,FLUXO SISTEMAS,rafael@raptorsoft.com,38.0,Stable,13020.79,2025-07-14,,Active,2023-12-02,6,,ACC-1105,fluxo,,False,actual,90,0.3,0.0,0.3,True,0.5,Mid-Market,HIGH,HIGH,217571.91,27
+CUST-0826,dataprime,rafael@raptorsoft.com,67.0,Declining,11849.33,2025-03-04,,Active,,6,,ACC-1106,dataprime,,False,actual,-42,1.0,0.0,1.0,True,0.5,Mid-Market,HIGH,HIGH,213142.01,25
+CUST-0827,CONNECTWAVE,carla@raptorsoft.com,79.0,Improving,12749.85,2024-08-22,,Active,,8,5.0,ACC-1107,connectwave,,False,actual,-236,1.0,0.1,0.0,True,0.6666666666666666,Mid-Market,HIGH,HIGH,238725.88,28
+CUST-0828,SkyOps,,,Improving,7798.31,2025-03-17,,Active,,0,,ACC-1108,skyops,,False,actual,-29,1.0,0.0,0.0,True,0.0,Mid-Market,HIGH,HIGH,214724.43,25
+CUST-0829,polare,,,Improving,3881.61,2024-12-21,,Active,2024-12-14,0,4.0,ACC-1109,polare,,False,actual,-115,1.0,0.1,0.0,False,0.0,Mid-Market,HIGH,HIGH,218077.81,27
+CUST-0830,Rush Flow,rafael@raptorsoft.com,,Declining,11495.81,2025-09-20,,Active,2024-09-17,2,7.0,ACC-1110,rushflow,,False,actual,158,0.0,0.0,1.0,True,0.16666666666666666,Mid-Market,HIGH,HIGH,183982.75,23
+CUST-0831,mindbox,rafael@raptorsoft.com,96.0,Stable,0.0,2025-03-02,2023-07-23,Churned,,5,10.0,,mindbox,,False,actual,-44,1.0,-0.08,0.3,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,217717.35,26
+CUST-0832,ZENTRA,rafael@raptorsoft.com,43.0,Declining,2365.63,2024-09-29,,Active,2023-07-15,3,1.0,,zentra,,False,actual,-198,1.0,0.1,1.0,True,0.25,Mid-Market,HIGH,MEDIUM,236895.41,27
+CUST-0833,Amplia Soluções Ltda,,42.0,Improving,11713.28,2025-08-04,2024-05-29,Churned,2024-06-02,11,,ACC-1113,amplia,True,False,actual,111,0.0,0.0,0.0,True,0.9166666666666666,Mid-Market,HIGH,HIGH,211018.85,25
+CUST-0834,CoreLogic,patricia@raptorsoft.com,50.0,Stable,4851.89,2026-05-02,,Active,2023-09-02,3,,,corelogic,,False,actual,382,0.0,0.0,0.3,True,0.25,Mid-Market,HIGH,MEDIUM,206729.08,24
+CUST-0835,tapflow,lucas@raptorsoft.com,81.0,Stable,14298.8,2025-08-14,,Active,2024-12-18,12,1.0,,tapflow,,False,actual,121,0.0,0.1,0.3,False,1.0,Mid-Market,HIGH,MEDIUM,213765.26,25
+CUST-0836,innova,rafael@raptorsoft.com,26.0,Declining,12768.16,2025-09-07,2023-07-14,Churned,2024-08-30,6,,ACC-1116,innova,True,False,actual,145,0.0,0.0,1.0,True,0.5,Mid-Market,HIGH,HIGH,198837.46,20
+CUST-0837,GRIDSOFT,patricia@raptorsoft.com,,Declining,11320.93,2025-09-28,,Active,,7,3.0,ACC-1117,gridsoft,,False,actual,166,0.0,0.1,1.0,True,0.5833333333333334,Mid-Market,HIGH,HIGH,188772.05,23
+CUST-0838,polaris,patricia@raptorsoft.com,,,0.0,2026-06-16,2023-12-11,Churned,2024-05-20,12,,ACC-1118,polaris,,False,actual,427,0.0,0.0,0.5,True,1.0,Mid-Market,HIGH,HIGH,176653.15,23
+CUST-0839,Blue Path,lucas@raptorsoft.com,,,0.0,2025-05-04,2024-11-24,Churned,,9,9.0,ACC-1119,bluepath,True,False,actual,19,1.0,-0.08,0.5,True,0.75,Mid-Market,HIGH,HIGH,189029.98,25
+CUST-0840,acme,patricia@raptorsoft.com,62.0,Improving,0.0,2026-03-13,2024-05-28,Churned,,3,,,acme,,False,actual,332,0.0,0.0,0.0,True,0.25,Mid-Market,HIGH,MEDIUM,194509.94,23
+CUST-0841,BETA SOLUTIONS,rafael@raptorsoft.com,,Stable,0.0,2026-01-13,2023-11-11,Churned,2024-03-19,10,,,betasolutions,,False,actual,273,0.0,0.0,0.3,True,0.8333333333333334,Mid-Market,HIGH,MEDIUM,133712.45,22
+CUST-0842,Nexus Group,patricia@raptorsoft.com,19.0,Stable,0.0,2025-01-21,2024-11-19,Churned,2023-12-28,2,2.0,,nexus,,False,actual,-84,1.0,0.1,0.3,True,0.16666666666666666,Mid-Market,HIGH,MEDIUM,200687.78,24
+CUST-0843,VERTICE TECH,rafael@raptorsoft.com,11.0,Stable,0.0,2026-06-21,2024-01-31,Churned,,9,4.0,ACC-1103,vertice,,False,actual,432,0.0,0.1,0.3,True,0.75,Mid-Market,HIGH,HIGH,197690.09,23
+CUST-0844,Orbit Digital,carla@raptorsoft.com,62.0,Improving,2383.52,2025-04-07,2024-03-28,Churned,2024-10-27,0,,ACC-1104,orbit,True,False,actual,-8,1.0,0.0,0.0,False,0.0,Mid-Market,HIGH,HIGH,227071.01,26
+CUST-0845,Fluxo Sistemas Ltda,patricia@raptorsoft.com,62.0,Declining,6343.46,2025-02-23,,Active,2023-09-03,3,,,fluxo,,False,actual,-51,1.0,0.0,1.0,True,0.25,Mid-Market,HIGH,MEDIUM,217571.91,27
+CUST-0846,DataPrime,lucas@raptorsoft.com,37.0,Improving,7539.68,2026-05-23,,Active,2024-02-24,9,10.0,ACC-1106,dataprime,,False,actual,403,0.0,-0.08,0.0,True,0.75,Mid-Market,HIGH,HIGH,213142.01,25
+CUST-0847,CONNECTWAVE,patricia@raptorsoft.com,72.0,Stable,12988.71,2025-03-06,,Active,2023-09-18,10,,ACC-1107,connectwave,,False,actual,-40,1.0,0.0,0.3,True,0.8333333333333334,Mid-Market,HIGH,HIGH,238725.88,28
+CUST-0848,SkyOps,lucas@raptorsoft.com,46.0,Stable,0.0,2025-10-10,2025-01-24,Churned,,7,1.0,,skyops,,False,actual,178,0.0,0.1,0.3,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,214724.43,25
+CUST-0849,Polare,rafael@raptorsoft.com,,Stable,7452.92,2025-03-31,,Active,,10,2.0,,polare,,False,actual,-15,1.0,0.1,0.3,True,0.8333333333333334,Mid-Market,HIGH,MEDIUM,218077.81,27
+CUST-0850,RushFlow,rafael@raptorsoft.com,22.0,Stable,11445.75,2026-03-17,,Active,,7,,ACC-1110,rushflow,,False,actual,336,0.0,0.0,0.3,True,0.5833333333333334,Mid-Market,HIGH,HIGH,183982.75,23
+CUST-0851,Mindbox,lucas@raptorsoft.com,16.0,Improving,13161.36,2025-06-01,,Active,2024-07-04,9,,,mindbox,,False,actual,47,0.6,0.0,0.0,True,0.75,Mid-Market,HIGH,MEDIUM,217717.35,26
+CUST-0852,ZENTRA,lucas@raptorsoft.com,17.0,Declining,12296.25,2026-05-26,,Active,2023-09-05,5,,,zentra,,False,actual,406,0.0,0.0,1.0,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,236895.41,27
+CUST-0853,AMPLIA SOLUCOES,,,Declining,5054.9,2025-03-27,2024-10-31,Churned,2023-11-12,5,,,amplia,True,False,actual,-19,1.0,0.0,1.0,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,211018.85,25
+CUST-0854,CORELOGIC,patricia@raptorsoft.com,88.0,,9928.62,2025-08-28,,Active,2024-05-07,11,10.0,,corelogic,,False,actual,135,0.0,-0.08,0.5,True,0.9166666666666666,Mid-Market,HIGH,MEDIUM,206729.08,24
+CUST-0855,TAPFLOW,patricia@raptorsoft.com,97.0,Declining,7179.13,2025-11-04,,Active,,0,9.0,ACC-1115,tapflow,,False,actual,203,0.0,-0.08,1.0,True,0.0,Mid-Market,HIGH,HIGH,213765.26,25
+CUST-0856,INNOVA,rafael@raptorsoft.com,90.0,Stable,14119.03,2026-04-22,,Active,2024-12-03,7,,ACC-1116,innova,,False,actual,372,0.0,0.0,0.3,False,0.5833333333333334,Mid-Market,HIGH,HIGH,198837.46,20
+CUST-0857,Grid Soft,lucas@raptorsoft.com,62.0,Improving,5099.4,2026-01-22,,Active,,0,,ACC-1117,gridsoft,,False,actual,282,0.0,0.0,0.0,True,0.0,Mid-Market,HIGH,HIGH,188772.05,23
+CUST-0858,Polaris Tech,patricia@raptorsoft.com,82.0,Improving,809.48,2024-12-07,,Active,2024-10-11,5,,,polaris,,False,actual,-129,1.0,0.0,0.0,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,176653.15,23
+CUST-0859,BLUEPATH,carla@raptorsoft.com,44.0,Improving,8070.61,2026-05-20,,Active,,4,8.0,ACC-1119,bluepath,,False,actual,400,0.0,0.0,0.0,True,0.3333333333333333,Mid-Market,HIGH,HIGH,189029.98,25
+CUST-0860,Acme,carla@raptorsoft.com,,Stable,3611.61,2025-08-22,,Active,,7,5.0,,acme,,False,actual,129,0.0,0.1,0.3,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,194509.94,23
+CUST-0861,Beta Solutions Ltda,rafael@raptorsoft.com,92.0,,8319.83,2025-08-29,,Active,,3,10.0,,betasolutions,,True,global_median_proxy,136,0.0,-0.08,0.5,True,0.25,Mid-Market,HIGH,MEDIUM,133712.45,22
+CUST-0862,Grupo Nexus,patricia@raptorsoft.com,78.0,Stable,0.0,2025-01-30,2024-02-05,Churned,2024-11-16,4,,,nexus,,False,actual,-75,1.0,0.0,0.3,False,0.3333333333333333,Mid-Market,HIGH,MEDIUM,200687.78,24
+CUST-0863,Vertice Tech,carla@raptorsoft.com,,Improving,13431.02,2025-04-12,,Active,2024-08-14,5,8.0,,vertice,,False,actual,-3,1.0,0.0,0.0,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,197690.09,23
+CUST-0864,orbit digital,patricia@raptorsoft.com,81.0,Declining,8319.83,2026-04-23,,Active,2024-04-30,2,9.0,ACC-1104,orbit,,True,global_median_proxy,373,0.0,-0.08,1.0,True,0.16666666666666666,Mid-Market,HIGH,HIGH,227071.01,26
+CUST-0865,Fluxo Sistemas Ltda,patricia@raptorsoft.com,20.0,Stable,8319.83,2024-07-05,,Active,2024-11-10,10,,ACC-1105,fluxo,,True,global_median_proxy,-284,1.0,0.0,0.3,False,0.8333333333333334,Mid-Market,HIGH,HIGH,217571.91,27
+CUST-0866,dataprime,rafael@raptorsoft.com,52.0,Declining,9242.59,2025-08-04,,Active,2023-10-15,9,,ACC-1106,dataprime,,False,actual,111,0.0,0.0,1.0,True,0.75,Mid-Market,HIGH,HIGH,213142.01,25
+CUST-0867,Connect Wave,patricia@raptorsoft.com,11.0,Stable,6626.88,2025-08-02,,Active,2023-08-09,6,6.0,,connectwave,,False,actual,109,0.0,0.1,0.3,True,0.5,Mid-Market,HIGH,MEDIUM,238725.88,28
+CUST-0868,Sky Ops,carla@raptorsoft.com,47.0,Stable,0.0,2025-10-03,2024-01-11,Churned,,3,,,skyops,,False,actual,171,0.0,0.0,0.3,True,0.25,Mid-Market,HIGH,MEDIUM,214724.43,25
+CUST-0869,Polare Ltda,,45.0,Stable,13161.84,2025-10-13,,Active,2023-06-28,9,5.0,,polare,,False,actual,181,0.0,0.1,0.3,True,0.75,Mid-Market,HIGH,MEDIUM,218077.81,27
+CUST-0870,rushflow,patricia@raptorsoft.com,50.0,Improving,6651.59,2025-01-17,,Active,,5,,,rushflow,,False,actual,-88,1.0,0.0,0.0,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,183982.75,23
+CUST-0871,Mindbox,carla@raptorsoft.com,68.0,,0.0,2026-05-30,2023-06-27,Churned,,2,,ACC-1111,mindbox,,False,actual,410,0.0,0.0,0.5,True,0.16666666666666666,Mid-Market,HIGH,HIGH,217717.35,26
+CUST-0872,zentra,patricia@raptorsoft.com,10.0,Improving,11493.97,2025-12-10,2024-08-30,Churned,2023-11-23,3,,ACC-1112,zentra,True,False,actual,239,0.0,0.0,0.0,True,0.25,Mid-Market,HIGH,HIGH,236895.41,27
+CUST-0873,Amplia Soluções Ltda,lucas@raptorsoft.com,56.0,Stable,14561.4,2025-05-13,,Active,2024-12-21,6,10.0,ACC-1113,amplia,,False,actual,28,1.0,-0.08,0.3,False,0.5,Mid-Market,HIGH,HIGH,211018.85,25
+CUST-0874,Core Logic,patricia@raptorsoft.com,100.0,,14274.64,2025-12-18,,Active,2024-06-21,7,,,corelogic,,False,actual,247,0.0,0.0,0.5,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,206729.08,24
+CUST-0875,Tap Flow,rafael@raptorsoft.com,57.0,Declining,2215.5,2026-04-21,,Active,,9,,,tapflow,,False,actual,371,0.0,0.0,1.0,True,0.75,Mid-Market,HIGH,MEDIUM,213765.26,25
+CUST-0876,Innova Tech,patricia@raptorsoft.com,,Improving,0.0,2026-02-08,2024-11-20,Churned,,7,,ACC-1116,innova,,False,actual,299,0.0,0.0,0.0,True,0.5833333333333334,Mid-Market,HIGH,HIGH,198837.46,20
+CUST-0877,gridsoft,lucas@raptorsoft.com,25.0,Stable,9744.65,2025-06-21,,Active,,6,10.0,,gridsoft,,False,actual,67,0.3,-0.08,0.3,True,0.5,Mid-Market,HIGH,MEDIUM,188772.05,23
+CUST-0878,Polaris Tech,rafael@raptorsoft.com,29.0,Stable,3356.48,2025-10-05,,Active,,5,10.0,,polaris,,False,actual,173,0.0,-0.08,0.3,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,176653.15,23
+CUST-0879,BLUEPATH,lucas@raptorsoft.com,41.0,,1683.96,2026-03-01,,Active,2024-11-11,2,,ACC-1119,bluepath,,False,actual,320,0.0,0.0,0.5,False,0.16666666666666666,Mid-Market,HIGH,HIGH,189029.98,25
+CUST-0880,ACME CORP,lucas@raptorsoft.com,21.0,,6780.96,2025-04-08,,Active,,5,,,acme,,False,actual,-7,1.0,0.0,0.5,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,194509.94,23
+CUST-0881,beta solutions,rafael@raptorsoft.com,42.0,Stable,6175.43,2025-06-13,,Active,2024-03-07,3,,ACC-1101,betasolutions,,False,actual,59,0.6,0.0,0.3,True,0.25,Mid-Market,HIGH,HIGH,133712.45,22
+CUST-0882,Grupo Nexus,rafael@raptorsoft.com,,Declining,8821.64,2026-06-19,,Active,,2,4.0,ACC-1102,nexus,,False,actual,430,0.0,0.1,1.0,True,0.16666666666666666,Mid-Market,HIGH,HIGH,200687.78,24
+CUST-0883,Vértice Tech,lucas@raptorsoft.com,85.0,,11050.2,2024-10-20,,Active,,2,,,vertice,,False,actual,-177,1.0,0.0,0.5,True,0.16666666666666666,Mid-Market,HIGH,MEDIUM,197690.09,23
+CUST-0884,ORBIT DIGITAL,patricia@raptorsoft.com,23.0,Stable,3743.43,2026-05-01,,Active,2024-02-01,8,,ACC-1104,orbit,,False,actual,381,0.0,0.0,0.3,True,0.6666666666666666,Mid-Market,HIGH,HIGH,227071.01,26
+CUST-0885,Fluxo,patricia@raptorsoft.com,,Improving,3529.65,2025-06-02,,Active,2024-11-09,0,,,fluxo,,False,actual,48,0.6,0.0,0.0,False,0.0,Mid-Market,HIGH,MEDIUM,217571.91,27
+CUST-0886,DataPrime,carla@raptorsoft.com,43.0,,0.0,2025-10-30,2024-11-10,Churned,2023-09-28,5,5.0,ACC-1106,dataprime,,False,actual,198,0.0,0.1,0.5,True,0.4166666666666667,Mid-Market,HIGH,HIGH,213142.01,25
+CUST-0887,ConnectWave,,89.0,,6103.28,2025-09-08,,Active,2023-06-23,3,8.0,,connectwave,,False,actual,146,0.0,0.0,0.5,True,0.25,Mid-Market,HIGH,MEDIUM,238725.88,28
+CUST-0888,Sky Ops,rafael@raptorsoft.com,67.0,Stable,8319.83,2025-07-22,,Active,2024-03-29,8,,,skyops,,True,global_median_proxy,98,0.0,0.0,0.3,True,0.6666666666666666,Mid-Market,HIGH,MEDIUM,214724.43,25
+CUST-0889,Polare,,62.0,Declining,2714.77,2025-02-12,,Active,2024-11-29,3,9.0,,polare,,False,actual,-62,1.0,-0.08,1.0,False,0.25,Mid-Market,HIGH,MEDIUM,218077.81,27
+CUST-0890,Rush Flow,patricia@raptorsoft.com,87.0,Improving,4947.42,2025-03-25,,Active,,6,5.0,,rushflow,,False,actual,-21,1.0,0.1,0.0,True,0.5,Mid-Market,HIGH,MEDIUM,183982.75,23
+CUST-0891,Mind Box,patricia@raptorsoft.com,84.0,Stable,6708.04,2026-01-24,,Active,,0,,,mindbox,,False,actual,284,0.0,0.0,0.3,True,0.0,Mid-Market,HIGH,MEDIUM,217717.35,26
+CUST-0892,ZENTRA,carla@raptorsoft.com,52.0,Improving,9073.66,2025-03-09,,Active,2024-10-21,9,1.0,ACC-1112,zentra,,False,actual,-37,1.0,0.1,0.0,False,0.75,Mid-Market,HIGH,HIGH,236895.41,27
+CUST-0893,Amplia,lucas@raptorsoft.com,,,1338.16,2025-08-18,,Active,2024-10-01,9,,ACC-1113,amplia,,False,actual,125,0.0,0.0,0.5,True,0.75,Mid-Market,HIGH,HIGH,211018.85,25
+CUST-0894,corelogic,carla@raptorsoft.com,75.0,Stable,0.0,2025-12-24,2024-08-08,Churned,,4,10.0,,corelogic,,False,actual,253,0.0,-0.08,0.3,True,0.3333333333333333,Mid-Market,HIGH,MEDIUM,206729.08,24
+CUST-0895,tapflow,patricia@raptorsoft.com,,,8408.9,2025-01-27,,Active,,5,,,tapflow,,False,actual,-78,1.0,0.0,0.5,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,213765.26,25
+CUST-0896,innova,patricia@raptorsoft.com,59.0,Declining,8469.49,2025-05-14,,Active,,5,8.0,ACC-1116,innova,,False,actual,29,1.0,0.0,1.0,True,0.4166666666666667,Mid-Market,HIGH,HIGH,198837.46,20
+CUST-0897,GridSoft,lucas@raptorsoft.com,10.0,Declining,2799.3,2024-03-06,,Active,2024-02-17,1,,,gridsoft,,False,actual,-405,1.0,0.0,1.0,True,0.08333333333333333,Mid-Market,HIGH,MEDIUM,188772.05,23
+CUST-0898,Polaris Tech,patricia@raptorsoft.com,10.0,Declining,8848.06,2024-07-05,,Active,2024-10-11,12,3.0,,polaris,,False,actual,-284,1.0,0.1,1.0,True,1.0,Mid-Market,HIGH,MEDIUM,176653.15,23
+CUST-0899,Blue Path,,77.0,Stable,0.0,2026-06-11,2024-07-20,Churned,,1,,ACC-1119,bluepath,,False,actual,422,0.0,0.0,0.3,True,0.08333333333333333,Mid-Market,HIGH,HIGH,189029.98,25
+CUST-0900,ACME CORP,lucas@raptorsoft.com,72.0,Stable,10462.04,2026-03-29,,Active,,9,6.0,ACC-1100,acme,,False,actual,348,0.0,0.1,0.3,True,0.75,Mid-Market,HIGH,HIGH,194509.94,23
+CUST-0901,beta solutions,patricia@raptorsoft.com,87.0,Declining,0.0,2026-02-23,2024-03-15,Churned,2024-04-11,5,1.0,ACC-1101,betasolutions,,False,actual,314,0.0,0.1,1.0,True,0.4166666666666667,Mid-Market,HIGH,HIGH,133712.45,22
+CUST-0902,Grupo Nexus,patricia@raptorsoft.com,76.0,Improving,0.0,2025-12-24,2023-11-24,Churned,2024-12-21,1,7.0,,nexus,,False,actual,253,0.0,0.0,0.0,False,0.08333333333333333,Mid-Market,HIGH,MEDIUM,200687.78,24
+CUST-0903,Vértice Tech,patricia@raptorsoft.com,91.0,Declining,0.0,2025-12-06,2024-10-09,Churned,,1,2.0,,vertice,,False,actual,235,0.0,0.1,1.0,True,0.08333333333333333,Mid-Market,HIGH,MEDIUM,197690.09,23
+CUST-0904,orbit digital,patricia@raptorsoft.com,21.0,Improving,0.0,2025-05-17,2025-01-10,Churned,,3,,ACC-1104,orbit,,False,actual,32,0.6,0.0,0.0,True,0.25,Mid-Market,HIGH,HIGH,227071.01,26
+CUST-0905,Fluxo,patricia@raptorsoft.com,30.0,Improving,5996.91,2025-09-25,,Active,2023-10-18,1,,ACC-1105,fluxo,,False,actual,163,0.0,0.0,0.0,True,0.08333333333333333,Mid-Market,HIGH,HIGH,217571.91,27
+CUST-0906,dataprime,patricia@raptorsoft.com,64.0,,0.0,2025-01-17,2024-08-17,Churned,,11,,ACC-1106,dataprime,,False,actual,-88,1.0,0.0,0.5,True,0.9166666666666666,Mid-Market,HIGH,HIGH,213142.01,25
+CUST-0907,ConnectWave,rafael@raptorsoft.com,54.0,Declining,4080.41,2025-05-07,,Active,2024-09-02,10,,,connectwave,,False,actual,22,1.0,0.0,1.0,True,0.8333333333333334,Mid-Market,HIGH,MEDIUM,238725.88,28
+CUST-0908,skyops,carla@raptorsoft.com,71.0,Improving,11443.27,2025-01-05,,Active,,11,5.0,ACC-1108,skyops,,False,actual,-100,1.0,0.1,0.0,True,0.9166666666666666,Mid-Market,HIGH,HIGH,214724.43,25
+CUST-0909,polare,rafael@raptorsoft.com,,Declining,4488.89,2026-04-24,,Active,,1,,ACC-1109,polare,,False,actual,374,0.0,0.0,1.0,True,0.08333333333333333,Mid-Market,HIGH,HIGH,218077.81,27
+CUST-0910,rushflow,rafael@raptorsoft.com,27.0,Declining,8900.5,2026-06-03,,Active,,10,,,rushflow,,False,actual,414,0.0,0.0,1.0,True,0.8333333333333334,Mid-Market,HIGH,MEDIUM,183982.75,23
+CUST-0911,Mindbox,patricia@raptorsoft.com,86.0,,1882.93,2026-06-14,,Active,,11,8.0,ACC-1111,mindbox,,False,actual,425,0.0,0.0,0.5,True,0.9166666666666666,Mid-Market,HIGH,HIGH,217717.35,26
+CUST-0912,Zentra Tech,rafael@raptorsoft.com,54.0,,11877.95,2026-05-23,,Active,,0,,ACC-1112,zentra,,False,actual,403,0.0,0.0,0.5,True,0.0,Mid-Market,HIGH,HIGH,236895.41,27
+CUST-0913,Amplia Soluções,rafael@raptorsoft.com,28.0,Declining,9087.25,2025-03-12,,Active,,12,,,amplia,,False,actual,-34,1.0,0.0,1.0,True,1.0,Mid-Market,HIGH,MEDIUM,211018.85,25
+CUST-0914,CoreLogic,patricia@raptorsoft.com,,Declining,6827.33,2025-10-07,,Active,2024-03-22,9,,,corelogic,,False,actual,175,0.0,0.0,1.0,True,0.75,Mid-Market,HIGH,MEDIUM,206729.08,24
+CUST-0915,tapflow,patricia@raptorsoft.com,85.0,Stable,6151.34,2025-02-11,,Active,2023-11-02,3,7.0,ACC-1115,tapflow,,False,actual,-63,1.0,0.0,0.3,True,0.25,Mid-Market,HIGH,HIGH,213765.26,25
+CUST-0916,Innova Tech,rafael@raptorsoft.com,,,0.0,2025-12-28,2024-11-30,Churned,,8,,ACC-1116,innova,,False,actual,257,0.0,0.0,0.5,True,0.6666666666666666,Mid-Market,HIGH,HIGH,198837.46,20
+CUST-0917,gridsoft,rafael@raptorsoft.com,52.0,Declining,0.0,2026-03-09,2024-08-06,Churned,,8,,ACC-1117,gridsoft,,False,actual,328,0.0,0.0,1.0,True,0.6666666666666666,Mid-Market,HIGH,HIGH,188772.05,23
+CUST-0918,Polaris,lucas@raptorsoft.com,94.0,Stable,3081.1,2026-01-09,,Active,,2,3.0,ACC-1118,polaris,,False,actual,269,0.0,0.1,0.3,True,0.16666666666666666,Mid-Market,HIGH,HIGH,176653.15,23
+CUST-0919,BluePath,carla@raptorsoft.com,,,4178.37,2025-08-04,,Active,2024-06-14,0,2.0,ACC-1119,bluepath,,False,actual,111,0.0,0.1,0.5,True,0.0,Mid-Market,HIGH,HIGH,189029.98,25
+CUST-0920,Acme Corp.,rafael@raptorsoft.com,22.0,Stable,13105.61,2025-01-14,2023-12-24,Churned,,8,1.0,ACC-1100,acme,True,False,actual,-91,1.0,0.1,0.3,True,0.6666666666666666,Mid-Market,HIGH,HIGH,194509.94,23
+CUST-0921,beta solutions,carla@raptorsoft.com,41.0,Stable,0.0,2025-03-20,2023-11-07,Churned,,7,,,betasolutions,,False,actual,-26,1.0,0.0,0.3,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,133712.45,22
+CUST-0922,nexus,patricia@raptorsoft.com,,Stable,4859.51,2025-01-12,,Active,2023-12-09,7,,ACC-1102,nexus,,False,actual,-93,1.0,0.0,0.3,True,0.5833333333333334,Mid-Market,HIGH,HIGH,200687.78,24
+CUST-0923,Vertice Tech,,70.0,Stable,0.0,2026-01-25,2024-03-17,Churned,2023-10-16,9,7.0,ACC-1103,vertice,,False,actual,285,0.0,0.0,0.3,True,0.75,Mid-Market,HIGH,HIGH,197690.09,23
+CUST-0924,ORBIT DIGITAL,,65.0,,14475.21,2025-04-10,,Active,2024-07-09,3,6.0,,orbit,,False,actual,-5,1.0,0.1,0.5,True,0.25,Mid-Market,HIGH,MEDIUM,227071.01,26
+CUST-0925,FLUXO SISTEMAS,rafael@raptorsoft.com,,Declining,11578.61,2025-05-20,,Active,,4,,,fluxo,,False,actual,35,0.6,0.0,1.0,True,0.3333333333333333,Mid-Market,HIGH,MEDIUM,217571.91,27
+CUST-0926,Data Prime,patricia@raptorsoft.com,,Declining,14894.33,2026-05-15,,Active,2024-08-19,8,8.0,ACC-1106,dataprime,,False,actual,395,0.0,0.0,1.0,True,0.6666666666666666,Mid-Market,HIGH,HIGH,213142.01,25
+CUST-0927,connectwave,lucas@raptorsoft.com,88.0,,3093.6,2025-05-10,,Active,,7,3.0,,connectwave,,False,actual,25,1.0,0.1,0.5,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,238725.88,28
+CUST-0928,SkyOps,carla@raptorsoft.com,89.0,Stable,6837.78,2025-09-13,,Active,,7,,ACC-1108,skyops,,False,actual,151,0.0,0.0,0.3,True,0.5833333333333334,Mid-Market,HIGH,HIGH,214724.43,25
+CUST-0929,Polare Ltda,,87.0,,8319.83,2025-12-07,,Active,2023-12-26,11,,ACC-1109,polare,,True,global_median_proxy,236,0.0,0.0,0.5,True,0.9166666666666666,Mid-Market,HIGH,HIGH,218077.81,27
+CUST-0930,RUSHFLOW,,23.0,,8552.25,2024-06-10,,Active,,5,,,rushflow,,False,actual,-309,1.0,0.0,0.5,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,183982.75,23
+CUST-0931,Mind Box,rafael@raptorsoft.com,23.0,,9968.6,2025-04-14,,Active,2024-07-11,0,,ACC-1111,mindbox,,False,actual,-1,1.0,0.0,0.5,True,0.0,Mid-Market,HIGH,HIGH,217717.35,26
+CUST-0932,zentra,patricia@raptorsoft.com,31.0,Stable,5388.65,2025-03-11,,Active,,5,8.0,,zentra,,False,actual,-35,1.0,0.0,0.3,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,236895.41,27
+CUST-0933,AMPLIA SOLUCOES,patricia@raptorsoft.com,53.0,Stable,9676.62,2025-04-16,,Active,2024-09-26,3,7.0,,amplia,,False,actual,1,1.0,0.0,0.3,True,0.25,Mid-Market,HIGH,MEDIUM,211018.85,25
+CUST-0934,CoreLogic,rafael@raptorsoft.com,58.0,,4673.56,2024-11-18,,Active,2024-01-27,1,4.0,,corelogic,,False,actual,-148,1.0,0.1,0.5,True,0.08333333333333333,Mid-Market,HIGH,MEDIUM,206729.08,24
+CUST-0935,Tap Flow,patricia@raptorsoft.com,64.0,Improving,2400.19,2025-11-10,,Active,2024-08-12,3,,ACC-1115,tapflow,,False,actual,209,0.0,0.0,0.0,True,0.25,Mid-Market,HIGH,HIGH,213765.26,25
+CUST-0936,INNOVA,rafael@raptorsoft.com,27.0,Declining,10730.38,2026-05-31,2024-07-08,Churned,,9,,,innova,True,False,actual,411,0.0,0.0,1.0,True,0.75,Mid-Market,HIGH,MEDIUM,198837.46,20
+CUST-0937,GridSoft,carla@raptorsoft.com,,Improving,0.0,2025-03-16,2024-03-19,Churned,2023-07-27,1,5.0,ACC-1117,gridsoft,,False,actual,-30,1.0,0.1,0.0,True,0.08333333333333333,Mid-Market,HIGH,HIGH,188772.05,23
+CUST-0938,POLARIS,,21.0,,2095.63,2025-11-23,,Active,2023-11-04,12,9.0,,polaris,,False,actual,222,0.0,-0.08,0.5,True,1.0,Mid-Market,HIGH,MEDIUM,176653.15,23
+CUST-0939,BLUEPATH,,98.0,Declining,8319.83,2025-03-05,,Active,2024-01-10,0,,ACC-1119,bluepath,,True,global_median_proxy,-41,1.0,0.0,1.0,True,0.0,Mid-Market,HIGH,HIGH,189029.98,25
+CUST-0940,Acme Corp,patricia@raptorsoft.com,,Improving,0.0,2025-03-31,2023-08-27,Churned,2024-05-25,11,,ACC-1100,acme,,False,actual,-15,1.0,0.0,0.0,True,0.9166666666666666,Mid-Market,HIGH,HIGH,194509.94,23
+CUST-0941,Beta Solutions Ltda,lucas@raptorsoft.com,,Declining,1561.67,2025-09-27,,Active,2024-02-01,12,,,betasolutions,,False,actual,165,0.0,0.0,1.0,True,1.0,Mid-Market,HIGH,MEDIUM,133712.45,22
+CUST-0942,GRUPO NEXUS,patricia@raptorsoft.com,99.0,Declining,0.0,2025-02-03,2023-07-22,Churned,,1,,ACC-1102,nexus,,False,actual,-71,1.0,0.0,1.0,True,0.08333333333333333,Mid-Market,HIGH,HIGH,200687.78,24
+CUST-0943,Vértice Tech,carla@raptorsoft.com,26.0,Improving,0.0,2025-07-03,2024-07-20,Churned,,8,5.0,ACC-1103,vertice,,False,actual,79,0.3,0.1,0.0,True,0.6666666666666666,Mid-Market,HIGH,HIGH,197690.09,23
+CUST-0944,Orbit Digital,carla@raptorsoft.com,66.0,Declining,14246.73,2025-08-24,,Active,2024-08-05,3,,ACC-1104,orbit,,False,actual,131,0.0,0.0,1.0,True,0.25,Mid-Market,HIGH,HIGH,227071.01,26
+CUST-0945,Fluxo Sistemas Ltda,patricia@raptorsoft.com,98.0,Declining,5994.77,2025-10-02,,Active,,3,,ACC-1105,fluxo,,False,actual,170,0.0,0.0,1.0,True,0.25,Mid-Market,HIGH,HIGH,217571.91,27
+CUST-0946,DataPrime,carla@raptorsoft.com,,Declining,3244.02,2024-07-11,,Active,2023-12-07,10,3.0,,dataprime,,False,actual,-278,1.0,0.1,1.0,True,0.8333333333333334,Mid-Market,HIGH,MEDIUM,213142.01,25
+CUST-0947,connectwave,patricia@raptorsoft.com,,Improving,0.0,2025-03-30,2023-12-30,Churned,2023-12-09,7,,,connectwave,,False,actual,-16,1.0,0.0,0.0,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,238725.88,28
+CUST-0948,SKYOPS,lucas@raptorsoft.com,84.0,Declining,11575.35,2025-10-01,,Active,,9,8.0,ACC-1108,skyops,,False,actual,169,0.0,0.0,1.0,True,0.75,Mid-Market,HIGH,HIGH,214724.43,25
+CUST-0949,Polare Ltda,patricia@raptorsoft.com,56.0,Improving,854.28,2026-02-25,,Active,2023-06-10,1,9.0,,polare,,False,actual,316,0.0,-0.08,0.0,True,0.08333333333333333,Mid-Market,HIGH,MEDIUM,218077.81,27
+CUST-0950,RushFlow,carla@raptorsoft.com,51.0,Stable,14800.85,2026-04-21,2023-09-02,Churned,2023-10-17,9,8.0,ACC-1110,rushflow,True,False,actual,371,0.0,0.0,0.3,True,0.75,Mid-Market,HIGH,HIGH,183982.75,23
+CUST-0951,MINDBOX,rafael@raptorsoft.com,64.0,Declining,11799.99,2024-10-11,,Active,2024-05-25,7,7.0,,mindbox,,False,actual,-186,1.0,0.0,1.0,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,217717.35,26
+CUST-0952,Zentra,rafael@raptorsoft.com,86.0,Improving,0.0,2026-06-18,2024-06-12,Churned,,10,2.0,,zentra,,False,actual,429,0.0,0.1,0.0,True,0.8333333333333334,Mid-Market,HIGH,MEDIUM,236895.41,27
+CUST-0953,Amplia,lucas@raptorsoft.com,,Declining,13524.86,2025-07-19,,Active,,3,,ACC-1113,amplia,,False,actual,95,0.0,0.0,1.0,True,0.25,Mid-Market,HIGH,HIGH,211018.85,25
+CUST-0954,Core Logic,rafael@raptorsoft.com,33.0,Declining,10117.01,2025-01-18,,Active,,3,,ACC-1114,corelogic,,False,actual,-87,1.0,0.0,1.0,True,0.25,Mid-Market,HIGH,HIGH,206729.08,24
+CUST-0955,TapFlow,patricia@raptorsoft.com,,Stable,11806.58,2025-02-16,,Active,,5,,ACC-1115,tapflow,,False,actual,-58,1.0,0.0,0.3,True,0.4166666666666667,Mid-Market,HIGH,HIGH,213765.26,25
+CUST-0956,Innova Tech,lucas@raptorsoft.com,,Declining,0.0,2025-09-24,2023-12-27,Churned,2024-05-05,9,,,innova,,False,actual,162,0.0,0.0,1.0,True,0.75,Mid-Market,HIGH,MEDIUM,198837.46,20
+CUST-0957,GridSoft,,86.0,,0.0,2025-11-03,2023-06-30,Churned,,0,6.0,ACC-1117,gridsoft,,False,actual,202,0.0,0.1,0.5,True,0.0,Mid-Market,HIGH,HIGH,188772.05,23
+CUST-0958,POLARIS,rafael@raptorsoft.com,56.0,Declining,4536.1,2026-04-08,,Active,2024-07-02,11,5.0,ACC-1118,polaris,,False,actual,358,0.0,0.1,1.0,True,0.9166666666666666,Mid-Market,HIGH,HIGH,176653.15,23
+CUST-0959,Blue Path,lucas@raptorsoft.com,,Declining,4351.74,2026-06-26,2024-05-05,Churned,2023-10-24,1,,,bluepath,True,False,actual,437,0.0,0.0,1.0,True,0.08333333333333333,Mid-Market,HIGH,MEDIUM,189029.98,25
+CUST-0960,Acme Corp,patricia@raptorsoft.com,,Improving,12204.77,2025-04-03,,Active,,8,,ACC-1100,acme,,False,actual,-12,1.0,0.0,0.0,True,0.6666666666666666,Mid-Market,HIGH,HIGH,194509.94,23
+CUST-0961,Beta Solutions,lucas@raptorsoft.com,53.0,Declining,0.0,2025-03-26,2024-01-31,Churned,2023-11-12,1,,,betasolutions,,False,actual,-20,1.0,0.0,1.0,True,0.08333333333333333,Mid-Market,HIGH,MEDIUM,133712.45,22
+CUST-0962,Grupo Nexus,rafael@raptorsoft.com,94.0,Declining,7579.19,2025-04-19,,Active,,9,,ACC-1102,nexus,,False,actual,4,1.0,0.0,1.0,True,0.75,Mid-Market,HIGH,HIGH,200687.78,24
+CUST-0963,VERTICE TECH,rafael@raptorsoft.com,78.0,Stable,3408.5,2025-03-02,2024-12-10,Churned,2023-06-13,9,5.0,ACC-1103,vertice,True,False,actual,-44,1.0,0.1,0.3,True,0.75,Mid-Market,HIGH,HIGH,197690.09,23
+CUST-0964,Orbit,carla@raptorsoft.com,54.0,Improving,8881.1,2026-05-10,,Active,2024-01-07,0,,,orbit,,False,actual,390,0.0,0.0,0.0,True,0.0,Mid-Market,HIGH,MEDIUM,227071.01,26
+CUST-0965,Fluxo Sistemas,,,Improving,2699.64,2025-04-30,,Active,2024-04-03,3,10.0,ACC-1105,fluxo,,False,actual,15,1.0,-0.08,0.0,True,0.25,Mid-Market,HIGH,HIGH,217571.91,27
+CUST-0966,dataprime,carla@raptorsoft.com,82.0,Declining,2867.22,2024-05-13,,Active,2024-09-10,3,,,dataprime,,False,actual,-337,1.0,0.0,1.0,True,0.25,Mid-Market,HIGH,MEDIUM,213142.01,25
+CUST-0967,Connect Wave,lucas@raptorsoft.com,65.0,Declining,9716.07,2026-04-30,,Active,2024-05-23,1,,ACC-1107,connectwave,,False,actual,380,0.0,0.0,1.0,True,0.08333333333333333,Mid-Market,HIGH,HIGH,238725.88,28
+CUST-0968,skyops,patricia@raptorsoft.com,37.0,Declining,11494.37,2025-09-01,,Active,,12,7.0,ACC-1108,skyops,,False,actual,139,0.0,0.0,1.0,True,1.0,Mid-Market,HIGH,HIGH,214724.43,25
+CUST-0969,Polare Ltda,patricia@raptorsoft.com,99.0,Declining,10344.13,2025-06-27,,Active,2024-07-15,12,6.0,ACC-1109,polare,,False,actual,73,0.3,0.1,1.0,True,1.0,Mid-Market,HIGH,HIGH,218077.81,27
+CUST-0970,rushflow,,17.0,Stable,13805.17,2025-06-06,,Active,,0,,ACC-1110,rushflow,,False,actual,52,0.6,0.0,0.3,True,0.0,Mid-Market,HIGH,HIGH,183982.75,23
+CUST-0971,Mind Box,patricia@raptorsoft.com,50.0,Declining,0.0,2026-05-10,2024-06-29,Churned,2023-09-30,6,,,mindbox,,False,actual,390,0.0,0.0,1.0,True,0.5,Mid-Market,HIGH,MEDIUM,217717.35,26
+CUST-0972,ZENTRA,carla@raptorsoft.com,,Improving,0.0,2025-08-07,2024-08-18,Churned,,7,,,zentra,,False,actual,114,0.0,0.0,0.0,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,236895.41,27
+CUST-0973,Amplia Soluções Ltda,patricia@raptorsoft.com,32.0,Stable,11116.64,2025-03-24,,Active,2023-11-16,5,6.0,ACC-1113,amplia,,False,actual,-22,1.0,0.1,0.3,True,0.4166666666666667,Mid-Market,HIGH,HIGH,211018.85,25
+CUST-0974,Core Logic,rafael@raptorsoft.com,,Improving,0.0,2025-10-02,2023-11-27,Churned,2024-06-17,3,,ACC-1114,corelogic,,False,actual,170,0.0,0.0,0.0,True,0.25,Mid-Market,HIGH,HIGH,206729.08,24
+CUST-0975,Tap Flow,lucas@raptorsoft.com,36.0,Improving,13275.75,2025-01-23,2024-05-02,Churned,,5,,,tapflow,True,False,actual,-82,1.0,0.0,0.0,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,213765.26,25
+CUST-0976,innova,rafael@raptorsoft.com,13.0,Improving,12427.17,2024-10-30,,Active,,2,5.0,ACC-1116,innova,,False,actual,-167,1.0,0.1,0.0,True,0.16666666666666666,Mid-Market,HIGH,HIGH,198837.46,20
+CUST-0977,Grid Soft,rafael@raptorsoft.com,70.0,Stable,1400.28,2025-04-24,,Active,2024-04-08,1,,ACC-1117,gridsoft,,False,actual,9,1.0,0.0,0.3,True,0.08333333333333333,Mid-Market,HIGH,HIGH,188772.05,23
+CUST-0978,Polaris,lucas@raptorsoft.com,,Improving,6365.36,2026-04-16,,Active,2023-06-16,7,10.0,,polaris,,False,actual,366,0.0,-0.08,0.0,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,176653.15,23
+CUST-0979,Blue Path,carla@raptorsoft.com,77.0,,3190.86,2025-05-05,,Active,2024-02-01,6,2.0,ACC-1119,bluepath,,False,actual,20,1.0,0.1,0.5,True,0.5,Mid-Market,HIGH,HIGH,189029.98,25
+CUST-0980,Acme,rafael@raptorsoft.com,14.0,Improving,9016.29,2025-12-25,,Active,2024-11-19,1,,,acme,,False,actual,254,0.0,0.0,0.0,False,0.08333333333333333,Mid-Market,HIGH,MEDIUM,194509.94,23
+CUST-0981,Beta Solutions Ltda,,28.0,Improving,3143.33,2025-09-16,,Active,2024-08-08,2,7.0,ACC-1101,betasolutions,,False,actual,154,0.0,0.0,0.0,True,0.16666666666666666,Mid-Market,HIGH,HIGH,133712.45,22
+CUST-0982,GRUPO NEXUS,,,Declining,14095.59,2026-01-25,,Active,,12,,,nexus,,False,actual,285,0.0,0.0,1.0,True,1.0,Mid-Market,HIGH,MEDIUM,200687.78,24
+CUST-0983,Vértice Tech,carla@raptorsoft.com,10.0,Declining,8319.83,2025-03-09,,Active,,12,,,vertice,,True,global_median_proxy,-37,1.0,0.0,1.0,True,1.0,Mid-Market,HIGH,MEDIUM,197690.09,23
+CUST-0984,orbit digital,patricia@raptorsoft.com,17.0,Declining,10096.1,2025-02-22,,Active,2024-04-09,5,,ACC-1104,orbit,,False,actual,-52,1.0,0.0,1.0,True,0.4166666666666667,Mid-Market,HIGH,HIGH,227071.01,26
+CUST-0985,Fluxo Sistemas Ltda,patricia@raptorsoft.com,22.0,,0.0,2025-12-24,2024-03-27,Churned,2024-09-03,10,1.0,,fluxo,,False,actual,253,0.0,0.1,0.5,True,0.8333333333333334,Mid-Market,HIGH,MEDIUM,217571.91,27
+CUST-0986,Data Prime,lucas@raptorsoft.com,23.0,,11744.59,2026-02-21,,Active,2024-12-12,3,10.0,ACC-1106,dataprime,,False,actual,312,0.0,-0.08,0.5,False,0.25,Mid-Market,HIGH,HIGH,213142.01,25
+CUST-0987,ConnectWave,patricia@raptorsoft.com,76.0,Stable,10703.72,2024-01-22,,Active,2024-10-23,11,,,connectwave,,False,actual,-449,1.0,0.0,0.3,False,0.9166666666666666,Mid-Market,HIGH,MEDIUM,238725.88,28
+CUST-0988,skyops,patricia@raptorsoft.com,71.0,Stable,13658.72,2024-12-13,,Active,,6,,ACC-1108,skyops,,False,actual,-123,1.0,0.0,0.3,True,0.5,Mid-Market,HIGH,HIGH,214724.43,25
+CUST-0989,Polare,lucas@raptorsoft.com,32.0,Stable,6262.35,2025-04-11,,Active,2024-11-12,4,5.0,ACC-1109,polare,,False,actual,-4,1.0,0.1,0.3,False,0.3333333333333333,Mid-Market,HIGH,HIGH,218077.81,27
+CUST-0990,RushFlow,lucas@raptorsoft.com,61.0,Improving,4652.88,2025-04-22,,Active,,1,5.0,ACC-1110,rushflow,,False,actual,7,1.0,0.1,0.0,True,0.08333333333333333,Mid-Market,HIGH,HIGH,183982.75,23
+CUST-0991,Mindbox,lucas@raptorsoft.com,83.0,Improving,14035.44,2025-04-29,,Active,2024-01-09,12,2.0,ACC-1111,mindbox,,False,actual,14,1.0,0.1,0.0,True,1.0,Mid-Market,HIGH,HIGH,217717.35,26
+CUST-0992,Zentra Tech,rafael@raptorsoft.com,69.0,Stable,7947.46,2026-04-01,,Active,,11,5.0,,zentra,,False,actual,351,0.0,0.1,0.3,True,0.9166666666666666,Mid-Market,HIGH,MEDIUM,236895.41,27
+CUST-0993,Amplia Soluções Ltda,patricia@raptorsoft.com,64.0,Improving,6753.43,2025-10-13,2025-01-09,Churned,2024-12-28,11,9.0,,amplia,True,False,actual,181,0.0,-0.08,0.0,False,0.9166666666666666,Mid-Market,HIGH,MEDIUM,211018.85,25
+CUST-0994,Core Logic,patricia@raptorsoft.com,93.0,Improving,11163.88,2025-02-17,,Active,,4,3.0,ACC-1114,corelogic,,False,actual,-57,1.0,0.1,0.0,True,0.3333333333333333,Mid-Market,HIGH,HIGH,206729.08,24
+CUST-0995,tapflow,carla@raptorsoft.com,,Improving,9806.81,2026-04-24,,Active,2024-12-24,10,4.0,ACC-1115,tapflow,,False,actual,374,0.0,0.1,0.0,False,0.8333333333333334,Mid-Market,HIGH,HIGH,213765.26,25
+CUST-0996,INNOVA,patricia@raptorsoft.com,43.0,Declining,4828.87,2025-05-11,,Active,,12,,,innova,,False,actual,26,1.0,0.0,1.0,True,1.0,Mid-Market,HIGH,MEDIUM,198837.46,20
+CUST-0997,GridSoft,lucas@raptorsoft.com,12.0,Stable,8637.83,2025-07-21,,Active,2023-06-18,11,,,gridsoft,,False,actual,97,0.0,0.0,0.3,True,0.9166666666666666,Mid-Market,HIGH,MEDIUM,188772.05,23
+CUST-0998,Polaris,rafael@raptorsoft.com,45.0,Stable,12279.79,2025-09-02,,Active,2024-03-30,10,3.0,ACC-1118,polaris,,False,actual,140,0.0,0.1,0.3,True,0.8333333333333334,Mid-Market,HIGH,HIGH,176653.15,23
+CUST-0999,BluePath,lucas@raptorsoft.com,37.0,Improving,0.0,2026-01-31,2023-08-18,Churned,2024-07-09,4,,ACC-1119,bluepath,,False,actual,291,0.0,0.0,0.0,True,0.3333333333333333,Mid-Market,HIGH,HIGH,189029.98,25
+CUST-1000,Acme Corp.,patricia@raptorsoft.com,60.0,Stable,0.0,2026-02-09,2024-02-07,Churned,,8,3.0,ACC-1100,acme,,False,actual,300,0.0,0.1,0.3,True,0.6666666666666666,Mid-Market,HIGH,HIGH,194509.94,23
+CUST-1001,Beta Solutions Ltda,carla@raptorsoft.com,,Stable,0.0,2025-06-05,2024-09-16,Churned,2024-01-03,5,10.0,ACC-1101,betasolutions,,False,actual,51,0.6,-0.08,0.3,True,0.4166666666666667,Mid-Market,HIGH,HIGH,133712.45,22
+CUST-1002,Nexus Group,patricia@raptorsoft.com,53.0,Declining,2356.93,2026-02-08,,Active,2024-02-21,9,1.0,,nexus,,False,actual,299,0.0,0.1,1.0,True,0.75,Mid-Market,HIGH,MEDIUM,200687.78,24
+CUST-1003,VERTICE TECH,rafael@raptorsoft.com,98.0,Declining,0.0,2026-03-30,2024-05-20,Churned,,2,10.0,,vertice,,False,actual,349,0.0,-0.08,1.0,True,0.16666666666666666,Mid-Market,HIGH,MEDIUM,197690.09,23
+CUST-1004,Orbit Digital,lucas@raptorsoft.com,53.0,,6245.01,2025-12-01,,Active,,7,,ACC-1104,orbit,,False,actual,230,0.0,0.0,0.5,True,0.5833333333333334,Mid-Market,HIGH,HIGH,227071.01,26
+CUST-1005,Fluxo Sistemas Ltda,carla@raptorsoft.com,74.0,,10325.11,2025-08-18,,Active,,1,2.0,ACC-1105,fluxo,,False,actual,125,0.0,0.1,0.5,True,0.08333333333333333,Mid-Market,HIGH,HIGH,217571.91,27
+CUST-1006,DataPrime,patricia@raptorsoft.com,76.0,Improving,7057.58,2026-06-30,,Active,2023-07-05,0,1.0,,dataprime,,False,actual,441,0.0,0.1,0.0,True,0.0,Mid-Market,HIGH,MEDIUM,213142.01,25
+CUST-1007,connectwave,patricia@raptorsoft.com,71.0,,9240.51,2025-09-06,,Active,,3,3.0,,connectwave,,False,actual,144,0.0,0.1,0.5,True,0.25,Mid-Market,HIGH,MEDIUM,238725.88,28
+CUST-1008,Sky Ops,patricia@raptorsoft.com,42.0,,11800.42,2026-04-15,,Active,,6,,,skyops,,False,actual,365,0.0,0.0,0.5,True,0.5,Mid-Market,HIGH,MEDIUM,214724.43,25
+CUST-1009,Polare Ltda,carla@raptorsoft.com,67.0,Stable,12488.29,2025-05-17,,Active,2024-04-17,1,8.0,,polare,,False,actual,32,0.6,0.0,0.3,True,0.08333333333333333,Mid-Market,HIGH,MEDIUM,218077.81,27
+CUST-1010,rushflow,lucas@raptorsoft.com,42.0,,8126.87,2024-12-14,,Active,,9,2.0,ACC-1110,rushflow,,False,actual,-122,1.0,0.1,0.5,True,0.75,Mid-Market,HIGH,HIGH,183982.75,23
+CUST-1011,MINDBOX,lucas@raptorsoft.com,63.0,,0.0,2025-10-02,2024-05-18,Churned,2024-08-19,8,8.0,,mindbox,,False,actual,170,0.0,0.0,0.5,True,0.6666666666666666,Mid-Market,HIGH,MEDIUM,217717.35,26
+CUST-1012,zentra,patricia@raptorsoft.com,60.0,Stable,0.0,2025-05-16,2023-12-31,Churned,,12,,ACC-1112,zentra,,False,actual,31,0.6,0.0,0.3,True,1.0,Mid-Market,HIGH,HIGH,236895.41,27
+CUST-1013,Amplia,,64.0,,0.0,2026-03-31,2023-11-27,Churned,,2,,ACC-1113,amplia,,False,actual,350,0.0,0.0,0.5,True,0.16666666666666666,Mid-Market,HIGH,HIGH,211018.85,25
+CUST-1014,corelogic,,81.0,Stable,5163.98,2025-02-10,,Active,,8,4.0,,corelogic,,False,actual,-64,1.0,0.1,0.3,True,0.6666666666666666,Mid-Market,HIGH,MEDIUM,206729.08,24
+CUST-1015,TapFlow,lucas@raptorsoft.com,38.0,Stable,6454.59,2025-07-17,,Active,,2,7.0,,tapflow,,False,actual,93,0.0,0.0,0.3,True,0.16666666666666666,Mid-Market,HIGH,MEDIUM,213765.26,25
+CUST-1016,INNOVA,lucas@raptorsoft.com,62.0,,0.0,2025-08-04,2023-06-29,Churned,2024-02-07,12,1.0,,innova,,False,actual,111,0.0,0.1,0.5,True,1.0,Mid-Market,HIGH,MEDIUM,198837.46,20
+CUST-1017,gridsoft,lucas@raptorsoft.com,38.0,Stable,0.0,2025-10-01,2023-07-27,Churned,2024-01-26,3,4.0,,gridsoft,,False,actual,169,0.0,0.1,0.3,True,0.25,Mid-Market,HIGH,MEDIUM,188772.05,23
+CUST-1018,polaris,lucas@raptorsoft.com,80.0,,5404.76,2026-05-22,,Active,2024-07-12,8,9.0,,polaris,,False,actual,402,0.0,-0.08,0.5,True,0.6666666666666666,Mid-Market,HIGH,MEDIUM,176653.15,23
+CUST-1019,bluepath,carla@raptorsoft.com,59.0,Stable,0.0,2026-01-22,2024-11-07,Churned,,4,,ACC-1119,bluepath,,False,actual,282,0.0,0.0,0.3,True,0.3333333333333333,Mid-Market,HIGH,HIGH,189029.98,25
+CUST-1020,Acme Corp.,,15.0,Stable,10040.39,2026-01-30,,Active,2023-12-03,6,,,acme,,False,actual,290,0.0,0.0,0.3,True,0.5,Mid-Market,HIGH,MEDIUM,194509.94,23
+CUST-1021,beta solutions,,84.0,Stable,14470.45,2025-05-14,,Active,2024-02-01,0,6.0,ACC-1101,betasolutions,,False,actual,29,1.0,0.1,0.3,True,0.0,Mid-Market,HIGH,HIGH,133712.45,22
+CUST-1022,Grupo Nexus,carla@raptorsoft.com,23.0,Stable,6586.08,2025-07-05,,Active,,11,,,nexus,,False,actual,81,0.3,0.0,0.3,True,0.9166666666666666,Mid-Market,HIGH,MEDIUM,200687.78,24
+CUST-1023,Vértice Tech,lucas@raptorsoft.com,37.0,Improving,0.0,2025-01-06,2024-07-15,Churned,,4,1.0,ACC-1103,vertice,,False,actual,-99,1.0,0.1,0.0,True,0.3333333333333333,Mid-Market,HIGH,HIGH,197690.09,23
+CUST-1024,orbit digital,rafael@raptorsoft.com,93.0,,4827.95,2026-03-08,,Active,2023-10-18,10,8.0,ACC-1104,orbit,,False,actual,327,0.0,0.0,0.5,True,0.8333333333333334,Mid-Market,HIGH,HIGH,227071.01,26
+CUST-1025,Fluxo Sistemas Ltda,patricia@raptorsoft.com,19.0,Stable,11003.05,2024-01-07,,Active,2024-05-22,2,,,fluxo,,False,actual,-464,1.0,0.0,0.3,True,0.16666666666666666,Mid-Market,HIGH,MEDIUM,217571.91,27
+CUST-1026,Data Prime,lucas@raptorsoft.com,20.0,Improving,10851.73,2026-05-02,,Active,2023-09-05,3,2.0,ACC-1106,dataprime,,False,actual,382,0.0,0.1,0.0,True,0.25,Mid-Market,HIGH,HIGH,213142.01,25
+CUST-1027,CONNECTWAVE,rafael@raptorsoft.com,80.0,Stable,12997.7,2025-08-29,,Active,,7,,,connectwave,,False,actual,136,0.0,0.0,0.3,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,238725.88,28
+CUST-1028,SKYOPS,,40.0,Improving,1929.02,2026-05-24,,Active,2023-11-21,5,,ACC-1108,skyops,,False,actual,404,0.0,0.0,0.0,True,0.4166666666666667,Mid-Market,HIGH,HIGH,214724.43,25
+CUST-1029,Polare Ltda,lucas@raptorsoft.com,74.0,Declining,6139.72,2025-07-05,,Active,,12,6.0,,polare,,False,actual,81,0.3,0.1,1.0,True,1.0,Mid-Market,HIGH,MEDIUM,218077.81,27
+CUST-1030,Rush Flow,lucas@raptorsoft.com,83.0,Stable,8251.15,2025-07-09,,Active,2024-11-09,1,3.0,ACC-1110,rushflow,,False,actual,85,0.3,0.1,0.3,False,0.08333333333333333,Mid-Market,HIGH,HIGH,183982.75,23
+CUST-1031,mindbox,rafael@raptorsoft.com,37.0,Improving,7731.92,2026-05-24,,Active,2024-04-18,3,6.0,,mindbox,,False,actual,404,0.0,0.1,0.0,True,0.25,Mid-Market,HIGH,MEDIUM,217717.35,26
+CUST-1032,Zentra,rafael@raptorsoft.com,99.0,Improving,14839.15,2026-03-28,,Active,,4,,,zentra,,False,actual,347,0.0,0.0,0.0,True,0.3333333333333333,Mid-Market,HIGH,MEDIUM,236895.41,27
+CUST-1033,AMPLIA SOLUCOES,lucas@raptorsoft.com,22.0,,6624.23,2025-02-23,,Active,2024-03-04,12,1.0,ACC-1113,amplia,,False,actual,-51,1.0,0.1,0.5,True,1.0,Mid-Market,HIGH,HIGH,211018.85,25
+CUST-1034,Core Logic,lucas@raptorsoft.com,11.0,,3584.57,2025-07-13,2023-07-02,Churned,,5,,,corelogic,True,False,actual,89,0.3,0.0,0.5,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,206729.08,24
+CUST-1035,tapflow,lucas@raptorsoft.com,16.0,Stable,14183.2,2024-12-04,,Active,,1,4.0,ACC-1115,tapflow,,False,actual,-132,1.0,0.1,0.3,True,0.08333333333333333,Mid-Market,HIGH,HIGH,213765.26,25
+CUST-1036,Innova Tech,carla@raptorsoft.com,,Declining,6609.93,2025-07-19,,Active,,6,,,innova,,False,actual,95,0.0,0.0,1.0,True,0.5,Mid-Market,HIGH,MEDIUM,198837.46,20
+CUST-1037,GridSoft,rafael@raptorsoft.com,36.0,Stable,10829.67,2025-08-31,,Active,2024-11-28,12,4.0,ACC-1117,gridsoft,,False,actual,138,0.0,0.1,0.3,False,1.0,Mid-Market,HIGH,HIGH,188772.05,23
+CUST-1038,polaris,patricia@raptorsoft.com,,Declining,11967.85,2025-07-22,,Active,,10,1.0,ACC-1118,polaris,,False,actual,98,0.0,0.1,1.0,True,0.8333333333333334,Mid-Market,HIGH,HIGH,176653.15,23
+CUST-1039,BluePath,patricia@raptorsoft.com,43.0,Improving,0.0,2025-09-15,2023-10-20,Churned,,4,6.0,ACC-1119,bluepath,,False,actual,153,0.0,0.1,0.0,True,0.3333333333333333,Mid-Market,HIGH,HIGH,189029.98,25
+CUST-1040,acme,lucas@raptorsoft.com,72.0,,0.0,2025-04-12,2024-10-27,Churned,,0,2.0,ACC-1100,acme,,False,actual,-3,1.0,0.1,0.5,True,0.0,Mid-Market,HIGH,HIGH,194509.94,23
+CUST-1041,Beta Solutions,carla@raptorsoft.com,,Declining,4613.04,2024-02-03,2024-10-13,Churned,2023-06-26,5,,ACC-1101,betasolutions,True,False,actual,-437,1.0,0.0,1.0,True,0.4166666666666667,Mid-Market,HIGH,HIGH,133712.45,22
+CUST-1042,nexus,rafael@raptorsoft.com,93.0,,0.0,2026-02-09,2023-08-13,Churned,,12,,,nexus,,False,actual,300,0.0,0.0,0.5,True,1.0,Mid-Market,HIGH,MEDIUM,200687.78,24
+CUST-1043,Vertice,rafael@raptorsoft.com,48.0,Declining,12307.55,2026-04-29,,Active,2023-09-07,1,,,vertice,,False,actual,379,0.0,0.0,1.0,True,0.08333333333333333,Mid-Market,HIGH,MEDIUM,197690.09,23
+CUST-1044,Orbit,carla@raptorsoft.com,,Stable,3763.89,2025-08-22,,Active,2024-01-18,8,,,orbit,,False,actual,129,0.0,0.0,0.3,True,0.6666666666666666,Mid-Market,HIGH,MEDIUM,227071.01,26
+CUST-1045,Fluxo,rafael@raptorsoft.com,59.0,Improving,7979.32,2024-05-18,,Active,2024-10-16,7,,,fluxo,,False,actual,-332,1.0,0.0,0.0,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,217571.91,27
+CUST-1046,DataPrime,carla@raptorsoft.com,26.0,,13990.78,2026-02-28,,Active,2024-03-01,3,7.0,,dataprime,,False,actual,319,0.0,0.0,0.5,True,0.25,Mid-Market,HIGH,MEDIUM,213142.01,25
+CUST-1047,Connect Wave,rafael@raptorsoft.com,,Improving,10327.4,2025-11-22,,Active,,2,8.0,ACC-1107,connectwave,,False,actual,221,0.0,0.0,0.0,True,0.16666666666666666,Mid-Market,HIGH,HIGH,238725.88,28
+CUST-1048,Sky Ops,carla@raptorsoft.com,39.0,Improving,0.0,2026-01-29,2024-02-16,Churned,2024-10-03,9,,,skyops,,False,actual,289,0.0,0.0,0.0,True,0.75,Mid-Market,HIGH,MEDIUM,214724.43,25
+CUST-1049,Polare,,77.0,Stable,9607.73,2026-05-20,,Active,2024-01-05,12,7.0,,polare,,False,actual,400,0.0,0.0,0.3,True,1.0,Mid-Market,HIGH,MEDIUM,218077.81,27
+CUST-1050,rushflow,,87.0,,0.0,2025-10-29,2024-07-19,Churned,2023-10-10,1,4.0,ACC-1110,rushflow,,False,actual,197,0.0,0.1,0.5,True,0.08333333333333333,Mid-Market,HIGH,HIGH,183982.75,23
+CUST-1051,MINDBOX,lucas@raptorsoft.com,63.0,Declining,10938.43,2025-03-02,,Active,,7,3.0,ACC-1111,mindbox,,False,actual,-44,1.0,0.1,1.0,True,0.5833333333333334,Mid-Market,HIGH,HIGH,217717.35,26
+CUST-1052,Zentra Tech,lucas@raptorsoft.com,94.0,Improving,9868.36,2024-02-24,,Active,2024-09-30,6,,,zentra,,False,actual,-416,1.0,0.0,0.0,True,0.5,Mid-Market,HIGH,MEDIUM,236895.41,27
+CUST-1053,Amplia Soluções Ltda,carla@raptorsoft.com,62.0,Improving,0.0,2025-06-11,2024-05-30,Churned,,10,,,amplia,,False,actual,57,0.6,0.0,0.0,True,0.8333333333333334,Mid-Market,HIGH,MEDIUM,211018.85,25
+CUST-1054,corelogic,rafael@raptorsoft.com,,,1342.76,2026-03-07,,Active,2023-08-26,5,,,corelogic,,False,actual,326,0.0,0.0,0.5,True,0.4166666666666667,Mid-Market,HIGH,MEDIUM,206729.08,24
+CUST-1055,Tap Flow,patricia@raptorsoft.com,87.0,Declining,7701.15,2025-03-30,,Active,2023-08-23,7,1.0,,tapflow,,False,actual,-16,1.0,0.1,1.0,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,213765.26,25
+CUST-1056,innova,rafael@raptorsoft.com,29.0,,0.0,2025-10-22,2023-11-07,Churned,2024-01-21,11,6.0,ACC-1116,innova,,False,actual,190,0.0,0.1,0.5,True,0.9166666666666666,Mid-Market,HIGH,HIGH,198837.46,20
+CUST-1057,gridsoft,patricia@raptorsoft.com,33.0,Declining,8131.53,2025-06-09,,Active,2024-11-25,11,,,gridsoft,,False,actual,55,0.6,0.0,1.0,False,0.9166666666666666,Mid-Market,HIGH,MEDIUM,188772.05,23
+CUST-1058,Polaris,lucas@raptorsoft.com,93.0,Improving,11056.89,2024-07-17,2024-01-15,Churned,2023-08-20,7,5.0,,polaris,True,False,actual,-272,1.0,0.1,0.0,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,176653.15,23
+CUST-1059,bluepath,lucas@raptorsoft.com,77.0,Declining,6214.21,2025-08-30,,Active,,6,3.0,ACC-1119,bluepath,,False,actual,137,0.0,0.1,1.0,True,0.5,Mid-Market,HIGH,HIGH,189029.98,25
+CUST-1060,ACME CORP,,81.0,Stable,8319.83,2025-06-16,,Active,2024-02-21,0,,ACC-1100,acme,,True,global_median_proxy,62,0.3,0.0,0.3,True,0.0,Mid-Market,HIGH,HIGH,194509.94,23
+CUST-1061,Beta Solutions,patricia@raptorsoft.com,55.0,Stable,3554.56,2025-07-06,,Active,2024-12-13,6,9.0,ACC-1101,betasolutions,,False,actual,82,0.3,-0.08,0.3,False,0.5,Mid-Market,HIGH,HIGH,133712.45,22
+CUST-1062,Grupo Nexus,patricia@raptorsoft.com,,Improving,3555.74,2025-02-22,,Active,,10,,ACC-1102,nexus,,False,actual,-52,1.0,0.0,0.0,True,0.8333333333333334,Mid-Market,HIGH,HIGH,200687.78,24
+CUST-1063,Vertice,rafael@raptorsoft.com,,,14547.11,2026-03-06,,Active,2024-02-17,9,3.0,ACC-1103,vertice,,False,actual,325,0.0,0.1,0.5,True,0.75,Mid-Market,HIGH,HIGH,197690.09,23
+CUST-1064,Orbit,lucas@raptorsoft.com,,Declining,5432.24,2025-08-13,,Active,,10,7.0,,orbit,,False,actual,120,0.0,0.0,1.0,True,0.8333333333333334,Mid-Market,HIGH,MEDIUM,227071.01,26
+CUST-1065,Fluxo Sistemas Ltda,rafael@raptorsoft.com,54.0,,6364.87,2026-05-21,,Active,,4,3.0,ACC-1105,fluxo,,False,actual,401,0.0,0.1,0.5,True,0.3333333333333333,Mid-Market,HIGH,HIGH,217571.91,27
+CUST-1066,Data Prime,carla@raptorsoft.com,12.0,Improving,0.0,2025-06-26,2024-01-02,Churned,2024-06-12,3,,ACC-1106,dataprime,,False,actual,72,0.3,0.0,0.0,True,0.25,Mid-Market,HIGH,HIGH,213142.01,25
+CUST-1067,Connect Wave,lucas@raptorsoft.com,,Stable,0.0,2025-11-06,2024-03-12,Churned,2025-01-01,2,,,connectwave,,False,actual,205,0.0,0.0,0.3,False,0.16666666666666666,Mid-Market,HIGH,MEDIUM,238725.88,28
+CUST-1068,SkyOps,patricia@raptorsoft.com,17.0,Improving,0.0,2025-05-03,2024-04-14,Churned,2024-11-03,4,,,skyops,,False,actual,18,1.0,0.0,0.0,False,0.3333333333333333,Mid-Market,HIGH,MEDIUM,214724.43,25
+CUST-1069,polare,lucas@raptorsoft.com,46.0,Improving,13614.27,2026-01-05,,Active,,7,,,polare,,False,actual,265,0.0,0.0,0.0,True,0.5833333333333334,Mid-Market,HIGH,MEDIUM,218077.81,27
+CUST-1070,RushFlow,rafael@raptorsoft.com,29.0,Declining,2540.85,2026-04-29,,Active,2024-07-23,11,,,rushflow,,False,actual,379,0.0,0.0,1.0,True,0.9166666666666666,Mid-Market,HIGH,MEDIUM,183982.75,23
+CUST-1071,Mindbox,patricia@raptorsoft.com,98.0,Improving,7414.25,2025-11-09,,Active,2024-09-05,8,8.0,,mindbox,,False,actual,208,0.0,0.0,0.0,True,0.6666666666666666,Mid-Market,HIGH,MEDIUM,217717.35,26
+CUST-1072,zentra,patricia@raptorsoft.com,100.0,Improving,1530.95,2025-05-22,,Active,,10,,ACC-1112,zentra,,False,actual,37,0.6,0.0,0.0,True,0.8333333333333334,Mid-Market,HIGH,HIGH,236895.41,27
+CUST-1073,Amplia Soluções,patricia@raptorsoft.com,85.0,Stable,6951.66,2024-04-16,,Active,2023-09-30,0,,ACC-1113,amplia,,False,actual,-364,1.0,0.0,0.3,True,0.0,Mid-Market,HIGH,HIGH,211018.85,25
+CUST-1074,CORELOGIC,,74.0,Improving,3310.16,2025-06-21,,Active,2024-11-23,2,,,corelogic,,False,actual,67,0.3,0.0,0.0,False,0.16666666666666666,Mid-Market,HIGH,MEDIUM,206729.08,24
+CUST-1075,tapflow,,52.0,Improving,0.0,2026-01-26,2024-11-22,Churned,2024-06-09,0,3.0,,tapflow,,False,actual,286,0.0,0.1,0.0,True,0.0,Mid-Market,HIGH,MEDIUM,213765.26,25
+CUST-1076,INNOVA,lucas@raptorsoft.com,,Improving,0.0,2026-01-29,2024-10-16,Churned,,11,10.0,ACC-1116,innova,,False,actual,289,0.0,-0.08,0.0,True,0.9166666666666666,Mid-Market,HIGH,HIGH,198837.46,20
+CUST-1077,Grid Soft,lucas@raptorsoft.com,50.0,Stable,8319.83,2026-05-16,,Active,2024-01-11,5,,ACC-1117,gridsoft,,True,global_median_proxy,396,0.0,0.0,0.3,True,0.4166666666666667,Mid-Market,HIGH,HIGH,188772.05,23
+CUST-1078,Polaris Tech,rafael@raptorsoft.com,57.0,,14991.75,2026-04-01,,Active,,3,1.0,ACC-1118,polaris,,False,actual,351,0.0,0.1,0.5,True,0.25,Mid-Market,HIGH,HIGH,176653.15,23
+CUST-1079,BluePath,carla@raptorsoft.com,59.0,,4758.68,2025-09-30,,Active,2023-08-03,10,3.0,ACC-1119,bluepath,,False,actual,168,0.0,0.1,0.5,True,0.8333333333333334,Mid-Market,HIGH,HIGH,189029.98,25
