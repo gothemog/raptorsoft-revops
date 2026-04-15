@@ -26,6 +26,43 @@ from src.utils import (
     get_slippage_discount, OPEN_STAGES,
 )
 
+
+# ===========================================================================
+# FORMATACAO NUMERICA BR
+# ===========================================================================
+
+def fmt_br(value, decimals=0):
+    """Formata numero no padrao brasileiro: ponto como milhar, virgula como decimal."""
+    if pd.isna(value):
+        return "—"
+    formatted = f"{value:,.{decimals}f}"
+    # Swap: comma→@, dot→comma, @→dot
+    return formatted.replace(",", "@").replace(".", ",").replace("@", ".")
+
+def fmt_brl(value, decimals=0):
+    """R$ 1.234.567,89"""
+    return f"R$ {fmt_br(value, decimals)}"
+
+def fmt_usd(value, decimals=0):
+    """USD 1.234.567"""
+    return f"USD {fmt_br(value, decimals)}"
+
+def fmt_pct(value, decimals=1):
+    """72,2%"""
+    return f"{fmt_br(value * 100, decimals)}%"
+
+def fmt_brl_m(value, decimals=1):
+    """R$ 6,7M"""
+    return f"R$ {fmt_br(value / 1e6, decimals)}M"
+
+def fmt_usd_k(value, decimals=0):
+    """USD 1.647K"""
+    return f"USD {fmt_br(value / 1e3, decimals)}K"
+
+def fmt_usd_m(value, decimals=2):
+    """USD 4,08M"""
+    return f"USD {fmt_br(value / 1e6, decimals)}M"
+
 # ===========================================================================
 # CONFIGURACAO DA PAGINA
 # ===========================================================================
@@ -75,6 +112,10 @@ sf, catalyst, tel, hs, master, cr4, cr5, dt6, icp, icp_src, grr_co, forecast, en
 
 MEDIAN_MRR_USD = 8319.83
 
+# Join confidence: HIGH se chave tecnica presente, MEDIUM se apenas canonical_name
+sf["join_confidence"] = sf["account_id"].apply(lambda x: "HIGH" if pd.notna(x) else "MEDIUM")
+catalyst["join_confidence"] = catalyst["sf_account_id"].apply(lambda x: "HIGH" if pd.notna(x) else "MEDIUM")
+
 
 # ===========================================================================
 # SIDEBAR
@@ -97,12 +138,7 @@ st.sidebar.markdown(f"**Data de referencia:** {REFERENCE_DATE.date()}")
 st.sidebar.markdown("**Taxa cambial:** R$ 5,70 / USD")
 st.sidebar.markdown("**Quarter atual:** Q2 2025")
 st.sidebar.markdown("**Empresas:** 20 | **Contratos:** 680")
-st.sidebar.markdown("""
----
-**Legenda de join:**
-- 🟢 HIGH — chave tecnica
-- 🟡 MEDIUM — canonical_name
-""")
+st.sidebar.markdown("---")
 
 # ===========================================================================
 # METRICAS GLOBAIS (header compartilhado)
@@ -139,16 +175,16 @@ st.markdown("""
 
 if secao == "A — Pipeline Health":
     st.title("📊 Seção A — Pipeline Health Overview")
-    st.caption("Lado esquerdo do Bowtie: VM3→VM5, CR4, aging de pipeline")
+    st.caption("Lado esquerdo do Bowtie — Aquisição: volume de pipeline, taxa de conversão e aging")
 
     # KPIs
     col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
-        st.metric("Pipeline Total (aberto)", f"R$ {total_pipeline_brl/1e6:.1f}M",
+        st.metric("Pipeline Total (aberto)", fmt_brl_m(total_pipeline_brl),
                   help="Oportunidades abertas, excluindo omit e amounts negativos")
     with col2:
-        st.metric("Forecast Ajustado Q2/25", f"R$ {total_forecast_brl/1e6:.1f}M",
-                  delta=f"{(total_forecast_brl/total_pipeline_brl*100):.0f}% do pipeline",
+        st.metric("Forecast Ajustado Q2/25", fmt_brl_m(total_forecast_brl),
+                  delta=f"{fmt_br(total_forecast_brl/total_pipeline_brl*100, 0)}% do pipeline",
                   help="Pipeline com desconto progressivo por aging de slippage")
     with col3:
         n_slippage = sf["is_slippage"].sum()
@@ -159,13 +195,13 @@ if secao == "A — Pipeline Health":
         n_commit = sf[(sf["forecast_category_canonical"] == "commit") & sf["is_open"]].shape[0]
         commit_val = sf.loc[(sf["forecast_category_canonical"] == "commit") & sf["is_open"], "amount_brl"].sum()
         st.metric("Commit em Aberto", f"{n_commit} opps",
-                  delta=f"R$ {commit_val/1e6:.1f}M",
+                  delta=fmt_brl_m(commit_val),
                   help="Oportunidades commit ainda sem fechamento")
     with col5:
         n_neg = sf["is_negative_amount"].sum()
         neg_val = sf.loc[sf["is_negative_amount"], "amount_brl"].sum()
         st.metric("Estornos (amount < 0)", f"{n_neg}",
-                  delta=f"R$ {neg_val/1e6:.2f}M",
+                  delta=fmt_brl_m(neg_val, 2),
                   delta_color="inverse",
                   help="Registros com amount_brl < 0 — excluidos do forecast")
 
@@ -223,7 +259,7 @@ if secao == "A — Pipeline Health":
         fig_heat = px.bar(
             heatmap_data, x="slippage_bucket", y="n_opps",
             color="slippage_bucket",
-            text=heatmap_data.apply(lambda r: f"{r['n_opps']} opps\nR${r['pipeline_brl']/1e6:.1f}M\nDesc: {r['discount_pct']}", axis=1),
+            text=heatmap_data.apply(lambda r: f"{r['n_opps']} opps\n{fmt_brl_m(r['pipeline_brl'])}\nDesc: {r['discount_pct']}", axis=1),
             title="Oportunidades por Faixa de Slippage",
             color_discrete_sequence=["#43A047", "#FDD835", "#FB8C00", "#E53935", "#B71C1C"],
             height=380,
@@ -236,7 +272,7 @@ if secao == "A — Pipeline Health":
 
     # Aging detalhado + sinalizacoes de risco
     st.subheader("Sinalização de Oportunidades em Risco")
-    st.caption("Oportunidades abertas com indicadores de risco: slippage, stale, commit sem fechamento")
+    st.caption("Oportunidades abertas com indicadores de risco: slippage, stale, commit sem fechamento | Confiança do join: 🟢 HIGH (chave técnica) / 🟡 MEDIUM (canonical_name)")
 
     risk_flags = sf[
         sf["is_open"]
@@ -250,17 +286,19 @@ if secao == "A — Pipeline Health":
         risk_flags.loc[risk_flags["is_stale_opportunity"], "risk_flags"] += "🕸️ Stale "
         risk_flags.loc[risk_flags["forecast_category_canonical"] == "commit", "risk_flags"] += "⚠️ Commit "
 
+        risk_flags["join_dot"] = risk_flags["join_confidence"].map({"HIGH": "🟢", "MEDIUM": "🟡"})
         risk_display = risk_flags[[
             "opportunity_id", "canonical_name", "stage_canonical",
             "amount_brl", "close_date", "slippage_days",
-            "forecast_category_canonical", "risk_flags"
+            "forecast_category_canonical", "risk_flags", "join_dot"
         ]].rename(columns={
             "opportunity_id": "Opp ID", "canonical_name": "Empresa",
             "stage_canonical": "Stage", "amount_brl": "Valor (R$)",
             "close_date": "Close Date", "slippage_days": "Slippage (dias)",
-            "forecast_category_canonical": "Forecast Cat.", "risk_flags": "Flags"
+            "forecast_category_canonical": "Forecast Cat.", "risk_flags": "Flags",
+            "join_dot": "Join"
         })
-        risk_display["Valor (R$)"] = risk_display["Valor (R$)"].apply(lambda x: f"R$ {x:,.0f}")
+        risk_display["Valor (R$)"] = risk_display["Valor (R$)"].apply(lambda x: fmt_brl(x))
         risk_display = risk_display.sort_values("Slippage (dias)", ascending=False)
         st.dataframe(risk_display.head(50), use_container_width=True, height=350)
     else:
@@ -274,7 +312,7 @@ if secao == "A — Pipeline Health":
         with col_e1:
             st.metric("Total de Estornos", f"{len(estornos)} registros")
         with col_e2:
-            st.metric("Valor Total", f"R$ {estornos['amount_brl'].sum():,.0f}")
+            st.metric("Valor Total", fmt_brl(estornos['amount_brl'].sum()))
         with col_e3:
             st.metric("Empresas afetadas", f"{estornos['canonical_name'].nunique()}")
 
@@ -295,19 +333,19 @@ if secao == "A — Pipeline Health":
 
 elif secao == "B — Churn Risk Signal":
     st.title("🚨 Seção B — Churn Risk Signal")
-    st.caption("Lado direito do Bowtie: CR6, CR7 (GRR), Modelo de Churn Risk em 2 Camadas")
+    st.caption("Lado direito do Bowtie — Retenção: GRR, risco de churn e sinais de engajamento")
 
     # KPIs
     col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
-        st.metric("MRR Total Ativo", f"USD {mrr_total/1e6:.2f}M")
+        st.metric("MRR Total Ativo", fmt_usd_m(mrr_total))
     with col2:
-        st.metric("GRR (taxa de sobrevivencia)", f"{grr_pct*100:.1f}%",
+        st.metric("GRR (taxa de sobrevivencia)", fmt_pct(grr_pct),
                   help="n_active / (n_active + n_churned). MRR pre-churn estimado pela mediana global.")
     with col3:
         mrr_alto = active[active["risk_level"] == "Alto"]["mrr_usd"].sum()
-        st.metric("MRR em Risco Alto", f"USD {mrr_alto/1e3:.0f}K",
-                  delta=f"{mrr_alto/mrr_total*100:.1f}% do MRR",
+        st.metric("MRR em Risco Alto", fmt_usd_k(mrr_alto),
+                  delta=f"{fmt_br(mrr_alto/mrr_total*100, 1)}% do MRR",
                   delta_color="inverse")
     with col4:
         n_renew_60 = active[
@@ -317,12 +355,12 @@ elif secao == "B — Churn Risk Signal":
     with col5:
         n_imputed = active["mrr_imputed"].sum() if "mrr_imputed" in active.columns else 0
         mrr_imputed = n_imputed * MEDIAN_MRR_USD
-        st.metric("MRR Imputado *", f"USD {mrr_imputed/1e3:.0f}K",
-                  help="20 contratos Active com mrr_usd=0 receberam imputacao pela mediana global (USD 8,319.83)")
+        st.metric("MRR Imputado *", fmt_usd_k(mrr_imputed),
+                  help="19 contratos Active com mrr_usd=0 receberam imputacao pela mediana global (USD 8.319,83)")
 
     # Aviso MRR imputado
     if n_imputed > 0:
-        st.warning(f"⚠️ **{n_imputed} contratos** com MRR imputado (USD {mrr_imputed:,.0f} total) — marcados com * no dashboard. Ver Data Treatment Report.")
+        st.warning(f"⚠️ **{int(n_imputed)} contratos** com MRR imputado ({fmt_usd(mrr_imputed)} total) — marcados com * no dashboard. Ver Data Treatment Report.")
 
     st.markdown("---")
 
@@ -363,6 +401,7 @@ elif secao == "B — Churn Risk Signal":
 
     # Timeline de renovacoes
     st.subheader("Timeline de Renovacoes — Proximos 90 dias")
+    st.caption("Confiança do join: 🟢 HIGH (chave técnica) / 🟡 MEDIUM (canonical_name)")
     renew_90 = active[
         active["days_to_renewal"].notna()
         & (active["days_to_renewal"] > 0)
@@ -373,9 +412,10 @@ elif secao == "B — Churn Risk Signal":
         renew_90["renewal_urgency"] = renew_90["days_to_renewal"].apply(
             lambda d: "Critico (<=30d)" if d <= 30 else ("Atencao (31-60d)" if d <= 60 else "Monitor (61-90d)")
         )
+        renew_90["join_dot"] = renew_90["join_confidence"].map({"HIGH": "🟢", "MEDIUM": "🟡"})
         col_renew = ["customer_id", "canonical_name", "csm_owner", "mrr_usd",
                      "risk_level", "days_to_renewal", "renewal_date", "renewal_urgency",
-                     "health_score", "health_trend", "mrr_imputed"]
+                     "health_score", "health_trend", "mrr_imputed", "join_dot"]
         avail_cols = [c for c in col_renew if c in renew_90.columns]
         renew_display = renew_90[avail_cols].rename(columns={
             "customer_id": "Contrato", "canonical_name": "Empresa",
@@ -383,8 +423,9 @@ elif secao == "B — Churn Risk Signal":
             "days_to_renewal": "Dias p/ Renovacao", "renewal_date": "Data Renovacao",
             "renewal_urgency": "Urgencia", "health_score": "Health Score",
             "health_trend": "Tendencia", "mrr_imputed": "MRR Imputado*",
+            "join_dot": "Join",
         })
-        renew_display["MRR (USD)"] = renew_display["MRR (USD)"].apply(lambda x: f"USD {x:,.0f}")
+        renew_display["MRR (USD)"] = renew_display["MRR (USD)"].apply(lambda x: fmt_usd(x))
 
         def color_risk(val):
             colors = {"Alto": "background-color: #7f0000", "Medio": "background-color: #7f4000",
@@ -393,7 +434,7 @@ elif secao == "B — Churn Risk Signal":
 
         st.dataframe(renew_display, use_container_width=True, height=320)
         st.caption(f"{len(renew_90)} contratos com renovacao nos proximos 90 dias | "
-                   f"MRR total em jogo: USD {renew_90['mrr_usd'].sum():,.0f}")
+                   f"MRR total em jogo: {fmt_usd(renew_90['mrr_usd'].sum())}")
     else:
         st.info("Nenhum contrato com renovacao nos proximos 90 dias.")
 
@@ -408,17 +449,19 @@ elif secao == "B — Churn Risk Signal":
 
     if not action_list.empty:
         st.warning(f"🚨 **{len(action_list)} contratos** requerem acao imediata de CS")
+        action_list["join_dot"] = action_list["join_confidence"].map({"HIGH": "🟢", "MEDIUM": "🟡"})
         action_cols = ["customer_id", "canonical_name", "csm_owner", "mrr_usd",
                        "health_score", "health_trend", "days_to_renewal",
-                       "churn_risk_score", "contract_risk", "company_engagement_modifier"]
+                       "churn_risk_score", "contract_risk", "company_engagement_modifier", "join_dot"]
         avail_action_cols = [c for c in action_cols if c in action_list.columns]
         action_display = action_list[avail_action_cols].rename(columns={
             "customer_id": "Contrato", "canonical_name": "Empresa", "csm_owner": "CSM",
             "mrr_usd": "MRR (USD)", "health_score": "Health Score", "health_trend": "Tendencia",
             "days_to_renewal": "Dias p/ Renovacao", "churn_risk_score": "Score Final",
             "contract_risk": "Contract Risk", "company_engagement_modifier": "Eng. Modifier",
+            "join_dot": "Join",
         })
-        action_display["MRR (USD)"] = action_display["MRR (USD)"].apply(lambda x: f"USD {x:,.0f}")
+        action_display["MRR (USD)"] = action_display["MRR (USD)"].apply(lambda x: fmt_usd(x))
         st.dataframe(action_display, use_container_width=True)
     else:
         st.success("Nenhum contrato Alto Risco com renovacao nos proximos 60 dias.")
@@ -435,12 +478,12 @@ elif secao == "B — Churn Risk Signal":
         st.metric("Contratos Churned (total)", f"{n_churned_total}")
     with col_bt2:
         recall_a = n_alto_churned / n_churned_total if n_churned_total > 0 else 0
-        st.metric("Recall Alto", f"{recall_a*100:.1f}%",
+        st.metric("Recall Alto", fmt_pct(recall_a),
                   delta="target >= 40%" if recall_a >= 0.40 else "abaixo do target",
                   delta_color="normal" if recall_a >= 0.40 else "inverse")
     with col_bt3:
         recall_c = n_combo_churned / n_churned_total if n_churned_total > 0 else 0
-        st.metric("Recall Alto+Medio", f"{recall_c*100:.1f}%",
+        st.metric("Recall Alto+Medio", fmt_pct(recall_c),
                   delta="target >= 70%" if recall_c >= 0.70 else "abaixo do target",
                   delta_color="normal" if recall_c >= 0.70 else "inverse")
     st.caption("Backtesting indicativo (snapshot pos-fato). Ver Data Treatment Report para limitacoes.")
@@ -452,7 +495,7 @@ elif secao == "B — Churn Risk Signal":
 
 elif secao == "C — Simulador de Cenarios":
     st.title("⚙️ Seção C — Simulador de Cenários")
-    st.caption("Ajuste parametros e veja o impacto em tempo real no forecast e no risco de churn")
+    st.caption("Ajuste parâmetros e veja o impacto em tempo real no forecast e no risco de churn")
 
     tab_forecast, tab_churn, tab_cs = st.tabs(["📈 Forecast", "🔄 Churn Threshold", "🎯 Intervencao CS"])
 
@@ -502,12 +545,12 @@ elif secao == "C — Simulador de Cenarios":
             # KPIs simulados
             m1, m2, m3, m4 = st.columns(4)
             with m1:
-                st.metric("Forecast Simulado", f"R$ {sim_total_forecast/1e6:.2f}M")
+                st.metric("Forecast Simulado", fmt_brl_m(sim_total_forecast, 2))
             with m2:
-                st.metric("Meta", f"R$ {meta_receita/1e6:.2f}M")
+                st.metric("Meta", fmt_brl_m(meta_receita, 2))
             with m3:
                 gap_color = "normal" if gap_vs_meta >= 0 else "inverse"
-                st.metric("Gap vs. Meta", f"R$ {gap_vs_meta/1e6:.2f}M",
+                st.metric("Gap vs. Meta", fmt_brl_m(gap_vs_meta, 2),
                           delta_color=gap_color)
             with m4:
                 coverage_color = "normal" if coverage_ratio >= 3.0 else "inverse"
@@ -531,7 +574,7 @@ elif secao == "C — Simulador de Cenarios":
                            y=by_bucket["forecast"], name="Forecast Ajustado", marker_color="#43A047")
             if meta_receita > 0:
                 fig_fc.add_hline(y=meta_receita, line_dash="dash", line_color="#E53935",
-                                 annotation_text=f"Meta: R${meta_receita/1e6:.1f}M")
+                                 annotation_text=f"Meta: {fmt_brl_m(meta_receita)}")
             fig_fc.update_layout(
                 title="Pipeline vs. Forecast Simulado por Aging",
                 barmode="group",
@@ -578,9 +621,9 @@ elif secao == "C — Simulador de Cenarios":
             with m1:
                 st.metric("Contratos Alto Risco", f"{(active_sim['risk_sim']=='Alto').sum()}")
             with m2:
-                st.metric("MRR Exposto (Alto)", f"USD {mrr_alto_sim/1e3:.0f}K")
+                st.metric("MRR Exposto (Alto)", fmt_usd_k(mrr_alto_sim))
             with m3:
-                st.metric("MRR Exposto (Alto+Medio)", f"USD {(mrr_alto_sim+mrr_medio_sim)/1e3:.0f}K")
+                st.metric("MRR Exposto (Alto+Medio)", fmt_usd_k(mrr_alto_sim+mrr_medio_sim))
 
             # Recall simulado sobre churned
             churned_sim = catalyst[catalyst["status"] == "Churned"].copy()
@@ -592,18 +635,18 @@ elif secao == "C — Simulador de Cenarios":
 
             m4, m5 = st.columns(2)
             with m4:
-                st.metric("Recall Alto (backtesting)", f"{recall_alto_sim*100:.1f}%",
+                st.metric("Recall Alto (backtesting)", fmt_pct(recall_alto_sim),
                           delta="OK" if recall_alto_sim>=0.40 else "Abaixo 40%",
                           delta_color="normal" if recall_alto_sim>=0.40 else "inverse")
             with m5:
-                st.metric("Recall Alto+Medio", f"{recall_combo_sim*100:.1f}%",
+                st.metric("Recall Alto+Medio", fmt_pct(recall_combo_sim),
                           delta="OK" if recall_combo_sim>=0.70 else "Abaixo 70%",
                           delta_color="normal" if recall_combo_sim>=0.70 else "inverse")
 
             color_map_sim = {"Alto": "#E53935", "Medio": "#FB8C00", "Baixo": "#43A047", "Sem dados": "#78909C"}
             fig_sim = px.bar(dist_sim, x="nivel", y="mrr_usd",
                              color="nivel", color_discrete_map=color_map_sim,
-                             text=dist_sim.apply(lambda r: f"{r['n_contratos']} contratos\nUSD {r['mrr_usd']/1e3:.0f}K", axis=1),
+                             text=dist_sim.apply(lambda r: f"{r['n_contratos']} contratos\n{fmt_usd_k(r['mrr_usd'])}", axis=1),
                              title="MRR por Nivel de Risco (Simulado)",
                              height=300)
             fig_sim.update_layout(plot_bgcolor="#0E1117", paper_bgcolor="#0E1117",
@@ -617,7 +660,7 @@ elif secao == "C — Simulador de Cenarios":
 
         alto_risk_active = active[active["risk_level"] == "Alto"].copy()
         alto_risk_active["label"] = alto_risk_active.apply(
-            lambda r: f"{r.get('customer_id','?')} — {r.get('canonical_name','?')} — USD {r.get('mrr_usd',0):,.0f} — Score: {r.get('churn_risk_score',0):.2f}", axis=1
+            lambda r: f"{r.get('customer_id','?')} — {r.get('canonical_name','?')} — {fmt_usd(r.get('mrr_usd',0))} — Score: {r.get('churn_risk_score',0):.2f}", axis=1
         )
 
         col_cs1, col_cs2 = st.columns([1, 2])
@@ -649,13 +692,13 @@ elif secao == "C — Simulador de Cenarios":
             with m1:
                 st.metric("Contratos p/ Intervencao", f"{n_selected}")
             with m2:
-                st.metric("MRR Protegido (est.)", f"USD {mrr_saved_estimate/1e3:.0f}K",
+                st.metric("MRR Protegido (est.)", fmt_usd_k(mrr_saved_estimate),
                           help=f"Assumindo {reducao_risco}% de reducao de risco pela intervencao")
             with m3:
-                st.metric("MRR Ainda em Risco", f"USD {mrr_still_at_risk/1e3:.0f}K")
+                st.metric("MRR Ainda em Risco", fmt_usd_k(mrr_still_at_risk))
 
-            st.info(f"Sem intervencao: USD {alto_risk_active['mrr_usd'].sum()/1e3:.0f}K em risco Alto. "
-                    f"Com intervencao em {n_selected} contratos: risco cai para USD {mrr_still_at_risk/1e3:.0f}K")
+            st.info(f"Sem intervencao: {fmt_usd_k(alto_risk_active['mrr_usd'].sum())} em risco Alto. "
+                    f"Com intervencao em {n_selected} contratos: risco cai para {fmt_usd_k(mrr_still_at_risk)}")
 
 
 # ===========================================================================
@@ -664,7 +707,7 @@ elif secao == "C — Simulador de Cenarios":
 
 elif secao == "D — Bowtie View":
     st.title("🦋 Seção D — Bowtie View")
-    st.caption("4 metricas focadas de alto impacto WBD — fechar o loop entre aquisicao e retencao")
+    st.caption("4 metricas focadas de alto impacto — fechando o loop entre aquisicao e retencao")
 
     tab_cr4, tab_dt6, tab_icp, tab_cr5 = st.tabs([
         "📉 CR4 Win Rate Trendline",
@@ -736,7 +779,7 @@ elif secao == "D — Bowtie View":
             st.metric("Mediana dt6 Global", f"{valid_dt6['dt6_days'].median():.0f} dias")
         with col_d2:
             fail_rate = len(failed_dt6) / (len(valid_dt6) + len(failed_dt6)) if (len(valid_dt6) + len(failed_dt6)) > 0 else 0
-            st.metric("Taxa de Falha Onboarding", f"{fail_rate*100:.1f}%",
+            st.metric("Taxa de Falha Onboarding", fmt_pct(fail_rate),
                       help="Nao atingiu feature_depth >= 0.40 dentro da janela do segmento")
         with col_d3:
             st.metric("Sem Telemetria (pre-Jan/24)", f"{len(no_tel_dt6)}")
