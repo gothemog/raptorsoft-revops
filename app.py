@@ -1025,6 +1025,80 @@ Arquitetura em 2 camadas:
 - Forecast ajustado Q2/25: R$ 6,7M (9% do pipeline bruto de R$ 74,8M)
 </modelo_forecast>
 
+<decisoes_e_justificativas>
+
+ENTITY RESOLUTION:
+- 81 variantes -> 20 empresas via normalizacao deterministica (lower + remove sufixos + remove acentos + remove espacos)
+- Validacao cruzada tripla: 20 account_ids no SF, 20 dominios na telemetria, 20 customer_ids no Catalyst. 100% match entre as 3 fontes.
+- Limitacao: nao escalavel para 200+ empresas. Fuzzy matching seria necessario.
+
+SEGMENT (EMPLOYEES > MODE):
+- Campo segment do SF e aleatorio a nivel de oportunidade. Todas as 20 empresas tem opps nos 3 segmentos.
+- Evidencia: ciclo de venda Enterprise (94d) mais rapido que SMB (104d) -- impossivel em operacao real.
+- Mode tem vies estrutural: 47% das opps sao SMB, entao mode tende a SMB para quase todas.
+- Employees do HS (mediana por empresa) e atributo da empresa, nao contaminado pela mecanica do SF.
+- Resultado: 100% Mid-Market (medianas 194-495 funcionarios). Consistente com perfil de produto.
+- Impacto: trendlines por segmento retornam 1 linha. Dimensao temporal e mais informativa ate base crescer.
+
+RECLASSIFICACAO (41 CONTRATOS):
+- 41 Active com churn_date preenchida -> Churned. churn_date e campo de evento (especifico), status e campo de estado (pode ficar desatualizado).
+- Mudou base de 532/148 para 491/189. GRR caiu de 78% para 72% -- diferenca entre "estamos ok" e "temos problema".
+- Ordem de operacao: calcular mediana MRR (sobre Active original) -> reclassificar -> imputar. Evita contaminacao da mediana.
+
+IMPUTACAO MRR (19 CONTRATOS):
+- 20 Active com MRR=0. 1 dos 20 tem churn_date -> reclassificado primeiro -> restam 19 para imputar.
+- Mediana global (USD 8.319,83) sobre 512 contratos Active com MRR > 0.
+- Alternativas consideradas: mediana por segmento (irrelevante, todas MM), regressao (complexidade desproporcional para 19 registros).
+- Total imputado: USD 158.077. Flag mrr_imputed=True + destaque visual no dashboard.
+
+MODELO CHURN -- MULTIPLICATIVO (NAO ADITIVO):
+- v2 somava engagement (company-level) + health_score (contract-level) = mistura de grains.
+- Todos os contratos de uma empresa recebiam mesmo engagement, reduzindo variancia intra-empresa.
+- v4 multiplica: Contract_Risk x Engagement_Modifier. Preserva diferencas entre contratos.
+- Modifier 0.7-1.4 (assimetrico): ausencia de uso (+40% risco) e mais perigosa que presenca (-30% risco). Silencio e o pior sinal em SaaS.
+
+THRESHOLDS DE CHURN (0.53 / 0.35):
+- Threshold original: Alto >= 0.65 (arbitrario, sem validacao empirica).
+- Backtesting sobre 189 churned: 0.65 capturava poucos churns. 0.53 captura 40,2% como Alto (target minimo).
+- Alto+Medio captura 73% -- 3 em 4 churns reais em pelo menos uma faixa.
+- Limitacao: backtesting e pos-fato (dados podem refletir estado pos-churn). Validacao real e prospectiva.
+
+SLIPPAGE DISCOUNT (5 TIERS):
+- v2 usava fator fixo de 40% sem justificativa. v4 usa desconto progressivo por aging.
+- Tiers: <=30d->15%, <=60d->30%, <=90d->45%, <=180d->65%, >180d->85%.
+- Desconto medio ponderado converge para ~30-40%, compativel com delta historico de -23%.
+- Deals recentes: otimista (15%). Deals antigos: pessimista (85%). Configuravel no simulador.
+- Limitacao: desconto nao diferencia forecast_category (Commit e Pipeline recebem mesmo desconto por faixa).
+
+GRR COMO TAXA DE SOBREVIVENCIA:
+- Catalyst e snapshot sem serie temporal de MRR. MRR pre-churn dos 189 churned e desconhecido.
+- GRR = 491/(491+189) = 72,2%. E taxa de contratos, nao de receita.
+- MRR pre-churn estimado pela mediana (USD 8.320 x 189 = USD 1,57M perdido). Ordem de magnitude.
+- Recomendacao: instrumentar Catalyst para capturar MRR_start e MRR_end por contrato.
+
+ICP -- THRESHOLD P70:
+- Nenhuma empresa atinge health >= 75 AND feature_depth >= 0.60 simultaneamente.
+- Maximos: health 65,5 (connectwave), depth 0,83 (dataprime). Ninguem tem ambos altos.
+- p70 separa top 30%: health p70 = 60,21, depth p70 = 0,6507.
+- 6 empresas candidatas, 2 passam em ambas: bluepath (60,28 | 0,72) e mindbox (60,56 | 0,69).
+- Maior gap de lead source: Organic Search sobre-indexado 3,8 p.p. nos clientes saudaveis.
+- Interpretacao: confirma hipotese central -- RaptorSoft entrega Value sem verificar Impact.
+
+DT6 -- TIME TO FIRST IMPACT:
+- Threshold: feature_depth >= 0.40 (40% da profundidade maxima). Arbitrario mas razoavel.
+- Mediana: 4 dias. Parece excelente mas e company-level, nao contract-level.
+- 153 dos 173 CW sao subsequentes (nao primeiro CW da empresa) -> dt6 contaminado por adocao pre-existente.
+- 8 empresas com falha de onboarding (nao atingiram 0.40 na janela). Rushflow lidera com 2 failures.
+- Telemetria vai ate Jan/25, CW ate Jan/25. CW pre-Jan/24 nao tem telemetria (13 excluidos).
+
+GAP TEMPORAL DA TELEMETRIA:
+- Telemetria: Jan/2024 a Jan/2025. Data de referencia: Abr/2025.
+- Engagement Modifier usa "ultimas 4 semanas" = dados de Jan/2025, nao Abr/2025.
+- Gap de ~3 meses. Empresa que parou de usar em Fev/25 aparece como "engajada" pelo modifier.
+- Em producao: atualizacao diaria eliminaria o gap. Com dados do case: melhor disponivel.
+
+</decisoes_e_justificativas>
+
 <metricas_wbd>
 - CR4 = Win Rate — taxa de conversao de oportunidades em deals fechados
 - CR5 = ACV (Average Contract Value) — valor medio dos Closed Won
