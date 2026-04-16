@@ -18,6 +18,8 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
+import requests
+import json
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
@@ -129,7 +131,8 @@ st.sidebar.markdown("---")
 secao = st.sidebar.radio(
     "Navegar para:",
     ["A — Pipeline Health", "B — Churn Risk Signal",
-     "C — Simulador de Cenarios", "D — Bowtie View"],
+     "C — Simulador de Cenarios", "D — Bowtie View",
+     "🤖 Agente IA"],
     index=0,
 )
 
@@ -945,6 +948,311 @@ elif secao == "D — Bowtie View":
                     st.error("🚨 **ACV e win rate ambos caindo** — degradacao sistemica da operacao de vendas.")
                 else:
                     st.success("✅ ACV em recuperacao.")
+
+# ===========================================================================
+# SECAO — AGENTE IA
+# ===========================================================================
+
+elif secao == "🤖 Agente IA":
+    st.title("🤖 Agente RevOps — Pergunte sobre os dados")
+    st.caption("Consulta em linguagem natural sobre pipeline, churn, forecast e metricas WBD.")
+
+    # --- Verificar API key ---
+    api_key = st.secrets.get("ANTHROPIC_API_KEY", "")
+    if not api_key:
+        st.info("🔑 Agente IA desabilitado — configure `ANTHROPIC_API_KEY` nas secrets do Streamlit Cloud.")
+    else:
+        # --- System Prompt (fixo) ---
+        AGENT_SYSTEM_PROMPT = """
+<papel>
+Voce e um analista de RevOps da RaptorSoft. Responde perguntas sobre pipeline de vendas,
+risco de churn, forecast e metricas de saude de clientes. Voce tem acesso aos dados
+tratados e integrados de 4 sistemas: Salesforce, HubSpot, Catalyst CS e Telemetria de Produto.
+</papel>
+
+<regras>
+- Responda SEMPRE com base nos dados fornecidos em <dados_dashboard>. Nunca invente numeros.
+- Se a pergunta nao puder ser respondida com os dados disponiveis, diga explicitamente o que falta.
+- Use formatacao brasileira: ponto para milhar, virgula para decimal (R$ 1.234,56).
+- Valores em USD para MRR e GRR. Valores em BRL para pipeline e forecast.
+- Cite contratos especificos (CUST-XXXX) e empresas (canonical_name) quando relevante.
+- Seja direto e conciso. Maximo 300 palavras por resposta.
+- Quando mencionar metricas WBD (CR4, CR5, dt6, GRR), explique brevemente o que significam.
+</regras>
+
+<contexto_negocio>
+A RaptorSoft e SaaS B2B de automacao de processos. Modelo subscription (MRR).
+Dois sintomas diagnosticados:
+1. Forecast overestimated em 23% (3 quarters consecutivos)
+2. Churn nos primeiros 60 dias pos-renovacao
+
+Causa-raiz (framework Winning by Design): a empresa vende Value (lado esquerdo do Bowtie)
+mas nao mede Impact (lado direito). Sem closed loop entre performance pos-venda e
+qualificacao de pipeline.
+
+Data de referencia: 2025-04-15 | Quarter atual: Q2 2025
+Taxa de cambio: R$ 5,70 / USD (fixa, premissa do case)
+20 empresas canonicas | Todas classificadas como Mid-Market (employees-first)
+</contexto_negocio>
+
+<premissas_tratamento>
+- Entity resolution: 81 variantes de nome -> 20 empresas canonicas via normalizacao
+- Segment: campo original do SF e aleatorio (opportunity-level). Reconstruido via mediana
+  de number_of_employees do HubSpot. Resultado: 100% Mid-Market (194-495 funcionarios)
+- Catalyst: grain = contrato (34 contratos/empresa). Snapshot, nao serie temporal.
+- 41 contratos reclassificados de Active para Churned (tinham churn_date preenchida)
+- 19 contratos Active com MRR=0 imputados pela mediana global (USD 8.319,83).
+  Flag mrr_imputed=True. Total imputado: USD 158.077
+- 100% do pipeline aberto (857 opps) esta em slippage (close_date no passado)
+- 30 registros com amount_brl < 0 (R$ -2,98M) = estornos, excluidos do forecast
+</premissas_tratamento>
+
+<modelo_churn>
+Arquitetura em 2 camadas:
+- Camada 1 (Contract Risk): health_score invertido (40%) + health_trend (25%) +
+  support_pressure (10%) + renewal_proximity (25%) + bonus NPS + detractor QBR
+- Camada 2 (Company Engagement Modifier): feature_depth (50%) + sessions (30%) +
+  last_login (20%) -> modifier 0.70 a 1.40
+- Score final: Contract_Risk x Company_Engagement_Modifier (cap 0-1)
+- Thresholds: Alto >= 0.53 | Medio 0.35-0.52 | Baixo < 0.35
+- Backtesting sobre 189 churned: Recall Alto 40,2% | Recall Alto+Medio 73,0%
+</modelo_churn>
+
+<modelo_forecast>
+- Win rate value-based (all Mid-Market): ~48,5%
+- Desconto progressivo por slippage: <=30d->15%, <=60d->30%, <=90d->45%, <=180d->65%, >180d->85%
+- Oportunidades com forecast_category=omit e amount<0 excluidas
+- Forecast ajustado Q2/25: R$ 6,7M (9% do pipeline bruto de R$ 74,8M)
+</modelo_forecast>
+
+<metricas_wbd>
+- CR4 = Win Rate — taxa de conversao de oportunidades em deals fechados
+- CR5 = ACV (Average Contract Value) — valor medio dos Closed Won
+- CR7 = GRR (Gross Revenue Retention) — receita retida sem considerar expansao
+- dt6 = Time to First Impact — dias do Closed Won ate feature_depth >= 0.40
+- Closed Loop ICP = comparacao do perfil de clientes saudaveis vs leads gerados
+</metricas_wbd>
+"""
+
+        # --- Pré-computar KPIs para o agente ---
+        @st.cache_data(ttl=300)
+        def compute_agent_kpis(_sf, _cat, _forecast_df):
+            act = _cat[_cat["status"] == "Active"]
+            chu = _cat[_cat["status"] == "Churned"]
+            opn = _sf[_sf["is_open"] == True]
+            opn_pos = opn[opn["amount_brl"] > 0]
+            neg = _sf[_sf["amount_brl"] < 0]
+            cmt = opn[opn["forecast_category_canonical"] == "commit"]
+            ren90 = act[act["days_to_renewal"].between(0, 90, inclusive="both")]
+            slip = opn.copy()
+            return {
+                "pipeline_total": opn_pos["amount_brl"].sum(),
+                "forecast_total": _forecast_df["forecast_contribution"].sum(),
+                "n_slippage": len(opn),
+                "n_commit": len(cmt),
+                "commit_value": cmt["amount_brl"].sum(),
+                "n_estornos": len(neg),
+                "estornos_value": neg["amount_brl"].sum(),
+                "mrr_total": act["mrr_usd"].sum(),
+                "grr": len(act) / (len(act) + len(chu)) if (len(act) + len(chu)) > 0 else 0,
+                "mrr_alto": act[act["risk_level"] == "Alto"]["mrr_usd"].sum(),
+                "n_active": len(act),
+                "n_churned": len(chu),
+                "n_renewals_90d": len(ren90),
+                "slip_61_90_n": len(slip[(slip["slippage_days"] >= 61) & (slip["slippage_days"] <= 90)]),
+                "slip_61_90_val": slip[(slip["slippage_days"] >= 61) & (slip["slippage_days"] <= 90)]["amount_brl"].sum(),
+                "slip_91_180_n": len(slip[(slip["slippage_days"] >= 91) & (slip["slippage_days"] <= 180)]),
+                "slip_91_180_val": slip[(slip["slippage_days"] >= 91) & (slip["slippage_days"] <= 180)]["amount_brl"].sum(),
+                "slip_180_n": len(slip[slip["slippage_days"] > 180]),
+                "slip_180_val": slip[slip["slippage_days"] > 180]["amount_brl"].sum(),
+                "cr5_last": 89873,
+                "dt6_median": 4,
+            }
+
+        kpis = compute_agent_kpis(sf, catalyst, forecast)
+
+        # --- Construir contexto dinamico ---
+        def build_agent_context():
+            sections = []
+
+            # KPIs globais
+            k = kpis
+            sections.append(f"""
+<kpis_globais>
+Pipeline Total (aberto, positivo): R$ {k['pipeline_total']:,.0f}
+Forecast Ajustado Q2/25: R$ {k['forecast_total']:,.0f}
+Oportunidades em Slippage: {k['n_slippage']} (100% do pipeline aberto)
+Commit em Aberto: {k['n_commit']} opps (R$ {k['commit_value']:,.0f})
+Estornos: {k['n_estornos']} registros (R$ {k['estornos_value']:,.0f})
+MRR Total Ativo: USD {k['mrr_total']:,.0f}
+GRR (taxa de sobrevivencia): {k['grr']*100:.1f}%
+MRR em Risco Alto: USD {k['mrr_alto']:,.0f}
+Contratos Active: {k['n_active']} | Churned: {k['n_churned']}
+Renovacoes proximos 90d: {k['n_renewals_90d']} contratos
+</kpis_globais>""")
+
+            # Resumo por empresa
+            eng_reset = eng.reset_index()
+            company_agg = catalyst[catalyst["status"] == "Active"].groupby("canonical_name").agg(
+                n_active=("customer_id", "count"),
+                mrr_total=("mrr_usd", "sum"),
+                avg_health=("health_score", "mean"),
+                n_alto=("risk_level", lambda x: (x == "Alto").sum()),
+                n_medio=("risk_level", lambda x: (x == "Medio").sum()),
+                next_renewal=("days_to_renewal", "min"),
+            ).reset_index()
+
+            company_summary = company_agg.merge(
+                eng_reset[["canonical_name", "company_engagement_modifier"]],
+                on="canonical_name", how="left",
+            )
+
+            lines = []
+            for _, r in company_summary.iterrows():
+                lines.append(
+                    f"{r['canonical_name']} | Active:{r.get('n_active',0):.0f} | "
+                    f"MRR:USD {r.get('mrr_total',0):,.0f} | "
+                    f"HealthAvg:{r.get('avg_health',0):.1f} | "
+                    f"Alto:{r.get('n_alto',0):.0f} Medio:{r.get('n_medio',0):.0f} | "
+                    f"EngMod:{r.get('company_engagement_modifier',1.0):.2f} | "
+                    f"ProxRenov:{r.get('next_renewal','N/A'):.0f}d"
+                )
+            sections.append(f"""
+<resumo_por_empresa>
+empresa | contratos_active | mrr_total | health_medio | risco_alto | risco_medio | eng_modifier | prox_renovacao_dias
+{chr(10).join(lines)}
+</resumo_por_empresa>""")
+
+            # Renovacoes proximas 90d
+            renewals = catalyst[
+                (catalyst["status"] == "Active")
+                & catalyst["days_to_renewal"].between(0, 90, inclusive="both")
+            ].sort_values("days_to_renewal")
+
+            ren_lines = []
+            for _, r in renewals.iterrows():
+                ren_lines.append(
+                    f"{r['customer_id']} | {r['canonical_name']} | "
+                    f"MRR:USD {r['mrr_usd']:,.0f} | "
+                    f"Risco:{r['risk_level']} | Score:{r.get('churn_risk_score',0):.2f} | "
+                    f"Health:{r.get('health_score','N/A')} | "
+                    f"Dias:{r['days_to_renewal']:.0f} | "
+                    f"CSM:{r.get('csm_owner','N/A')}"
+                )
+            sections.append(f"""
+<renovacoes_proximas_90d>
+contrato | empresa | mrr | risco | score | health_score | dias_para_renovacao | csm
+{chr(10).join(ren_lines)}
+</renovacoes_proximas_90d>""")
+
+            # Pipeline por stage
+            stage_summary = sf[sf["is_open"] == True].groupby("stage_canonical").agg(
+                n_opps=("opportunity_id", "count"),
+                valor_total=("amount_brl", "sum"),
+                slippage_medio=("slippage_days", "mean"),
+            ).reset_index()
+
+            stage_lines = []
+            for _, r in stage_summary.iterrows():
+                stage_lines.append(
+                    f"{r['stage_canonical']} | {r['n_opps']:.0f} opps | "
+                    f"R$ {r['valor_total']:,.0f} | "
+                    f"Slippage medio: {r['slippage_medio']:.0f}d"
+                )
+            sections.append(f"""
+<pipeline_por_stage>
+stage | n_opps | valor_total | slippage_medio_dias
+{chr(10).join(stage_lines)}
+</pipeline_por_stage>""")
+
+            # Slippage por faixa
+            sections.append(f"""
+<slippage_distribuicao>
+61-90d: {k.get('slip_61_90_n',0)} opps (R$ {k.get('slip_61_90_val',0):,.0f})
+91-180d: {k.get('slip_91_180_n',0)} opps (R$ {k.get('slip_91_180_val',0):,.0f})
+>180d: {k.get('slip_180_n',0)} opps (R$ {k.get('slip_180_val',0):,.0f})
+</slippage_distribuicao>""")
+
+            # Metricas WBD
+            sections.append(f"""
+<metricas_wbd_calculadas>
+CR4 (Win Rate) ultimo quarter (2025Q1): ~52%
+CR5 (ACV) ultimo quarter: R$ {k.get('cr5_last',0):,.0f}
+dt6 (Time to First Impact) mediana: {k.get('dt6_median',4)} dias
+GRR: {k['grr']*100:.1f}%
+ICP: Nenhuma empresa atinge threshold absoluto (health>=75 AND depth>=0.60).
+  Saudaveis via p70: bluepath (health=60,28 | depth=0,72) e mindbox (health=60,56 | depth=0,69)
+  Maior gap de lead source: Organic Search (sobre-indexado 3,8 p.p. nos clientes saudaveis)
+</metricas_wbd_calculadas>""")
+
+            return f"<dados_dashboard>\n{''.join(sections)}\n</dados_dashboard>"
+
+        # --- Chamada API Anthropic ---
+        def call_anthropic_api(system_prompt, messages):
+            try:
+                resp = requests.post(
+                    "https://api.anthropic.com/v1/messages",
+                    headers={
+                        "Content-Type": "application/json",
+                        "x-api-key": api_key,
+                        "anthropic-version": "2023-06-01",
+                    },
+                    json={
+                        "model": "claude-sonnet-4-20250514",
+                        "max_tokens": 2048,
+                        "system": system_prompt,
+                        "messages": messages,
+                    },
+                    timeout=30,
+                )
+                data = resp.json()
+                if "content" in data and len(data["content"]) > 0:
+                    return data["content"][0]["text"]
+                elif "error" in data:
+                    return f"Erro da API: {data['error'].get('message', str(data['error']))}"
+                else:
+                    return "Nao consegui processar essa pergunta. Tente ser mais especifico."
+            except requests.exceptions.Timeout:
+                return "A consulta demorou mais que o esperado. Tente reformular a pergunta de forma mais especifica."
+            except Exception as e:
+                return f"Erro na consulta: {str(e)}"
+
+        # --- Interface de chat ---
+        if "agent_messages" not in st.session_state:
+            st.session_state.agent_messages = []
+
+        # Sugestoes de perguntas
+        st.markdown("**Exemplos de perguntas:**")
+        col_s1, col_s2 = st.columns(2)
+        with col_s1:
+            st.markdown("- Quais clientes tem renovacao nos proximos 30 dias e health score abaixo de 50?")
+            st.markdown("- Quais sao as 5 oportunidades de maior valor com mais de 180 dias de slippage?")
+        with col_s2:
+            st.markdown("- Qual o MRR total em risco se os clientes com health_trend Declining nao receberem acao?")
+            st.markdown("- Com base nos dados de ICP, quais canais de marketing deveriam receber mais investimento?")
+        st.markdown("---")
+
+        # Renderizar historico
+        for msg in st.session_state.agent_messages:
+            with st.chat_message(msg["role"]):
+                st.markdown(msg["content"])
+
+        # Input do usuario
+        if prompt := st.chat_input("Pergunte sobre pipeline, churn, forecast ou metricas WBD..."):
+            st.session_state.agent_messages.append({"role": "user", "content": prompt})
+            with st.chat_message("user"):
+                st.markdown(prompt)
+
+            context = build_agent_context()
+            messages = [{"role": "user", "content": f"{context}\n\n<pergunta>{prompt}</pergunta>"}]
+
+            with st.chat_message("assistant"):
+                with st.spinner("Consultando dados..."):
+                    response = call_anthropic_api(AGENT_SYSTEM_PROMPT, messages)
+                    st.markdown(response)
+
+            st.session_state.agent_messages.append({"role": "assistant", "content": response})
+
 
 # ===========================================================================
 # FOOTER
